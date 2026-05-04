@@ -1,0 +1,18 @@
+# ── Core ──────────────────────────────────────
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+scipy>=1.11.0
+scikit-image>=0.21.0
+PyYAML>=6.0
+
+# ── OCR Recognition ───────────────────────────
+paddlepaddle>=2.5.0          # CPU build; swap for paddlepaddle-gpu for CUDA
+paddleocr>=2.7.0
+
+# ── Utilities ─────────────────────────────────
+tqdm>=4.66.0
+matplotlib>=3.7.0
+shapely>=2.0.0               # polygon IOU / merging

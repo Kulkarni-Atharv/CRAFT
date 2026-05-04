@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────
+#  CRAFT OCR Pipeline — Configuration
+# ─────────────────────────────────────────────
+
+# ── Paths ─────────────────────────────────────
+paths:
+  craft_weights: "models/craft_mlt_25k.pth"        # download from official CRAFT repo
+  input_dir:     "inputs/"
+  output_dir:    "outputs/"
+  crops_dir:     "outputs/crops/"
+  viz_dir:       "outputs/visualizations/"
+  log_dir:       "logs/"
+
+# ── Preprocessing ─────────────────────────────
+preprocessing:
+  target_size:   1280          # longest side resize (preserves aspect ratio)
+  mean: [0.485, 0.456, 0.406] # ImageNet normalization
+  std:  [0.229, 0.224, 0.225]
+
+# ── CRAFT Detection ───────────────────────────
+craft:
+  text_threshold:    0.7   # confidence to call a pixel "text"
+  link_threshold:    0.4   # confidence to merge two character regions
+  low_text:          0.4   # lower bound for text score map
+  cuda:              true  # auto-falls back to CPU if unavailable
+  canvas_size:       1280  # internal CRAFT canvas
+  mag_ratio:         1.5   # magnification ratio for detection
+
+# ── Post-processing ───────────────────────────
+postprocessing:
+  poly:             false  # true → polygon boxes; false → rotated rect boxes
+  min_box_area:     100    # px²  — discard tiny noise boxes
+  padding:          4      # px   — extra padding around each crop
+
+# ── Recognition ───────────────────────────────
+recognition:
+  engine:  "paddleocr"      # "paddleocr" | "crnn"
+  lang:    "en"
+  use_gpu: true
+
+  # ── Character-level confidence filtering ──
+  char_conf_threshold: 0.7  # drop characters below this probability
+                            # CRNN: per-character peak softmax score
+                            # PaddleOCR: applied to whole word (word-level fallback)
+
+  # ── Optional CRAFT fusion ─────────────────
+  use_craft_fusion: false   # blend CRAFT region_map score with OCR char conf
+                            # requires character-level splitting to be active
+
+  # ── CRNN-specific ─────────────────────────
+  crnn:
+    model_path: "models/crnn.pth"
+    img_height: 32
+    img_width:  100
+    charset:    "0123456789abcdefghijklmnopqrstuvwxyz"
+
+# ── Pipeline ──────────────────────────────────
+pipeline:
+  batch_size:  8            # recognition batch size
+  save_crops:  false        # save individual crop images to disk
+  save_viz:    true         # save bounding-box visualizations
+  log_level:   "INFO"       # DEBUG | INFO | WARNING | ERROR
+
+# ── Video ─────────────────────────────────────
+video:
+  frame_skip:  2            # process every Nth frame (1 = every frame)
+  display:     false        # show live preview window
