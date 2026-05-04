@@ -10,16 +10,16 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
-# Primary — direct asset link from clovaai GitHub release
+# Primary — keras-ocr release (verified working)
 CRAFT_URL_PRIMARY = (
-    "https://github.com/clovaai/CRAFT-pytorch/releases/download/"
-    "pretrained/craft_mlt_25k.pth"
+    "https://github.com/faustomorales/keras-ocr/releases/download/"
+    "v0.8.4/craft_mlt_25k.pth"
 )
 
-# Fallback — raw file from a known working mirror
+# Fallback — Hugging Face mirror
 CRAFT_URL_FALLBACK = (
-    "https://github.com/fcakyon/craft-text-detector/releases/download/"
-    "v0.4.2/craft_mlt_25k.pth"
+    "https://huggingface.co/boomb0om/CRAFT-text-detector/resolve/"
+    "main/craft_mlt_25k.pth"
 )
 
 DEST = "models/craft_mlt_25k.pth"
@@ -70,14 +70,14 @@ def main() -> None:
     print("Download the file manually using one of these options:")
     print()
     print("  Option 1 — PowerShell:")
-    print(f"    Invoke-WebRequest -Uri \"{CRAFT_URL_FALLBACK}\" \\")
+    print(f"    Invoke-WebRequest -Uri \"{CRAFT_URL_PRIMARY}\" `")
     print(f"      -OutFile models\\craft_mlt_25k.pth")
     print()
     print("  Option 2 — curl (if installed):")
-    print(f"    curl -L \"{CRAFT_URL_FALLBACK}\" -o models/craft_mlt_25k.pth")
+    print(f"    curl -L \"{CRAFT_URL_PRIMARY}\" -o models/craft_mlt_25k.pth")
     print()
     print("  Option 3 — browser:")
-    print(f"    {CRAFT_URL_FALLBACK}")
+    print(f"    {CRAFT_URL_PRIMARY}")
     print(f"    Save as: {Path(DEST).resolve()}")
     print("=" * 60)
     sys.exit(1)
