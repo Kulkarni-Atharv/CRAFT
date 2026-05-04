@@ -1,0 +1,35 @@
+# ── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ───────────────────────
+venv/
+.venv/
+env/
+craft_venv/
+
+# ── Model weights (large binaries — download separately) ──
+craft_ocr_pipeline/models/*.pth
+craft_ocr_pipeline/models/*.onnx
+craft_ocr_pipeline/models/*.pt
+
+# ── Pipeline outputs ───────────────────────────
+craft_ocr_pipeline/outputs/
+craft_ocr_pipeline/logs/
+
+# ── Input data ────────────────────────────────
+craft_ocr_pipeline/inputs/
+
+# ── OS / editor ───────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

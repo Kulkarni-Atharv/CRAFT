@@ -1,17 +1,19 @@
-# ── CM5-specific ──────────────────────────────
-picamera2>=0.3.12          # installed via apt on CM5, listed here for reference
-# sudo apt install -y python3-picamera2
+# ── CM5 lightweight requirements (~250 MB total) ──────────────────────────────
+# PyTorch, torchvision, PaddleOCR and PaddlePaddle are NOT needed here.
+# Both CRAFT and CRNN run via ONNX Runtime exported from the dev machine.
 
-# ── Core (same as requirements.txt) ───────────
-torch>=2.0.0               # use the ARM wheel for Pi:
-                           #   pip install torch --index-url https://download.pytorch.org/whl/cpu
-torchvision>=0.15.0
-numpy>=1.24.0
-opencv-python>=4.8.0       # or opencv-python-headless if no display
-Pillow>=10.0.0
-scipy>=1.11.0
-PyYAML>=6.0
+# ── Camera ────────────────────────────────────────────────────────────────────
+# Install via apt (NOT pip) — pip version lacks hardware drivers:
+#   sudo apt install -y python3-picamera2
 
-# ── OCR Recognition ───────────────────────────
-paddlepaddle>=2.5.0        # CPU-only build — no GPU on CM5
-paddleocr>=2.7.0
+# ── Inference runtime ─────────────────────────────────────────────────────────
+onnxruntime>=1.16.0          # ~50 MB  — replaces torch + paddlepaddle entirely
+
+# ── Vision / numerics ─────────────────────────────────────────────────────────
+numpy>=1.24.0                # ~30 MB
+opencv-python>=4.8.0         # ~200 MB  (use opencv-python-headless to save ~20 MB)
+scipy>=1.11.0                # ~50 MB  — connected-components in postprocessing
+Pillow>=10.0.0               # ~5 MB
+
+# ── Config / utils ────────────────────────────────────────────────────────────
+PyYAML>=6.0                  # <1 MB

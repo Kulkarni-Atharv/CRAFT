@@ -4,7 +4,9 @@
 
 # ── Paths ─────────────────────────────────────
 paths:
-  craft_weights: "models/craft_mlt_25k.pth"        # download from official CRAFT repo
+  craft_weights: "models/craft_mlt_25k.pth"        # PyTorch weights (dev machine)
+  craft_onnx:    "models/craft.onnx"               # ONNX export (CM5)
+  crnn_onnx:     "models/crnn.onnx"                # ONNX export (CM5)
   input_dir:     "inputs/"
   output_dir:    "outputs/"
   crops_dir:     "outputs/crops/"
@@ -25,6 +27,7 @@ craft:
   cuda:              true  # auto-falls back to CPU if unavailable
   canvas_size:       1280  # internal CRAFT canvas
   mag_ratio:         1.5   # magnification ratio for detection
+  use_onnx:          false # true on CM5 — no PyTorch needed
 
 # ── Post-processing ───────────────────────────
 postprocessing:
@@ -34,7 +37,7 @@ postprocessing:
 
 # ── Recognition ───────────────────────────────
 recognition:
-  engine:  "paddleocr"      # "paddleocr" | "crnn"
+  engine:  "paddleocr"      # "paddleocr" | "crnn" | "crnn_onnx" (CM5)
   lang:    "en"
   use_gpu: true
 

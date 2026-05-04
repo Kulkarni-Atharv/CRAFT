@@ -1,12 +1,12 @@
 """
 Module 1 — Preprocessing
-Resizes, normalises, and converts a raw image to a CRAFT-ready tensor.
+Resizes, normalises, and converts a raw image to a CRAFT-ready NCHW array.
+No torch dependency — works on both dev machine and CM5 (ONNX-only).
 """
 
 from __future__ import annotations
 
 import numpy as np
-import torch
 from typing import Any
 
 from utils.image_utils import resize_aspect, pad_to_multiple
@@ -16,7 +16,7 @@ log = get_logger(__name__)
 
 
 class Preprocessor:
-    """Stateless image preprocessor."""
+    """Stateless image preprocessor — returns plain numpy, not a torch Tensor."""
 
     def __init__(self, cfg: dict[str, Any]):
         pcfg = cfg["preprocessing"]
@@ -26,7 +26,7 @@ class Preprocessor:
 
     def process(
         self, img: np.ndarray
-    ) -> tuple[torch.Tensor, float, tuple[int, int]]:
+    ) -> tuple[np.ndarray, float, tuple[int, int]]:
         """
         Parameters
         ----------
@@ -34,22 +34,20 @@ class Preprocessor:
 
         Returns
         -------
-        tensor : 1×3×H'×W' float32 NCHW tensor  (padded to ×32)
-        scale  : resize scale applied (original / resized)
+        tensor    : 1×3×H'×W' float32 NCHW numpy array (padded to ×32)
+        scale     : resize scale applied
         orig_size : (orig_h, orig_w)
         """
         orig_h, orig_w = img.shape[:2]
         resized, scale = resize_aspect(img, self.target_size)
         padded = pad_to_multiple(resized, multiple=32)
 
-        # normalise to float [0,1] then ImageNet-standardise
         x = padded.astype(np.float32) / 255.0
         x = (x - self.mean) / self.std
+        tensor = x.transpose(2, 0, 1)[np.newaxis]   # HWC → 1×C×H×W
 
-        # HWC → NCHW
-        tensor = torch.from_numpy(x).permute(2, 0, 1).unsqueeze(0)
         log.debug(
-            "Preprocessed: orig=%s → resized=%s → padded=%s  scale=%.4f",
-            (orig_h, orig_w), resized.shape[:2], padded.shape[:2], scale,
+            "Preprocessed: orig=%s → padded=%s  scale=%.4f",
+            (orig_h, orig_w), padded.shape[:2], scale,
         )
         return tensor, scale, (orig_h, orig_w)

@@ -229,46 +229,101 @@ class CRNNRecognizer:
         indices = probs.argmax(dim=-1).cpu().tolist()     # T ints
         probs_np = probs.cpu().numpy()                    # T×n_classes
 
-        char_preds = self._ctc_decode(indices, probs_np)
+        char_preds = _ctc_decode_numpy(indices, probs_np, self.chars)
         word_text  = "".join(c for c, _ in char_preds)
         word_conf  = (sum(p for _, p in char_preds) / len(char_preds)
                       if char_preds else 0.0)
         return RecognitionResult(word_text, word_conf, char_preds)
 
-    def _ctc_decode(
-        self,
-        indices:  list[int],
-        probs_np: np.ndarray,   # T×n_classes
-    ) -> list[tuple[str, float]]:
-        """
-        CTC greedy decode → list of (char, peak_confidence).
 
-        Walk the time axis:
-        - While the same non-blank index repeats, accumulate its probs.
-        - When the index changes (or we reach the end), emit the character
-          with its peak probability and start a new span.
-        - Blank tokens (index 0) act as separators and are discarded.
-        """
-        char_preds: list[tuple[str, float]] = []
-        prev_idx   = -1
-        span_probs: list[float] = []
+# ── CRNN ONNX back-end (lightweight — no torch on CM5) ───────────────────────
 
-        for t, idx in enumerate(indices):
-            if idx == prev_idx:
-                if idx != 0:
-                    span_probs.append(float(probs_np[t, idx]))
-            else:
-                # flush previous span
-                if prev_idx > 0 and span_probs:
-                    char_preds.append((self.chars[prev_idx], max(span_probs)))
-                span_probs = [float(probs_np[t, idx])] if idx != 0 else []
-                prev_idx = idx
+class CRNNONNXRecognizer:
+    """
+    CRNN recognition via ONNX Runtime.
+    Identical accuracy to CRNNRecognizer — same model, different runtime.
+    No torch required: ~750 MB saved on CM5.
 
-        # flush last span
-        if prev_idx > 0 and span_probs:
-            char_preds.append((self.chars[prev_idx], max(span_probs)))
+    Export the model first on the dev machine:
+        python scripts/export_onnx.py --crnn-only
+    """
 
-        return char_preds
+    DEFAULT_CHARSET = "0123456789abcdefghijklmnopqrstuvwxyz"
+
+    def __init__(self, cfg: dict[str, Any]):
+        try:
+            import onnxruntime as ort  # type: ignore
+        except ImportError as e:
+            raise ImportError("Install onnxruntime: pip install onnxruntime") from e
+
+        ccfg           = cfg["recognition"]["crnn"]
+        self.img_h     = ccfg["img_height"]
+        self.img_w     = ccfg["img_width"]
+        charset        = ccfg.get("charset", self.DEFAULT_CHARSET)
+        self.chars     = ["-"] + list(charset)   # index 0 = CTC blank
+
+        onnx_path = cfg["paths"]["crnn_onnx"]
+        self._session    = ort.InferenceSession(onnx_path, providers=["CPUExecutionProvider"])
+        self._input_name = self._session.get_inputs()[0].name
+        log.info("CRNN ONNX recogniser loaded  model=%s  classes=%d", onnx_path, len(self.chars))
+
+    def recognise(self, crops: list[np.ndarray]) -> list[RecognitionResult]:
+        import cv2
+        results: list[RecognitionResult] = []
+        for crop in crops:
+            if crop is None or crop.size == 0:
+                results.append(RecognitionResult("", 0.0))
+                continue
+            results.append(self._decode_crop(crop))
+        return results
+
+    def _decode_crop(self, crop: np.ndarray) -> RecognitionResult:
+        import cv2
+        gray    = cv2.cvtColor(crop, cv2.COLOR_RGB2GRAY)
+        gray    = cv2.resize(gray, (self.img_w, self.img_h))
+        x       = gray.astype(np.float32)
+        x       = (x / 255.0 - 0.5) / 0.5
+        x       = x[np.newaxis, np.newaxis]            # 1×1×H×W
+
+        logits  = self._session.run(None, {self._input_name: x})[0]  # T×1×n_classes
+        # softmax along class axis
+        e       = np.exp(logits - logits.max(axis=-1, keepdims=True))
+        probs   = e / e.sum(axis=-1, keepdims=True)    # T×1×n_classes
+        probs2d = probs[:, 0, :]                       # T×n_classes
+        indices = probs2d.argmax(axis=-1).tolist()     # T ints
+
+        # reuse the same CTC decoder logic
+        char_preds = _ctc_decode_numpy(indices, probs2d, self.chars)
+        word_text  = "".join(c for c, _ in char_preds)
+        word_conf  = (sum(p for _, p in char_preds) / len(char_preds)
+                      if char_preds else 0.0)
+        return RecognitionResult(word_text, word_conf, char_preds)
+
+
+def _ctc_decode_numpy(
+    indices:  list[int],
+    probs_np: np.ndarray,   # T×n_classes
+    chars:    list[str],
+) -> list[tuple[str, float]]:
+    """Pure-numpy CTC greedy decode — shared by CRNNRecognizer and CRNNONNXRecognizer."""
+    char_preds: list[tuple[str, float]] = []
+    prev_idx   = -1
+    span_probs: list[float] = []
+
+    for t, idx in enumerate(indices):
+        if idx == prev_idx:
+            if idx != 0:
+                span_probs.append(float(probs_np[t, idx]))
+        else:
+            if prev_idx > 0 and span_probs:
+                char_preds.append((chars[prev_idx], max(span_probs)))
+            span_probs = [float(probs_np[t, idx])] if idx != 0 else []
+            prev_idx   = idx
+
+    if prev_idx > 0 and span_probs:
+        char_preds.append((chars[prev_idx], max(span_probs)))
+
+    return char_preds
 
 
 # ── Factory ───────────────────────────────────────────────────────────────────
@@ -279,4 +334,9 @@ def build_recognizer(cfg: dict[str, Any]):
         return PaddleOCRRecognizer(cfg)
     if engine == "crnn":
         return CRNNRecognizer(cfg)
-    raise ValueError(f"Unknown recognition engine: {engine!r}. Use 'paddleocr' or 'crnn'.")
+    if engine == "crnn_onnx":
+        return CRNNONNXRecognizer(cfg)
+    raise ValueError(
+        f"Unknown recognition engine: {engine!r}. "
+        "Use 'paddleocr', 'crnn', or 'crnn_onnx'."
+    )
