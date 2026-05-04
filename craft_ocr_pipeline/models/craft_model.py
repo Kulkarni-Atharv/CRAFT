@@ -70,9 +70,8 @@ class VGGBasenet(nn.Module):
         self.slice1 = nn.Sequential(*features[:12])
         self.slice2 = nn.Sequential(*features[12:19])
         self.slice3 = nn.Sequential(*features[19:29])
-        self.slice4 = nn.Sequential(*features[29:39])
-        self.slice5 = nn.Sequential(
-            *features[39:],                                        # 39-43 (5 layers)
+        self.slice4 = nn.Sequential(*features[29:])   # 29-43: rest of VGG incl. MaxPool
+        self.slice5 = nn.Sequential(                   # custom dilated convs only
             nn.MaxPool2d(kernel_size=3, stride=1, padding=1),
             nn.Conv2d(512, 1024, kernel_size=3, padding=6, dilation=6),
             nn.Conv2d(1024, 1024, kernel_size=1),
