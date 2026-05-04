@@ -263,6 +263,13 @@ class CRNNONNXRecognizer:
         self.chars     = ["-"] + list(charset)   # index 0 = CTC blank
 
         onnx_path = cfg["paths"]["crnn_onnx"]
+        if not __import__("pathlib").Path(onnx_path).exists():
+            raise FileNotFoundError(
+                f"CRNN ONNX model not found: {onnx_path}\n"
+                "Export it from your dev machine first:\n"
+                "  python scripts/export_onnx.py --crnn-only\n"
+                "Then copy models/crnn.onnx to the CM5."
+            )
         self._session    = ort.InferenceSession(onnx_path, providers=["CPUExecutionProvider"])
         self._input_name = self._session.get_inputs()[0].name
         log.info("CRNN ONNX recogniser loaded  model=%s  classes=%d", onnx_path, len(self.chars))
@@ -330,6 +337,22 @@ def _ctc_decode_numpy(
 
 def build_recognizer(cfg: dict[str, Any]):
     engine = cfg["recognition"]["engine"].lower()
+
+    # auto-fallback: if the requested engine needs torch/paddle but neither
+    # is installed, drop down to crnn_onnx automatically
+    if engine in ("paddleocr", "crnn"):
+        try:
+            import torch  # noqa: F401
+        except ImportError:
+            try:
+                import paddle  # noqa: F401
+            except ImportError:
+                log.warning(
+                    "Neither torch nor paddlepaddle found — switching recognition "
+                    "engine to 'crnn_onnx' automatically"
+                )
+                engine = "crnn_onnx"
+
     if engine == "paddleocr":
         return PaddleOCRRecognizer(cfg)
     if engine == "crnn":

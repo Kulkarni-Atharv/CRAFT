@@ -28,7 +28,17 @@ class CRAFTDetector:
         self.text_threshold: float = dcfg["text_threshold"]
         self.link_threshold: float = dcfg["link_threshold"]
         self.low_text:       float = dcfg["low_text"]
-        self._use_onnx:      bool  = dcfg.get("use_onnx", False)
+
+        use_onnx = dcfg.get("use_onnx", False)
+        if not use_onnx:
+            # auto-fallback: if torch is not installed, switch to ONNX silently
+            try:
+                import torch  # noqa: F401
+            except ImportError:
+                log.warning("torch not found — switching CRAFT to ONNX backend automatically")
+                use_onnx = True
+
+        self._use_onnx = use_onnx
 
         if self._use_onnx:
             self._init_onnx(cfg)
@@ -53,9 +63,14 @@ class CRAFTDetector:
             raise ImportError("Install onnxruntime: pip install onnxruntime") from e
 
         onnx_path = cfg["paths"]["craft_onnx"]
-        self._session = ort.InferenceSession(
-            onnx_path, providers=["CPUExecutionProvider"]
-        )
+        if not __import__("pathlib").Path(onnx_path).exists():
+            raise FileNotFoundError(
+                f"CRAFT ONNX model not found: {onnx_path}\n"
+                "Export it from your dev machine first:\n"
+                "  python scripts/export_onnx.py --craft-only\n"
+                "Then copy models/craft.onnx to the CM5."
+            )
+        self._session    = ort.InferenceSession(onnx_path, providers=["CPUExecutionProvider"])
         self._input_name = self._session.get_inputs()[0].name
         log.info("CRAFT backend: ONNX Runtime  model=%s", onnx_path)
 
