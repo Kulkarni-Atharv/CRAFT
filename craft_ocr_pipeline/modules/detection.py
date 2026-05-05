@@ -86,7 +86,14 @@ class CRAFTDetector:
         else:
             r, a = self._run_torch(tensor)
 
-        log.debug("CRAFT inference %.1f ms", (time.perf_counter() - t0) * 1000)
+        elapsed = (time.perf_counter() - t0) * 1000
+        log.debug("CRAFT inference %.1f ms", elapsed)
+        log.info(
+            "CRAFT score maps — region: min=%.3f max=%.3f mean=%.3f | "
+            "affinity: min=%.3f max=%.3f mean=%.3f",
+            r.min(), r.max(), r.mean(),
+            a.min(), a.max(), a.mean(),
+        )
         return r, a
 
     # ── internal runners ───────────────────────────────────────────────────────

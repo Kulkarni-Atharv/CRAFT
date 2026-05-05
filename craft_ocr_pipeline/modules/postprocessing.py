@@ -77,7 +77,12 @@ class PostProcessor:
         binary   = _score_to_binary(combined, self.low_text)
 
         labelled, n_comps = _connected_components(binary)
-        log.debug("Connected components found: %d", n_comps)
+        log.info(
+            "PostProcess — low_text=%.2f text_threshold=%.2f | "
+            "components=%d | binary coverage=%.1f%%",
+            self.low_text, self.text_threshold,
+            n_comps, binary.mean() * 100,
+        )
 
         boxes: list[np.ndarray] = []
         orig_h, orig_w = orig_size

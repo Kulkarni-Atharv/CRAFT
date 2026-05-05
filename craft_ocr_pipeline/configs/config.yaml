@@ -21,9 +21,9 @@ preprocessing:
 
 # ── CRAFT Detection ───────────────────────────
 craft:
-  text_threshold:    0.7   # confidence to call a pixel "text"
+  text_threshold:    0.4   # ONNX models produce lower scores than PyTorch — was 0.7
   link_threshold:    0.4   # confidence to merge two character regions
-  low_text:          0.4   # lower bound for text score map
+  low_text:          0.2   # lower bound for text score map — was 0.4
   cuda:              true  # auto-falls back to CPU if unavailable
   canvas_size:       1280  # internal CRAFT canvas
   mag_ratio:         1.5   # magnification ratio for detection
@@ -32,7 +32,7 @@ craft:
 # ── Post-processing ───────────────────────────
 postprocessing:
   poly:             false  # true → polygon boxes; false → rotated rect boxes
-  min_box_area:     100    # px²  — discard tiny noise boxes
+  min_box_area:     50     # px²  — discard tiny noise boxes (was 100)
   padding:          4      # px   — extra padding around each crop
 
 # ── Recognition ───────────────────────────────
