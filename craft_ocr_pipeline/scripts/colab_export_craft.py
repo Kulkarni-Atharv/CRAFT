@@ -150,10 +150,15 @@ def sanity_check(net: CRAFT) -> None:
 # ── ONNX export ───────────────────────────────────────────────────────────────
 
 def export(net: CRAFT, out_path: str) -> None:
+    import onnx
+    from onnx.external_data_helper import load_external_data_for_model
+
     dummy = torch.randn(1, 3, 608, 608, dtype=torch.float32)
+    tmp   = out_path + ".tmp.onnx"
+
     print(f"\n[export] Exporting → {out_path}")
     torch.onnx.export(
-        net, dummy, out_path,
+        net, dummy, tmp,
         opset_version=12,
         input_names=["image"],
         output_names=["region_map", "affinity_map"],
@@ -163,8 +168,20 @@ def export(net: CRAFT, out_path: str) -> None:
             "affinity_map": {1: "height", 2: "width"},
         },
     )
+
+    # consolidate any external-data sidecar into a single self-contained file
+    # so only ONE file needs to be pushed to GitHub / copied to CM5
+    print("[export] Consolidating weights into single file...")
+    m = onnx.load(tmp, load_external_data=False)
+    load_external_data_for_model(m, str(Path(tmp).parent))
+    onnx.save(m, out_path)
+
+    # clean up tmp files
+    for f in Path(".").glob("*.tmp.onnx*"):
+        f.unlink()
+
     size_mb = Path(out_path).stat().st_size // 1024 // 1024
-    print(f"[export] Saved ({size_mb} MB) → {out_path}")
+    print(f"[export] Single-file ONNX saved ({size_mb} MB) → {out_path}")
 
 
 # ── ONNX runtime sanity check ─────────────────────────────────────────────────
