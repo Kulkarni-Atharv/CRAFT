@@ -1,6 +1,6 @@
 
 pytorch
-2.10.0+cpu:Çà
+2.10.0+cpu:˝Ü
 ç
 imageval_0node_Shape_0"Shape*
 
@@ -101,7 +101,7 @@ floordiv_9node_floordiv_9"DivJä
 pkg.torch.onnx.fx_noder%floordiv_15 : [num_users=9] = call_function[target=operator.floordiv](args = (%sym_size_int_75, 16), kwargs = {})JZ
 pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_15']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-Ú
+
 image
 basenet.slice1.0.weight
 basenet.slice1.0.biasgetitemnode_Conv_183"Conv*
@@ -114,30 +114,30 @@ floordiv_9node_floordiv_9"DivJä
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J»
 pkg.torch.onnx.fx_node≠%_native_batch_norm_legit_no_training : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d, %p_basenet_slice1_1_weight, %p_basenet_slice1_1_bias, %b_basenet_slice1_1_running_mean, %b_basenet_slice1_1_running_var, 0.1, 1e-05), kwargs = {})J{
-pkg.torch.onnx.name_scopes]['', 'basenet', 'basenet.slice1', 'basenet.slice1.1', '_native_batch_norm_legit_no_training']J‹
-pkg.torch.onnx.stack_traceΩFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes]['', 'basenet', 'basenet.slice1', 'basenet.slice1.1', '_native_batch_norm_legit_no_training']J⁄
+pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-Í
+Ë
 getitemrelu	node_relu"ReluJº
 	namespaceÆ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.2: torch.nn.modules.activation.ReLU/relu: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']JÑ
 pkg.torch.onnx.fx_nodej%relu : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem,), kwargs = {})J[
-pkg.torch.onnx.name_scopes=['', 'basenet', 'basenet.slice1', 'basenet.slice1.2', 'relu']JÛ
-pkg.torch.onnx.stack_trace‘File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes=['', 'basenet', 'basenet.slice1', 'basenet.slice1.2', 'relu']JÒ
+pkg.torch.onnx.stack_trace“File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-˚
+˘
 relu
 basenet.slice1.3.weight
 basenet.slice1.3.bias	getitem_3node_Conv_184"Conv*
@@ -150,30 +150,30 @@ floordiv_9node_floordiv_9"DivJä
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_1 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_1, %p_basenet_slice1_4_weight, %p_basenet_slice1_4_bias, %b_basenet_slice1_4_running_mean, %b_basenet_slice1_4_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.4', '_native_batch_norm_legit_no_training_1']J‹
-pkg.torch.onnx.stack_traceΩFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.4', '_native_batch_norm_legit_no_training_1']J⁄
+pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¯
+ˆ
 	getitem_3relu_1node_relu_1"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.5: torch.nn.modules.activation.ReLU/relu_1: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jà
 pkg.torch.onnx.fx_noden%relu_1 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_3,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.5', 'relu_1']JÛ
-pkg.torch.onnx.stack_trace‘File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.5', 'relu_1']JÒ
+pkg.torch.onnx.stack_trace“File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-•
+£
 
 relu_1
 max_pool2dnode_max_pool2d"MaxPool*
@@ -187,16 +187,16 @@ max_pool2dnode_max_pool2d"MaxPool*
 	namespaceº: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.6: torch.nn.modules.pooling.MaxPool2d/max_pool2d: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']Jü
 pkg.torch.onnx.fx_nodeÑ%max_pool2d : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_1, [2, 2], [2, 2]), kwargs = {})Ja
-pkg.torch.onnx.name_scopesC['', 'basenet', 'basenet.slice1', 'basenet.slice1.6', 'max_pool2d']J⁄
-pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesC['', 'basenet', 'basenet.slice1', 'basenet.slice1.6', 'max_pool2d']Jÿ
+pkg.torch.onnx.stack_traceπFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-Å
+ˇ
 
 max_pool2d
 basenet.slice1.7.weight
@@ -210,30 +210,30 @@ max_pool2d
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_2 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_2, %p_basenet_slice1_8_weight, %p_basenet_slice1_8_bias, %b_basenet_slice1_8_running_mean, %b_basenet_slice1_8_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.8', '_native_batch_norm_legit_no_training_2']J‹
-pkg.torch.onnx.stack_traceΩFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.8', '_native_batch_norm_legit_no_training_2']J⁄
+pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¯
+ˆ
 	getitem_6relu_2node_relu_2"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.9: torch.nn.modules.activation.ReLU/relu_2: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jà
 pkg.torch.onnx.fx_noden%relu_2 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_6,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.9', 'relu_2']JÛ
-pkg.torch.onnx.stack_trace‘File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.9', 'relu_2']JÒ
+pkg.torch.onnx.stack_trace“File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ö
+É
 relu_2
 basenet.slice1.10.weight
 basenet.slice1.10.bias	getitem_9node_Conv_186"Conv*
@@ -246,30 +246,30 @@ max_pool2d
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J–
 pkg.torch.onnx.fx_nodeµ%_native_batch_norm_legit_no_training_3 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_3, %p_basenet_slice1_11_weight, %p_basenet_slice1_11_bias, %b_basenet_slice1_11_running_mean, %b_basenet_slice1_11_running_var, 0.1, 1e-05), kwargs = {})J~
-pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice1', 'basenet.slice1.11', '_native_batch_norm_legit_no_training_3']J‹
-pkg.torch.onnx.stack_traceΩFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice1', 'basenet.slice1.11', '_native_batch_norm_legit_no_training_3']J⁄
+pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 51, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˘
+˜
 	getitem_9relu_3node_relu_3"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice2: torch.nn.modules.container.Sequential/basenet.slice2.0: torch.nn.modules.activation.ReLU/relu_3: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jà
 pkg.torch.onnx.fx_noden%relu_3 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_9,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.0', 'relu_3']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.0', 'relu_3']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 52, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-∞
+Æ
 
 relu_3max_pool2d_1node_max_pool2d_1"MaxPool*
 storage_order †*
@@ -282,16 +282,16 @@ max_pool2d
 	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice2: torch.nn.modules.container.Sequential/basenet.slice2.1: torch.nn.modules.pooling.MaxPool2d/max_pool2d_1: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J°
 pkg.torch.onnx.fx_nodeÜ%max_pool2d_1 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_3, [2, 2], [2, 2]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice2', 'basenet.slice2.1', 'max_pool2d_1']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice2', 'basenet.slice2.1', 'max_pool2d_1']JŸ
+pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 52, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-Ö
+É
 max_pool2d_1
 basenet.slice2.2.weight
 basenet.slice2.2.bias
@@ -305,31 +305,31 @@ getitem_12node_Conv_187"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_4 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_4, %p_basenet_slice2_3_weight, %p_basenet_slice2_3_bias, %b_basenet_slice2_3_running_mean, %b_basenet_slice2_3_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.3', '_native_batch_norm_legit_no_training_4']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.3', '_native_batch_norm_legit_no_training_4']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 52, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˚
+˘
 
 getitem_12relu_4node_relu_4"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice2: torch.nn.modules.container.Sequential/basenet.slice2.4: torch.nn.modules.activation.ReLU/relu_4: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_4 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_12,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.4', 'relu_4']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.4', 'relu_4']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 52, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˇ
+˝
 relu_4
 basenet.slice2.5.weight
 basenet.slice2.5.bias
@@ -343,31 +343,31 @@ getitem_15node_Conv_188"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_5 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_5, %p_basenet_slice2_6_weight, %p_basenet_slice2_6_bias, %b_basenet_slice2_6_running_mean, %b_basenet_slice2_6_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.6', '_native_batch_norm_legit_no_training_5']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.6', '_native_batch_norm_legit_no_training_5']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 52, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˚
+˘
 
 getitem_15relu_5node_relu_5"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.0: torch.nn.modules.activation.ReLU/relu_5: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_5 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_15,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.0', 'relu_5']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.0', 'relu_5']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 53, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˇ
+˝
 relu_5
 basenet.slice3.1.weight
 basenet.slice3.1.bias
@@ -381,31 +381,31 @@ getitem_18node_Conv_189"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_6 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_6, %p_basenet_slice3_2_weight, %p_basenet_slice3_2_bias, %b_basenet_slice3_2_running_mean, %b_basenet_slice3_2_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.2', '_native_batch_norm_legit_no_training_6']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.2', '_native_batch_norm_legit_no_training_6']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 53, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˚
+˘
 
 getitem_18relu_6node_relu_6"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.3: torch.nn.modules.activation.ReLU/relu_6: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_6 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_18,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.3', 'relu_6']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.3', 'relu_6']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 53, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-∞
+Æ
 
 relu_6max_pool2d_2node_max_pool2d_2"MaxPool*
 storage_order †*
@@ -418,16 +418,16 @@ getitem_18relu_6node_relu_6"ReluJæ
 	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.4: torch.nn.modules.pooling.MaxPool2d/max_pool2d_2: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J°
 pkg.torch.onnx.fx_nodeÜ%max_pool2d_2 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_6, [2, 2], [2, 2]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice3', 'basenet.slice3.4', 'max_pool2d_2']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice3', 'basenet.slice3.4', 'max_pool2d_2']JŸ
+pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 53, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-Ö
+É
 max_pool2d_2
 basenet.slice3.5.weight
 basenet.slice3.5.bias
@@ -441,31 +441,31 @@ getitem_21node_Conv_190"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_7 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_7, %p_basenet_slice3_6_weight, %p_basenet_slice3_6_bias, %b_basenet_slice3_6_running_mean, %b_basenet_slice3_6_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.6', '_native_batch_norm_legit_no_training_7']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.6', '_native_batch_norm_legit_no_training_7']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 53, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˚
+˘
 
 getitem_21relu_7node_relu_7"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.7: torch.nn.modules.activation.ReLU/relu_7: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_7 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_21,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.7', 'relu_7']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.7', 'relu_7']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 53, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˇ
+˝
 relu_7
 basenet.slice3.8.weight
 basenet.slice3.8.bias
@@ -479,31 +479,31 @@ getitem_24node_Conv_191"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_8 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_8, %p_basenet_slice3_9_weight, %p_basenet_slice3_9_bias, %b_basenet_slice3_9_running_mean, %b_basenet_slice3_9_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.9', '_native_batch_norm_legit_no_training_8']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.9', '_native_batch_norm_legit_no_training_8']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 53, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˚
+˘
 
 getitem_24relu_8node_relu_8"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.0: torch.nn.modules.activation.ReLU/relu_8: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_8 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_24,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.0', 'relu_8']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.0', 'relu_8']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 54, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˇ
+˝
 relu_8
 basenet.slice4.1.weight
 basenet.slice4.1.bias
@@ -517,31 +517,31 @@ getitem_27node_Conv_192"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_9 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_9, %p_basenet_slice4_2_weight, %p_basenet_slice4_2_bias, %b_basenet_slice4_2_running_mean, %b_basenet_slice4_2_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice4', 'basenet.slice4.2', '_native_batch_norm_legit_no_training_9']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice4', 'basenet.slice4.2', '_native_batch_norm_legit_no_training_9']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 54, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˚
+˘
 
 getitem_27relu_9node_relu_9"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.3: torch.nn.modules.activation.ReLU/relu_9: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_9 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_27,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.3', 'relu_9']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.3', 'relu_9']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 54, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-∞
+Æ
 
 relu_9max_pool2d_3node_max_pool2d_3"MaxPool*
 storage_order †*
@@ -554,16 +554,16 @@ getitem_27relu_9node_relu_9"ReluJæ
 	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.4: torch.nn.modules.pooling.MaxPool2d/max_pool2d_3: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J°
 pkg.torch.onnx.fx_nodeÜ%max_pool2d_3 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_9, [2, 2], [2, 2]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice4', 'basenet.slice4.4', 'max_pool2d_3']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice4', 'basenet.slice4.4', 'max_pool2d_3']JŸ
+pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 54, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-â
+á
 max_pool2d_3
 basenet.slice4.5.weight
 basenet.slice4.5.bias
@@ -577,31 +577,31 @@ getitem_30node_Conv_193"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JŒ
 pkg.torch.onnx.fx_node≥%_native_batch_norm_legit_no_training_10 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_10, %p_basenet_slice4_6_weight, %p_basenet_slice4_6_bias, %b_basenet_slice4_6_running_mean, %b_basenet_slice4_6_running_var, 0.1, 1e-05), kwargs = {})J~
-pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.6', '_native_batch_norm_legit_no_training_10']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.6', '_native_batch_norm_legit_no_training_10']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 54, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-Ä	
+˛
 
 getitem_30relu_10node_relu_10"ReluJø
 	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.7: torch.nn.modules.activation.ReLU/relu_10: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_10 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_30,), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice4', 'basenet.slice4.7', 'relu_10']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice4', 'basenet.slice4.7', 'relu_10']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 54, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ñ
+Ç
 relu_10
 basenet.slice4.8.weight
 basenet.slice4.8.bias
@@ -615,16 +615,16 @@ getitem_33node_Conv_194"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JŒ
 pkg.torch.onnx.fx_node≥%_native_batch_norm_legit_no_training_11 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_11, %p_basenet_slice4_9_weight, %p_basenet_slice4_9_bias, %b_basenet_slice4_9_running_mean, %b_basenet_slice4_9_running_var, 0.1, 1e-05), kwargs = {})J~
-pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.9', '_native_batch_norm_legit_no_training_11']J›
-pkg.torch.onnx.stack_traceæFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.9', '_native_batch_norm_legit_no_training_11']J€
+pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 54, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¿
+æ
 
 
 getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
@@ -638,16 +638,16 @@ getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
 	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.0: torch.nn.modules.pooling.MaxPool2d/max_pool2d_4: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J≠
 pkg.torch.onnx.fx_nodeí%max_pool2d_4 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%getitem_33, [3, 3], [1, 1], [1, 1]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice5', 'basenet.slice5.0', 'max_pool2d_4']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice5', 'basenet.slice5.0', 'max_pool2d_4']JŸ
+pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 55, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-
+Ó
 
 max_pool2d_4
 basenet.slice5.1.weight
@@ -660,30 +660,30 @@ getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
 	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.1: torch.nn.modules.conv.Conv2d/conv2d_12: aten.conv2d.defaultJ¨
 pkg.torch.onnx.class_hierarchyâ['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jﬁ
 pkg.torch.onnx.fx_node√%conv2d_12 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%max_pool2d_4, %p_basenet_slice5_1_weight, %p_basenet_slice5_1_bias, [1, 1], [6, 6], [6, 6]), kwargs = {})J`
-pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.1', 'conv2d_12']J¸
-pkg.torch.onnx.stack_trace›File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.1', 'conv2d_12']J˙
+pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 55, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-˛
+¸
 	conv2d_12relu_11node_relu_11"ReluJø
 	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.2: torch.nn.modules.activation.ReLU/relu_11: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_11 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_12,), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice5', 'basenet.slice5.2', 'relu_11']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice5', 'basenet.slice5.2', 'relu_11']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 55, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Œ
+Ã
 
 relu_11
 basenet.slice5.3.weight
@@ -696,70 +696,70 @@ getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
 	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.3: torch.nn.modules.conv.Conv2d/conv2d_13: aten.conv2d.defaultJ¨
 pkg.torch.onnx.class_hierarchyâ['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J¡
 pkg.torch.onnx.fx_node¶%conv2d_13 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_11, %p_basenet_slice5_3_weight, %p_basenet_slice5_3_bias), kwargs = {})J`
-pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.3', 'conv2d_13']J¸
-pkg.torch.onnx.stack_trace›File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.3', 'conv2d_13']J˙
+pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 55, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-˛
+¸
 	conv2d_13relu_12node_relu_12"ReluJø
 	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.4: torch.nn.modules.activation.ReLU/relu_12: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_12 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_13,), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice5', 'basenet.slice5.4', 'relu_12']JÙ
-pkg.torch.onnx.stack_trace’File "/tmp/ipykernel_21778/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice5', 'basenet.slice5.4', 'relu_12']JÚ
+pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_21778/2130702692.py", line 55, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-¨
+´
 floordiv_14
 val_101val_102node_Reshape_97"Reshape*
 	allowzero †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J∞
-pkg.torch.onnx.stack_traceëFile "/tmp/ipykernel_21778/2130702692.py", line 81, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
+pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
     y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-¨
+´
 floordiv_15
 val_101val_104node_Reshape_99"Reshape*
 	allowzero †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J∞
-pkg.torch.onnx.stack_traceëFile "/tmp/ipykernel_21778/2130702692.py", line 81, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
+pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
     y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-¢
+°
 val_102
 val_104val_105node_Concat_100"Concat*
 axis †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J∞
-pkg.torch.onnx.stack_traceëFile "/tmp/ipykernel_21778/2130702692.py", line 81, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
+pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
     y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-¢
+°
 val_100
 val_105val_107node_Concat_102"Concat*
 axis †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J∞
-pkg.torch.onnx.stack_traceëFile "/tmp/ipykernel_21778/2130702692.py", line 81, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
+pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
     y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-û
+ù
 relu_12
  
  
@@ -775,10 +775,10 @@ getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J∞
-pkg.torch.onnx.stack_traceëFile "/tmp/ipykernel_21778/2130702692.py", line 81, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
+pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
     y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-°
+†
 upsample_bilinear2d
 
 getitem_33catnode_cat"Concat*
@@ -786,10 +786,10 @@ getitem_33catnode_cat"Concat*
 	namespace&: __main__.CRAFT/cat: aten.cat.defaultJH
 pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
 pkg.torch.onnx.fx_nodeÖ%cat : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d, %getitem_33], 1), kwargs = {})J)
-pkg.torch.onnx.name_scopes['', 'cat']Jå
-pkg.torch.onnx.stack_tracenFile "/tmp/ipykernel_21778/2130702692.py", line 82, in forward
+pkg.torch.onnx.name_scopes['', 'cat']Jã
+pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-Ú
+
 cat
 upconv1.conv.0.weight
 upconv1.conv.0.bias
@@ -803,31 +803,31 @@ getitem_36node_Conv_195"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_12 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_14, %p_upconv1_conv_1_weight, %p_upconv1_conv_1_bias, %b_upconv1_conv_1_running_mean, %b_upconv1_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.1', '_native_batch_norm_legit_no_training_12']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 82, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.1', '_native_batch_norm_legit_no_training_12']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_36relu_13node_relu_13"ReluJª
 	namespace≠: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.2: torch.nn.modules.activation.ReLU/relu_13: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_13 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_36,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.2', 'relu_13']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 82, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.2', 'relu_13']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˆ
+Ù
 relu_13
 upconv1.conv.3.weight
 upconv1.conv.3.bias
@@ -841,71 +841,71 @@ getitem_39node_Conv_196"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_13 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_15, %p_upconv1_conv_4_weight, %p_upconv1_conv_4_bias, %b_upconv1_conv_4_running_mean, %b_upconv1_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.4', '_native_batch_norm_legit_no_training_13']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 82, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.4', '_native_batch_norm_legit_no_training_13']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_39relu_14node_relu_14"ReluJª
 	namespace≠: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.5: torch.nn.modules.activation.ReLU/relu_14: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_14 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_39,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.5', 'relu_14']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 82, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.5', 'relu_14']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-≤
+±
 floordiv_12
 val_101val_122node_Reshape_117"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 84, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
     y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-≤
+±
 floordiv_13
 val_101val_124node_Reshape_119"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 84, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
     y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 val_122
 val_124val_125node_Concat_120"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 84, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
     y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 val_120
 val_125val_127node_Concat_122"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 84, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
     y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 relu_14
  
  
@@ -921,10 +921,10 @@ getitem_39relu_14node_relu_14"ReluJª
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 84, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
     y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 upsample_bilinear2d_1
 relu_8cat_1
 node_cat_1"Concat*
@@ -932,10 +932,10 @@ node_cat_1"Concat*
 	namespace(: __main__.CRAFT/cat_1: aten.cat.defaultJH
 pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
 pkg.torch.onnx.fx_nodeÖ%cat_1 : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d_1, %relu_8], 1), kwargs = {})J+
-pkg.torch.onnx.name_scopes['', 'cat_1']Jå
-pkg.torch.onnx.stack_tracenFile "/tmp/ipykernel_21778/2130702692.py", line 85, in forward
+pkg.torch.onnx.name_scopes['', 'cat_1']Jã
+pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-Ù
+Ú
 cat_1
 upconv2.conv.0.weight
 upconv2.conv.0.bias
@@ -949,31 +949,31 @@ getitem_42node_Conv_197"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_14 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_16, %p_upconv2_conv_1_weight, %p_upconv2_conv_1_bias, %b_upconv2_conv_1_running_mean, %b_upconv2_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.1', '_native_batch_norm_legit_no_training_14']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 85, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.1', '_native_batch_norm_legit_no_training_14']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_42relu_15node_relu_15"ReluJª
 	namespace≠: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.2: torch.nn.modules.activation.ReLU/relu_15: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_15 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_42,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.2', 'relu_15']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 85, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.2', 'relu_15']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˆ
+Ù
 relu_15
 upconv2.conv.3.weight
 upconv2.conv.3.bias
@@ -987,71 +987,71 @@ getitem_45node_Conv_198"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_15 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_17, %p_upconv2_conv_4_weight, %p_upconv2_conv_4_bias, %b_upconv2_conv_4_running_mean, %b_upconv2_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.4', '_native_batch_norm_legit_no_training_15']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 85, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.4', '_native_batch_norm_legit_no_training_15']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_45relu_16node_relu_16"ReluJª
 	namespace≠: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.5: torch.nn.modules.activation.ReLU/relu_16: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_16 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_45,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.5', 'relu_16']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 85, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.5', 'relu_16']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-≤
+±
 floordiv_10
 val_101val_142node_Reshape_137"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 87, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
     y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-≤
+±
 floordiv_11
 val_101val_144node_Reshape_139"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 87, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
     y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 val_142
 val_144val_145node_Concat_140"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 87, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
     y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 val_140
 val_145val_147node_Concat_142"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 87, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
     y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 relu_16
  
  
@@ -1067,10 +1067,10 @@ getitem_45relu_16node_relu_16"ReluJª
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
 pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 87, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
     y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 upsample_bilinear2d_2
 relu_5cat_2
 node_cat_2"Concat*
@@ -1078,10 +1078,10 @@ node_cat_2"Concat*
 	namespace(: __main__.CRAFT/cat_2: aten.cat.defaultJH
 pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
 pkg.torch.onnx.fx_nodeÖ%cat_2 : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d_2, %relu_5], 1), kwargs = {})J+
-pkg.torch.onnx.name_scopes['', 'cat_2']Jå
-pkg.torch.onnx.stack_tracenFile "/tmp/ipykernel_21778/2130702692.py", line 88, in forward
+pkg.torch.onnx.name_scopes['', 'cat_2']Jã
+pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-Ù
+Ú
 cat_2
 upconv3.conv.0.weight
 upconv3.conv.0.bias
@@ -1095,31 +1095,31 @@ getitem_48node_Conv_199"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_16 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_18, %p_upconv3_conv_1_weight, %p_upconv3_conv_1_bias, %b_upconv3_conv_1_running_mean, %b_upconv3_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.1', '_native_batch_norm_legit_no_training_16']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 88, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.1', '_native_batch_norm_legit_no_training_16']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_48relu_17node_relu_17"ReluJª
 	namespace≠: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.2: torch.nn.modules.activation.ReLU/relu_17: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_17 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_48,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.2', 'relu_17']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 88, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.2', 'relu_17']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˆ
+Ù
 relu_17
 upconv3.conv.3.weight
 upconv3.conv.3.bias
@@ -1133,31 +1133,31 @@ getitem_51node_Conv_200"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_17 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_19, %p_upconv3_conv_4_weight, %p_upconv3_conv_4_bias, %b_upconv3_conv_4_running_mean, %b_upconv3_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.4', '_native_batch_norm_legit_no_training_17']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 88, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.4', '_native_batch_norm_legit_no_training_17']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_51relu_18node_relu_18"ReluJª
 	namespace≠: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.5: torch.nn.modules.activation.ReLU/relu_18: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_18 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_51,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.5', 'relu_18']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 88, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.5', 'relu_18']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ø
+Æ
 
 floordiv_8
 val_101val_162node_Reshape_157"Reshape*
@@ -1165,10 +1165,10 @@ floordiv_8
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 90, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
     y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-Ø
+Æ
 
 floordiv_9
 val_101val_164node_Reshape_159"Reshape*
@@ -1176,30 +1176,30 @@ floordiv_9
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 90, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
     y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-•
+§
 val_162
 val_164val_165node_Concat_160"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 90, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
     y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-•
+§
 val_160
 val_165val_167node_Concat_162"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 90, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
     y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-•
+§
 relu_18
  
  
@@ -1215,10 +1215,10 @@ floordiv_9
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
 pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_21778/2130702692.py", line 90, in forward
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
+pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
     y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-ß
+¶
 upsample_bilinear2d_3
 relu_3cat_3
 node_cat_3"Concat*
@@ -1226,10 +1226,10 @@ node_cat_3"Concat*
 	namespace(: __main__.CRAFT/cat_3: aten.cat.defaultJH
 pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
 pkg.torch.onnx.fx_nodeÖ%cat_3 : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d_3, %relu_3], 1), kwargs = {})J+
-pkg.torch.onnx.name_scopes['', 'cat_3']Jå
-pkg.torch.onnx.stack_tracenFile "/tmp/ipykernel_21778/2130702692.py", line 91, in forward
+pkg.torch.onnx.name_scopes['', 'cat_3']Jã
+pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-Ù
+Ú
 cat_3
 upconv4.conv.0.weight
 upconv4.conv.0.bias
@@ -1243,31 +1243,31 @@ getitem_54node_Conv_201"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_18 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_20, %p_upconv4_conv_1_weight, %p_upconv4_conv_1_bias, %b_upconv4_conv_1_running_mean, %b_upconv4_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.1', '_native_batch_norm_legit_no_training_18']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 91, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.1', '_native_batch_norm_legit_no_training_18']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_54relu_19node_relu_19"ReluJª
 	namespace≠: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.2: torch.nn.modules.activation.ReLU/relu_19: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_19 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_54,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.2', 'relu_19']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 91, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.2', 'relu_19']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-ˆ
+Ù
 relu_19
 upconv4.conv.3.weight
 upconv4.conv.3.bias
@@ -1281,31 +1281,31 @@ getitem_57node_Conv_202"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
 pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_19 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_21, %p_upconv4_conv_4_weight, %p_upconv4_conv_4_bias, %b_upconv4_conv_4_running_mean, %b_upconv4_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.4', '_native_batch_norm_legit_no_training_19']J„
-pkg.torch.onnx.stack_traceƒFile "/tmp/ipykernel_21778/2130702692.py", line 91, in forward
+pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.4', '_native_batch_norm_legit_no_training_19']J·
+pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+¸
 
 getitem_57relu_20node_relu_20"ReluJª
 	namespace≠: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.5: torch.nn.modules.activation.ReLU/relu_20: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_20 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_57,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.5', 'relu_20']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_21778/2130702692.py", line 91, in forward
+pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.5', 'relu_20']J¯
+pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_21778/2130702692.py", line 26, in forward
+  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ñ	
+É	
 relu_20
 conv_cls.0.weight
 conv_cls.0.bias	conv2d_22node_conv2d_22"Conv*
@@ -1317,26 +1317,26 @@ getitem_57relu_20node_relu_20"ReluJª
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.0: torch.nn.modules.conv.Conv2d/conv2d_22: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J≈
 pkg.torch.onnx.fx_node™%conv2d_22 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_20, %p_conv_cls_0_weight, %p_conv_cls_0_bias, [1, 1], [1, 1]), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.0', 'conv2d_22']Jí
-pkg.torch.onnx.stack_traceÛFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.0', 'conv2d_22']Jë
+pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-º
+ª
 	conv2d_22relu_21node_relu_21"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.1: torch.nn.modules.activation.ReLU/relu_21: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_21 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_22,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.1', 'relu_21']Jä
-pkg.torch.onnx.stack_traceÎFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.1', 'relu_21']Jâ
+pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ñ	
+É	
 relu_21
 conv_cls.2.weight
 conv_cls.2.bias	conv2d_23node_conv2d_23"Conv*
@@ -1348,26 +1348,26 @@ getitem_57relu_20node_relu_20"ReluJª
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.2: torch.nn.modules.conv.Conv2d/conv2d_23: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J≈
 pkg.torch.onnx.fx_node™%conv2d_23 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_21, %p_conv_cls_2_weight, %p_conv_cls_2_bias, [1, 1], [1, 1]), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.2', 'conv2d_23']Jí
-pkg.torch.onnx.stack_traceÛFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.2', 'conv2d_23']Jë
+pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-º
+ª
 	conv2d_23relu_22node_relu_22"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.3: torch.nn.modules.activation.ReLU/relu_22: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_22 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_23,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.3', 'relu_22']Jä
-pkg.torch.onnx.stack_traceÎFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.3', 'relu_22']Jâ
+pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ñ	
+É	
 relu_22
 conv_cls.4.weight
 conv_cls.4.bias	conv2d_24node_conv2d_24"Conv*
@@ -1379,26 +1379,26 @@ getitem_57relu_20node_relu_20"ReluJª
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.4: torch.nn.modules.conv.Conv2d/conv2d_24: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J≈
 pkg.torch.onnx.fx_node™%conv2d_24 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_22, %p_conv_cls_4_weight, %p_conv_cls_4_bias, [1, 1], [1, 1]), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.4', 'conv2d_24']Jí
-pkg.torch.onnx.stack_traceÛFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.4', 'conv2d_24']Jë
+pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-º
+ª
 	conv2d_24relu_23node_relu_23"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.5: torch.nn.modules.activation.ReLU/relu_23: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_23 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_24,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.5', 'relu_23']Jä
-pkg.torch.onnx.stack_traceÎFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.5', 'relu_23']Jâ
+pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ù
+Û
 relu_23
 conv_cls.6.weight
 conv_cls.6.bias	conv2d_25node_conv2d_25"Conv*
@@ -1410,26 +1410,26 @@ getitem_57relu_20node_relu_20"ReluJª
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.6: torch.nn.modules.conv.Conv2d/conv2d_25: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jµ
 pkg.torch.onnx.fx_nodeö%conv2d_25 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_23, %p_conv_cls_6_weight, %p_conv_cls_6_bias), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.6', 'conv2d_25']Jí
-pkg.torch.onnx.stack_traceÛFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.6', 'conv2d_25']Jë
+pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-º
+ª
 	conv2d_25relu_24node_relu_24"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.7: torch.nn.modules.activation.ReLU/relu_24: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_24 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_25,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.7', 'relu_24']Jä
-pkg.torch.onnx.stack_traceÎFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.7', 'relu_24']Jâ
+pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ù
+Û
 relu_24
 conv_cls.8.weight
 conv_cls.8.bias	conv2d_26node_conv2d_26"Conv*
@@ -1441,49 +1441,49 @@ getitem_57relu_20node_relu_20"ReluJª
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.8: torch.nn.modules.conv.Conv2d/conv2d_26: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jµ
 pkg.torch.onnx.fx_nodeö%conv2d_26 : [num_users=2] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_24, %p_conv_cls_8_weight, %p_conv_cls_8_bias), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.8', 'conv2d_26']Jí
-pkg.torch.onnx.stack_traceÛFile "/tmp/ipykernel_21778/2130702692.py", line 93, in forward
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.8', 'conv2d_26']Jë
+pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ë
+ê
 	conv2d_26
 val_8selectnode_select"Gather*
 axis†J5
 	namespace(: __main__.CRAFT/select: aten.select.intJG
 pkg.torch.onnx.class_hierarchy%['__main__.CRAFT', 'aten.select.int']Jã
 pkg.torch.onnx.fx_nodeq%select : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%conv2d_26, 1, 0), kwargs = {})J,
-pkg.torch.onnx.name_scopes['', 'select']Jñ
-pkg.torch.onnx.stack_tracexFile "/tmp/ipykernel_21778/2130702692.py", line 95, in forward
+pkg.torch.onnx.name_scopes['', 'select']Jï
+pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
-ä
+â
 select
 region_mapnode_sigmoid"SigmoidJ;
 	namespace.: __main__.CRAFT/sigmoid: aten.sigmoid.defaultJL
 pkg.torch.onnx.class_hierarchy*['__main__.CRAFT', 'aten.sigmoid.default']Jâ
 pkg.torch.onnx.fx_nodeo%sigmoid : [num_users=1] = call_function[target=torch.ops.aten.sigmoid.default](args = (%select,), kwargs = {})J-
-pkg.torch.onnx.name_scopes['', 'sigmoid']Jñ
-pkg.torch.onnx.stack_tracexFile "/tmp/ipykernel_21778/2130702692.py", line 95, in forward
+pkg.torch.onnx.name_scopes['', 'sigmoid']Jï
+pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
-õ
+ö
 	conv2d_26
 val_5select_1node_select_1"Gather*
 axis†J7
 	namespace*: __main__.CRAFT/select_1: aten.select.intJG
 pkg.torch.onnx.class_hierarchy%['__main__.CRAFT', 'aten.select.int']Jç
 pkg.torch.onnx.fx_nodes%select_1 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%conv2d_26, 1, 1), kwargs = {})J.
-pkg.torch.onnx.name_scopes['', 'select_1']Jñ
-pkg.torch.onnx.stack_tracexFile "/tmp/ipykernel_21778/2130702692.py", line 95, in forward
+pkg.torch.onnx.name_scopes['', 'select_1']Jï
+pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
-ò
+ó
 select_1affinity_mapnode_sigmoid_1"SigmoidJ=
 	namespace0: __main__.CRAFT/sigmoid_1: aten.sigmoid.defaultJL
 pkg.torch.onnx.class_hierarchy*['__main__.CRAFT', 'aten.sigmoid.default']Jç
 pkg.torch.onnx.fx_nodes%sigmoid_1 : [num_users=1] = call_function[target=torch.ops.aten.sigmoid.default](args = (%select_1,), kwargs = {})J/
-pkg.torch.onnx.name_scopes['', 'sigmoid_1']Jñ
-pkg.torch.onnx.stack_tracexFile "/tmp/ipykernel_21778/2130702692.py", line 95, in forward
+pkg.torch.onnx.name_scopes['', 'sigmoid_1']Jï
+pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
 main_graph*û@Bbasenet.slice1.0.biasJÄæÛœΩE´øèy∑k˝“ΩN˘æ•Ê%Ω©i=µ°ã∏?c πõc3øZΩê= êF∑-˚Ò>≤Ωí®π;V>L’)øŒ >»,“>8âéΩÓ ˛Ωù>(∏÷ ˘ºœó“>©Œ«∑Fv±Ωäπ<è>Ÿ¿Ÿ>›ÔG∑ßΩ_>a ]æ¥‚∂Ωgäg>	u∑∏ª•`∑…ß∑‚¥i>°r6∂RÛæ¬ë??ÌïºÇi«∏ı≈∏@‹ΩÔxãæ˛^æíl?E ùΩè’/ΩàΩ∆È`Ω0ù‡æí¶∑”„æ≤iªÄÏ-øñüæûY€∏lsÊª–Hü= ~-∑+ö™>*û@Bbasenet.slice1.3.biasJÄ^ÿædq?n‰àæèâ?_9æ«¢r>¿Ω)∆®>®\?D3V>˛&?Oh!>‘\¢?å	?åf >&@ë>˛ÜÉæ¨aAΩ—*>Sìx?]Àó>÷¡¨>óû¸>â€ô>R6#>”∆B?‘p?x¥>ÑëúΩÔX,>CY>j‘å>∫? ˆ∫=„mµæHU>sÌæ§pàæ€>Ú-?Áœ—>¸Sî>X? Å∏∏P/ø?'?_Éµt’<À”
 >åπHæ.-øﬁA◊= B]? V>XÜ¶>¥uË=7~?™∑b>U8B?œ°ß>N¢>¯b≥>Ãg>Pmë>*WÄBbasenet.slice1.7.biasj

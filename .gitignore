@@ -15,10 +15,11 @@ venv/
 env/
 craft_venv/
 
-# ── Model weights (large binaries — download separately) ──
+# ── Model weights ─────────────────────────────
+# .pth files are large — keep off git
 craft_ocr_pipeline/models/*.pth
-craft_ocr_pipeline/models/*.onnx
 craft_ocr_pipeline/models/*.pt
+# .onnx files are tracked so CM5 can git pull them directly
 
 # ── Pipeline outputs ───────────────────────────
 craft_ocr_pipeline/outputs/
@@ -33,3 +34,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# ── Windows installers ────────────────────────
+*.exe
