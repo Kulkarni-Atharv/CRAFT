@@ -116,9 +116,8 @@ def fuse_craft_scores(
 
 class PaddleOCRRecognizer:
     """
-    Recognition-only PaddleOCR (det=False — CRAFT handles detection).
-    Returns word-level confidence; char_preds is always empty.
-    For character-level filtering switch to engine='crnn'.
+    Recognition-only PaddleOCR (CRAFT handles detection).
+    Compatible with both PaddleOCR v2 and v3 APIs.
     """
 
     def __init__(self, cfg: dict[str, Any]):
@@ -128,21 +127,27 @@ class PaddleOCRRecognizer:
         except ImportError as e:
             raise ImportError("Install paddleocr: pip install paddleocr") from e
 
-        self._ocr = PaddleOCR(
-            use_angle_cls=True,
-            lang=rcfg["lang"],
-            use_gpu=rcfg["use_gpu"],
-            det=False,
-            cls=True,
-            show_log=False,
-        )
-        log.info("PaddleOCR recogniser initialised (lang=%s, gpu=%s)",
-                 rcfg["lang"], rcfg["use_gpu"])
-        log.warning(
-            "PaddleOCR does not expose per-character probabilities. "
-            "Filtering will use word-level confidence. "
-            "Switch to engine='crnn' for true character-level filtering."
-        )
+        # v3 removed show_log/use_gpu/det/cls from the constructor.
+        # Try progressively simpler param sets until one works.
+        for kwargs in [
+            # v2-style
+            dict(use_angle_cls=True, lang=rcfg["lang"],
+                 use_gpu=rcfg.get("use_gpu", False), det=False, cls=True, show_log=False),
+            # v3-style (no show_log, use_gpu → device)
+            dict(use_angle_cls=True, lang=rcfg["lang"],
+                 device="gpu" if rcfg.get("use_gpu", False) else "cpu"),
+            # minimal fallback — works in any version
+            dict(lang=rcfg["lang"]),
+        ]:
+            try:
+                self._ocr = PaddleOCR(**kwargs)
+                break
+            except (TypeError, ValueError):
+                continue
+        else:
+            raise RuntimeError("Could not initialise PaddleOCR with any known API variant")
+
+        log.info("PaddleOCR recogniser initialised (lang=%s)", rcfg["lang"])
 
     def recognise(self, crops: list[np.ndarray]) -> list[RecognitionResult]:
         results: list[RecognitionResult] = []
@@ -150,13 +155,49 @@ class PaddleOCRRecognizer:
             if crop is None or crop.size == 0:
                 results.append(RecognitionResult("", 0.0))
                 continue
-            out = self._ocr.ocr(crop, det=False, cls=True)
-            if out and out[0]:
-                text, conf = out[0][0]
-                results.append(RecognitionResult(str(text), float(conf)))
-            else:
-                results.append(RecognitionResult("", 0.0))
+            text, conf = self._run_one(crop)
+            results.append(RecognitionResult(str(text), float(conf)))
         return results
+
+    def _run_one(self, crop: np.ndarray) -> tuple[str, float]:
+        # Try det=False (recognition-only); fall back to full pipeline
+        for call_kwargs in [dict(det=False, cls=True), dict(det=False), {}]:
+            try:
+                out = self._ocr.ocr(crop, **call_kwargs)
+                text, conf = self._parse(out)
+                if text:
+                    return text, conf
+            except Exception:
+                continue
+        return "", 0.0
+
+    @staticmethod
+    def _parse(out) -> tuple[str, float]:
+        """Handle PaddleOCR v2 and v3 output formats."""
+        if not out:
+            return "", 0.0
+        # v2: [ [ ('text', conf), ... ] ]  — list of pages → list of lines
+        # v3: [ [ ('text', conf), ... ] ]  or list of dicts
+        first = out[0]
+        if not first:
+            return "", 0.0
+
+        item = first[0] if isinstance(first, (list, tuple)) else first
+
+        # v2 / v3 tuple format: ('text', conf)
+        if isinstance(item, (list, tuple)) and len(item) == 2:
+            t, c = item
+            if isinstance(t, str):
+                return t, float(c)
+            # v2 with bounding box: item = [box, ('text', conf)]
+            if isinstance(c, (list, tuple)) and len(c) == 2:
+                return str(c[0]), float(c[1])
+
+        # v3 object format
+        if hasattr(item, "text"):
+            return str(item.text), float(getattr(item, "score", 0.0))
+
+        return "", 0.0
 
 
 # ── CRNN back-end ─────────────────────────────────────────────────────────────
