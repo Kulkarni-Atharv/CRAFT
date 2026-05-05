@@ -37,8 +37,12 @@ class CRNN(nn.Module):
             nn.Conv2d(512, 512, 3, 1, 1), nn.ReLU(True), nn.MaxPool2d((2,1),(2,1)),
             nn.Conv2d(512, 512, 2, 1, 0), nn.BatchNorm2d(512), nn.ReLU(True),
         )
-        # after 4× height pooling: H/16 = 2 for H=32
-        rnn_in = 512 * (img_height // 16)
+        # compute rnn input size dynamically — the last Conv2d(k=2) reduces H by 1,
+        # so for H=32 the actual feature height is 1 (not 2), giving rnn_in=512
+        with torch.no_grad():
+            _probe = self.cnn(torch.zeros(1, 1, img_height, 32))
+            _, _c, _h, _ = _probe.shape
+            rnn_in = _c * _h
         self.rnn = nn.Sequential(
             _BidirLSTM(rnn_in, hidden, hidden),
             _BidirLSTM(hidden, hidden, n_classes),
