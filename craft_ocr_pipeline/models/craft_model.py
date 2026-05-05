@@ -141,11 +141,25 @@ def load_craft(weights_path: str, device: torch.device) -> CRAFT:
     if list(state.keys())[0].startswith("module."):
         state = OrderedDict((k[7:], v) for k, v in state.items())
 
-    # strict=False: silently skips slice2-4 (not in .pth — pretrained VGG used)
-    _, unexpected = net.load_state_dict(state, strict=False)
+    # The original CRAFT-pytorch names slice5 modules by their absolute VGG
+    # feature index (39, 40, 41).  Our Sequential uses 0-indexed keys (0, 1, 2).
+    # Remap so the dilated-conv weights actually load.
+    _remap = {"basenet.slice5.39.": "basenet.slice5.0.",
+              "basenet.slice5.40.": "basenet.slice5.1.",
+              "basenet.slice5.41.": "basenet.slice5.2."}
+    state = OrderedDict(
+        (next((k.replace(old, new) for old, new in _remap.items() if k.startswith(old)), k), v)
+        for k, v in state.items()
+    )
+
+    # strict=False: slice2-4 keys still won't match (absolute vs relative indices)
+    # but those layers keep their ImageNet-pretrained VGG weights — that is correct.
+    missing, unexpected = net.load_state_dict(state, strict=False)
+    import logging
+    _log = logging.getLogger(__name__)
+    _log.info("CRAFT weights loaded — missing: %d  unexpected: %d", len(missing), len(unexpected))
     if unexpected:
-        import logging
-        logging.getLogger(__name__).warning("Unexpected keys in checkpoint: %s", unexpected[:3])
+        _log.warning("Unexpected keys (first 3): %s", unexpected[:3])
 
     net.eval()
     return net

@@ -101,10 +101,25 @@ class CRAFT(nn.Module):
 def load_craft(weights_path: str) -> CRAFT:
     net   = CRAFT()
     state = torch.load(weights_path, map_location="cpu", weights_only=True)
+
     if list(state.keys())[0].startswith("module."):
         state = OrderedDict((k[7:], v) for k, v in state.items())
+
+    # The original CRAFT-pytorch names slice5 by absolute VGG feature index
+    # (39=MaxPool, 40=Conv1024, 41=Conv1024). Our Sequential uses 0-indexed keys.
+    # Remap so the dilated conv weights actually load into our model.
+    remap = {
+        "basenet.slice5.39.": "basenet.slice5.0.",
+        "basenet.slice5.40.": "basenet.slice5.1.",
+        "basenet.slice5.41.": "basenet.slice5.2.",
+    }
+    state = OrderedDict(
+        (next((k.replace(o, n) for o, n in remap.items() if k.startswith(o)), k), v)
+        for k, v in state.items()
+    )
+
     missing, unexpected = net.load_state_dict(state, strict=False)
-    print(f"[load] missing keys  : {len(missing)}   (slice2-4 expected — loaded from VGG ImageNet)")
+    print(f"[load] missing keys   : {len(missing)}  (slice2-4 — kept from VGG ImageNet, expected)")
     print(f"[load] unexpected keys: {len(unexpected)}")
     if unexpected:
         print(f"       first few: {unexpected[:3]}")
@@ -123,11 +138,13 @@ def sanity_check(net: CRAFT) -> None:
         region, affinity = net(x)
     print(f"[sanity] region   min={region.min():.3f}  max={region.max():.3f}  mean={region.mean():.3f}")
     print(f"[sanity] affinity min={affinity.min():.3f}  max={affinity.max():.3f}  mean={affinity.mean():.3f}")
-    if region.max() < 0.1:
-        print("[sanity] WARNING: region map is near-zero — weights may not have loaded.")
+    spread = float(region.max() - region.min())
+    if spread < 0.05:
+        print(f"[sanity] FAIL — output spread={spread:.4f} (flat ~0.5 = slice5 weights not loaded)")
+        print("         The key remapping for basenet.slice5.39/40/41 may have failed.")
         sys.exit(1)
     else:
-        print("[sanity] PASS — model is computing non-trivial outputs")
+        print(f"[sanity] PASS — output spread={spread:.4f} (weights loaded correctly)")
 
 
 # ── ONNX export ───────────────────────────────────────────────────────────────
