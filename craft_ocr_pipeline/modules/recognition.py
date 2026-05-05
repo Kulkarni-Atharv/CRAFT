@@ -158,26 +158,27 @@ class TesseractRecognizer:
 
         gray = cv2.cvtColor(crop, cv2.COLOR_RGB2GRAY) if crop.ndim == 3 else crop
 
-        # upscale to at least 64 px tall — tesseract accuracy drops below 32 px
+        # upscale so height ≥ 64 px — accuracy degrades sharply below this
         h, w = gray.shape[:2]
         if h < 64:
-            scale = 64.0 / h
-            gray  = cv2.resize(gray, (max(1, int(w * scale)), 64),
-                               interpolation=cv2.INTER_CUBIC)
+            factor = 64.0 / h
+            gray = cv2.resize(gray, (max(1, int(w * factor)), 64),
+                              interpolation=cv2.INTER_CUBIC)
 
-        # add white border — tesseract needs context around glyphs
-        gray = cv2.copyMakeBorder(gray, 10, 10, 10, 10,
+        # add white border — tesseract needs space around glyphs
+        gray = cv2.copyMakeBorder(gray, 12, 12, 12, 12,
                                   cv2.BORDER_CONSTANT, value=255)
 
-        # try multiple strategies and return the best (longest) result
         best_text, best_conf = "", 0.0
         psm_list = (10, 8) if self._char_mode else (7, 8, 6)
+
         for variant in self._make_variants(gray):
             for psm in psm_list:
-                cfg = f"--psm {psm} --oem 3"
+                tess_cfg = f"--psm {psm} --oem 3"
                 try:
                     data = self._tess.image_to_data(
-                        Image.fromarray(variant), config=cfg,
+                        Image.fromarray(variant),
+                        config=tess_cfg,
                         output_type=self._tess.Output.DICT,
                     )
                     words = [
@@ -185,24 +186,26 @@ class TesseractRecognizer:
                         for t, c in zip(data["text"], data["conf"])
                         if t.strip() and int(c) > 0
                     ]
-                    if words:
-                        text = " ".join(t for t, _ in words).lower()
-                        conf = sum(c for _, c in words) / len(words) / 100.0
-                        if len(text) > len(best_text):
-                            best_text, best_conf = text, conf
+                    if not words:
+                        continue
+                    text = " ".join(t for t, _ in words)
+                    conf = sum(c for _, c in words) / len(words) / 100.0
+                    # prefer highest-confidence result, not longest
+                    if conf > best_conf:
+                        best_text, best_conf = text, conf
                 except Exception:
                     continue
-            if best_text:
+            if best_conf > 0.5:   # good enough — stop trying variants
                 break
 
-        return RecognitionResult(best_text, best_conf)
+        return RecognitionResult(best_text.strip(), best_conf)
 
     @staticmethod
     def _make_variants(gray: np.ndarray) -> list:
-        """Return image variants to try: Otsu-binarized and inverted."""
+        """Otsu binarized (dark text on white) and its inverse (light text on dark)."""
         import cv2
-        _, otsu = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        inverted = cv2.bitwise_not(otsu)
+        _, otsu     = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        inverted    = cv2.bitwise_not(otsu)
         return [otsu, inverted]
 
 

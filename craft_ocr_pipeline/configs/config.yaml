@@ -34,7 +34,7 @@ postprocessing:
   poly:             false  # true → polygon boxes; false → rotated rect boxes
   min_box_area:     20     # px²  — discard tiny noise boxes
   padding:          4      # px   — extra padding around each crop
-  char_level:       true   # true → individual character boxes; false → word boxes
+  char_level:       false  # true → individual character boxes; false → word boxes
   char_word_gap:    1.2    # chars separated by more than (gap × avg_char_w) → new word
 
 # ── Recognition ───────────────────────────────
