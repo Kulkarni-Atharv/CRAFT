@@ -1,20 +1,12 @@
 # ── CM5 requirements ──────────────────────────────────────────────────────────
-# PaddlePaddle 3.0 has proper ARM64 support. Install in this exact order:
-#
-#   1. pip uninstall paddlepaddle paddleocr -y
-#   2. pip install paddlepaddle==3.0.0 \
-#        -i https://www.paddlepaddle.org.cn/packages/stable/cpu-aarch64/
-#   3. pip install paddleocr==3.4.1
-#   4. pip install -r requirements_cm5.txt
-#
-# ── Camera ────────────────────────────────────────────────────────────────────
-# sudo apt install -y python3-picamera2
+# Install with: pip install -r requirements_cm5.txt
+# Camera support (outside venv): sudo apt install -y python3-picamera2
 
-# ── CRAFT inference ───────────────────────────────────────────────────────────
+# ── CRAFT detection ───────────────────────────────────────────────────────────
 onnxruntime>=1.16.0
 
-# ── Recognition — install paddle BEFORE running this file (see above) ─────────
-paddleocr==3.4.1
+# ── Recognition — PP-OCR models via ONNX Runtime (no PaddlePaddle needed) ────
+rapidocr-onnxruntime>=1.3.0
 
 # ── Vision / numerics ─────────────────────────────────────────────────────────
 numpy>=1.24.0

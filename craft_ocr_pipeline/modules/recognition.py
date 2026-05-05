@@ -1,12 +1,12 @@
 """
 Module 5 — Recognition
-PaddleOCR 3.x recognition on character-level crops produced by CRAFT.
+RapidOCR on character-level crops produced by CRAFT.
 
-PaddleOCR 3.x uses PaddlePaddle 3.0 which has proper ARM64 support.
-Install on CM5:
-  pip uninstall paddlepaddle paddleocr -y
-  pip install paddlepaddle==3.0.0 -i https://www.paddlepaddle.org.cn/packages/stable/cpu-aarch64/
-  pip install paddleocr==3.4.1
+RapidOCR runs the same PP-OCR models as PaddleOCR but via ONNX Runtime —
+no PaddlePaddle binary required. Works on ARM64/CM5 Python 3.11.
+
+Install:
+  pip install rapidocr-onnxruntime
 """
 
 from __future__ import annotations
@@ -39,6 +39,7 @@ def filter_by_char_conf(
     """
     Return (text, conf) if confidence >= threshold, else ("", 0.0).
     Rejected characters return 0.0 so they are excluded from word conf mean.
+    "boy" with occluded b (conf 0.3 < 0.7) -> ("", 0.0) -> assembled word "oy"
     """
     if result.char_preds:
         kept = [(c, p) for c, p in result.char_preds if p >= threshold]
@@ -52,60 +53,26 @@ def filter_by_char_conf(
     return ("", 0.0)
 
 
-# ── PaddleOCR 3.x back-end ────────────────────────────────────────────────────
+# ── RapidOCR back-end ─────────────────────────────────────────────────────────
 
-class PaddleOCRRecognizer:
+class RapidOCRRecognizer:
     """
-    Recognition-only PaddleOCR 3.x — CRAFT handles detection.
-    Requires PaddlePaddle 3.0 (ARM64-native) + PaddleOCR 3.4.1.
+    PP-OCR recognition via ONNX Runtime — same models as PaddleOCR, no
+    PaddlePaddle binary needed. Works on ARM64 / CM5.
 
-    Install on CM5:
-      pip uninstall paddlepaddle paddleocr -y
-      pip install paddlepaddle==3.0.0 \\
-        -i https://www.paddlepaddle.org.cn/packages/stable/cpu-aarch64/
-      pip install paddleocr==3.4.1
+    Install:  pip install rapidocr-onnxruntime
     """
 
     def __init__(self, cfg: dict[str, Any]):
-        rcfg = cfg["recognition"]
         try:
-            from paddleocr import PaddleOCR  # type: ignore
+            from rapidocr_onnxruntime import RapidOCR  # type: ignore
         except ImportError as e:
             raise ImportError(
-                "Install PaddleOCR 3.x:\n"
-                "  pip install paddlepaddle==3.0.0 "
-                "-i https://www.paddlepaddle.org.cn/packages/stable/cpu-aarch64/\n"
-                "  pip install paddleocr==3.4.1"
+                "Install RapidOCR: pip install rapidocr-onnxruntime"
             ) from e
 
-        # PaddleOCR 3.x: disable heavy sub-models not needed for recognition
-        for kwargs in [
-            # 3.x preferred — disable doc orientation + unwarping classifiers
-            dict(
-                use_doc_orientation_classify=False,
-                use_doc_unwarping=False,
-                use_textline_orientation=False,
-                lang=rcfg["lang"],
-            ),
-            # 3.x minimal
-            dict(lang=rcfg["lang"]),
-            # 2.x fallback (if older version somehow installed)
-            dict(
-                use_angle_cls=False,
-                lang=rcfg["lang"],
-                det=False,
-                show_log=False,
-            ),
-        ]:
-            try:
-                self._ocr = PaddleOCR(**kwargs)
-                break
-            except (TypeError, ValueError):
-                continue
-        else:
-            raise RuntimeError("Could not initialise PaddleOCR")
-
-        log.info("PaddleOCR 3.x recogniser ready (lang=%s)", rcfg["lang"])
+        self._ocr = RapidOCR()
+        log.info("RapidOCR recogniser ready (PP-OCR models via ONNX Runtime)")
 
     def recognise(self, crops: list[np.ndarray]) -> list[RecognitionResult]:
         results: list[RecognitionResult] = []
@@ -120,7 +87,7 @@ class PaddleOCRRecognizer:
     def _run_one(self, crop: np.ndarray) -> tuple[str, float]:
         import cv2
 
-        # Upscale tiny character crops — accuracy drops sharply below 32px
+        # Upscale tiny character crops — accuracy drops below 32px
         h, w = crop.shape[:2]
         if h < 32 or w < 32:
             scale = max(32.0 / h, 32.0 / w)
@@ -130,62 +97,27 @@ class PaddleOCRRecognizer:
                 interpolation=cv2.INTER_CUBIC,
             )
 
-        # Try recognition-only (det=False) — fall back to full pipeline
-        for call_kwargs in [
-            dict(det=False, cls=False),
-            dict(det=False),
-            {},
-        ]:
-            try:
-                out = self._ocr.ocr(crop, **call_kwargs)
-                text, conf = self._parse(out)
-                if text:
-                    return text, conf
-            except Exception:
-                continue
-        return "", 0.0
-
-    @staticmethod
-    def _parse(out) -> tuple[str, float]:
-        """Handle PaddleOCR 2.x and 3.x output formats."""
-        if not out:
-            return "", 0.0
-
-        # 3.x returns a list of Result objects or list-of-lists
-        first = out[0]
-        if not first:
-            return "", 0.0
-
-        item = first[0] if isinstance(first, (list, tuple)) else first
-
-        # Standard tuple format: ('text', conf)
-        if isinstance(item, (list, tuple)) and len(item) == 2:
-            t, c = item
-            if isinstance(t, str):
-                return t.strip(), float(c)
-            # 2.x with bounding box: [box, ('text', conf)]
-            if isinstance(c, (list, tuple)) and len(c) == 2:
-                return str(c[0]).strip(), float(c[1])
-
-        # 3.x object format
-        if hasattr(item, "text"):
-            return str(item.text).strip(), float(getattr(item, "score", 0.0))
-
-        # 3.x dict format
-        if isinstance(item, dict):
-            text = item.get("text", item.get("rec_text", ""))
-            conf = item.get("score", item.get("rec_score", 0.0))
-            return str(text).strip(), float(conf)
+        try:
+            # use_det=False: skip detection, send whole crop to recogniser
+            result, _ = self._ocr(crop, use_det=False, use_cls=False, use_rec=True)
+            if result and result[0]:
+                # result[0] = (box_or_None, text, confidence)
+                row = result[0]
+                text = str(row[1]).strip() if len(row) > 1 else ""
+                conf = float(row[2])        if len(row) > 2 else 0.0
+                return text, conf
+        except Exception as e:
+            log.debug("RapidOCR inference error: %s", e)
 
         return "", 0.0
 
 
 # ── Factory ───────────────────────────────────────────────────────────────────
 
-def build_recognizer(cfg: dict[str, Any]) -> PaddleOCRRecognizer:
+def build_recognizer(cfg: dict[str, Any]) -> RapidOCRRecognizer:
     engine = cfg["recognition"]["engine"].lower()
-    if engine != "paddleocr":
+    if engine not in ("paddleocr", "rapidocr"):
         raise ValueError(
-            f"Unknown recognition engine: {engine!r}. Only 'paddleocr' is supported."
+            f"Unknown recognition engine: {engine!r}. Use 'paddleocr' (runs via RapidOCR ONNX)."
         )
-    return PaddleOCRRecognizer(cfg)
+    return RapidOCRRecognizer(cfg)
