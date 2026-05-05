@@ -6,7 +6,7 @@
 onnxruntime>=1.16.0
 
 # ── Recognition — PP-OCR models via ONNX Runtime (no PaddlePaddle needed) ────
-rapidocr-onnxruntime>=1.3.0
+rapidocr-onnxruntime
 
 # ── Vision / numerics ─────────────────────────────────────────────────────────
 numpy>=1.24.0
