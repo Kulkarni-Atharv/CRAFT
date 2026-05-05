@@ -70,7 +70,7 @@ class VGGBasenet(nn.Module):
         self.slice1 = nn.Sequential(*features[:12])
         self.slice2 = nn.Sequential(*features[12:19])
         self.slice3 = nn.Sequential(*features[19:29])
-        self.slice4 = nn.Sequential(*features[29:])   # 29-43: rest of VGG incl. MaxPool
+        self.slice4 = nn.Sequential(*features[29:39])  # 29-38: matches original CRAFT-pytorch
         self.slice5 = nn.Sequential(                   # custom dilated convs only
             nn.MaxPool2d(kernel_size=3, stride=1, padding=1),
             nn.Conv2d(512, 1024, kernel_size=3, padding=6, dilation=6),
@@ -141,23 +141,24 @@ def load_craft(weights_path: str, device: torch.device) -> CRAFT:
     if list(state.keys())[0].startswith("module."):
         state = OrderedDict((k[7:], v) for k, v in state.items())
 
-    # The original CRAFT-pytorch names slice5 modules by their absolute VGG
-    # feature index (39, 40, 41).  Our Sequential uses 0-indexed keys (0, 1, 2).
-    # Remap so the dilated-conv weights actually load.
-    _remap = {"basenet.slice5.39.": "basenet.slice5.0.",
-              "basenet.slice5.40.": "basenet.slice5.1.",
-              "basenet.slice5.41.": "basenet.slice5.2."}
-    state = OrderedDict(
-        (next((k.replace(old, new) for old, new in _remap.items() if k.startswith(old)), k), v)
-        for k, v in state.items()
-    )
+    # Original CRAFT-pytorch uses add_module(str(x), ...) with absolute VGG feature
+    # indices for slice2-4 (offsets 12, 19, 29).  Our nn.Sequential uses 0-based keys.
+    # slice5 is created with positional args in the original, so it is already 0-indexed.
+    def _remap_key(k: str) -> str:
+        for prefix, offset in (("basenet.slice2.", 12),
+                                ("basenet.slice3.", 19),
+                                ("basenet.slice4.", 29)):
+            if k.startswith(prefix):
+                rest = k[len(prefix):]
+                dot  = rest.index(".")
+                return prefix + str(int(rest[:dot]) - offset) + rest[dot:]
+        return k
 
-    # strict=False: slice2-4 keys still won't match (absolute vs relative indices)
-    # but those layers keep their ImageNet-pretrained VGG weights — that is correct.
+    state   = OrderedDict((_remap_key(k), v) for k, v in state.items())
     missing, unexpected = net.load_state_dict(state, strict=False)
     import logging
     _log = logging.getLogger(__name__)
-    _log.info("CRAFT weights loaded — missing: %d  unexpected: %d", len(missing), len(unexpected))
+    _log.info("CRAFT weights loaded — missing: %d  unexpected: %d (expect 0 / 0)", len(missing), len(unexpected))
     if unexpected:
         _log.warning("Unexpected keys (first 3): %s", unexpected[:3])
 

@@ -51,7 +51,7 @@ class VGGBasenet(nn.Module):
         self.slice1 = nn.Sequential(*features[:12])
         self.slice2 = nn.Sequential(*features[12:19])
         self.slice3 = nn.Sequential(*features[19:29])
-        self.slice4 = nn.Sequential(*features[29:])      # ALL remaining VGG (29-43)
+        self.slice4 = nn.Sequential(*features[29:39])     # 29-38: matches original CRAFT-pytorch
         self.slice5 = nn.Sequential(                      # ONLY custom dilated convs
             nn.MaxPool2d(kernel_size=3, stride=1, padding=1),
             nn.Conv2d(512, 1024, kernel_size=3, padding=6, dilation=6),
@@ -105,21 +105,23 @@ def load_craft(weights_path: str) -> CRAFT:
     if list(state.keys())[0].startswith("module."):
         state = OrderedDict((k[7:], v) for k, v in state.items())
 
-    # The original CRAFT-pytorch names slice5 by absolute VGG feature index
-    # (39=MaxPool, 40=Conv1024, 41=Conv1024). Our Sequential uses 0-indexed keys.
-    # Remap so the dilated conv weights actually load into our model.
-    remap = {
-        "basenet.slice5.39.": "basenet.slice5.0.",
-        "basenet.slice5.40.": "basenet.slice5.1.",
-        "basenet.slice5.41.": "basenet.slice5.2.",
-    }
-    state = OrderedDict(
-        (next((k.replace(o, n) for o, n in remap.items() if k.startswith(o)), k), v)
-        for k, v in state.items()
-    )
+    # Original CRAFT-pytorch uses add_module(str(x), ...) with absolute VGG feature
+    # indices for slice2-4 (offsets 12, 19, 29).  Our nn.Sequential uses 0-based keys.
+    # slice5 is created with positional args in the original, so it is already 0-indexed.
+    def _remap_key(k: str) -> str:
+        for prefix, offset in (("basenet.slice2.", 12),
+                                ("basenet.slice3.", 19),
+                                ("basenet.slice4.", 29)):
+            if k.startswith(prefix):
+                rest = k[len(prefix):]
+                dot  = rest.index(".")
+                return prefix + str(int(rest[:dot]) - offset) + rest[dot:]
+        return k
+
+    state = OrderedDict((_remap_key(k), v) for k, v in state.items())
 
     missing, unexpected = net.load_state_dict(state, strict=False)
-    print(f"[load] missing keys   : {len(missing)}  (slice2-4 — kept from VGG ImageNet, expected)")
+    print(f"[load] missing keys   : {len(missing)}  (expect 0 after key remapping)")
     print(f"[load] unexpected keys: {len(unexpected)}")
     if unexpected:
         print(f"       first few: {unexpected[:3]}")
