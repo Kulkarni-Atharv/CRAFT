@@ -90,8 +90,8 @@ def _print_results(result, elapsed_ms: float) -> None:
     if not result.boxes:
         print("  No text regions detected.")
     elif not result.texts or all(t == "" for t in result.texts):
-        print(f"  {len(result.boxes)} text region(s) detected (recognition disabled).")
-        print("  Run with recognition enabled to extract text.")
+        print(f"  {len(result.boxes)} text region(s) detected — recognition returned no text.")
+        print("  Tip: enable save_crops in config.yaml to inspect what CRAFT is cropping.")
     else:
         for i, (text, conf) in enumerate(zip(result.texts, result.confs), 1):
             if text:

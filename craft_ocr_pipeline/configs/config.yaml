@@ -61,7 +61,7 @@ recognition:
 # ── Pipeline ──────────────────────────────────
 pipeline:
   batch_size:  8            # recognition batch size
-  save_crops:  false        # save individual crop images to disk
+  save_crops:  true         # save individual crop images to disk (inspect at outputs/crops/)
   save_viz:    true         # save bounding-box visualizations
   log_level:   "INFO"       # DEBUG | INFO | WARNING | ERROR
 
