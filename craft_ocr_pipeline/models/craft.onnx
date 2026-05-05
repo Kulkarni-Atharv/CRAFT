@@ -1,110 +1,108 @@
 
 pytorch
-2.10.0+cpu:˝Ü
+2.10.0+cpu:Ω“
 ç
 imageval_0node_Shape_0"Shape*
 
 end†*
 start†JÑ
-	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_74: aten.sym_size.intJd
+	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_78: aten.sym_size.intJd
 pkg.torch.onnx.class_hierarchyB['_empty_nn_module_stack_from_metadata_hook', 'aten.sym_size.int']Jã
-pkg.torch.onnx.fx_nodeq%sym_size_int_74 : [num_users=7] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 2), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_74']Js
+pkg.torch.onnx.fx_nodeq%sym_size_int_78 : [num_users=8] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 2), kwargs = {})J^
+pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_78']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
 á
-val_0sym_size_int_74node_sym_size_int_74"SqueezeJÑ
-	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_74: aten.sym_size.intJd
+val_0sym_size_int_78node_sym_size_int_78"SqueezeJÑ
+	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_78: aten.sym_size.intJd
 pkg.torch.onnx.class_hierarchyB['_empty_nn_module_stack_from_metadata_hook', 'aten.sym_size.int']Jã
-pkg.torch.onnx.fx_nodeq%sym_size_int_74 : [num_users=7] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 2), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_74']Js
+pkg.torch.onnx.fx_nodeq%sym_size_int_78 : [num_users=8] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 2), kwargs = {})J^
+pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_78']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-ç
+é
 imageval_1node_Shape_1"Shape*
 
 end†*
 start†JÑ
-	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_75: aten.sym_size.intJd
-pkg.torch.onnx.class_hierarchyB['_empty_nn_module_stack_from_metadata_hook', 'aten.sym_size.int']Jã
-pkg.torch.onnx.fx_nodeq%sym_size_int_75 : [num_users=9] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 3), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_75']Js
+	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_79: aten.sym_size.intJd
+pkg.torch.onnx.class_hierarchyB['_empty_nn_module_stack_from_metadata_hook', 'aten.sym_size.int']Jå
+pkg.torch.onnx.fx_noder%sym_size_int_79 : [num_users=10] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 3), kwargs = {})J^
+pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_79']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-á
-val_1sym_size_int_75node_sym_size_int_75"SqueezeJÑ
-	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_75: aten.sym_size.intJd
-pkg.torch.onnx.class_hierarchyB['_empty_nn_module_stack_from_metadata_hook', 'aten.sym_size.int']Jã
-pkg.torch.onnx.fx_nodeq%sym_size_int_75 : [num_users=9] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 3), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_75']Js
-pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-ñ
-sym_size_int_74
-val_7
-floordiv_8node_floordiv_8"DivJä
-	namespace}_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_8: <built-in function floordiv>Jo
-pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jã
-pkg.torch.onnx.fx_nodeq%floordiv_8 : [num_users=10] = call_function[target=operator.floordiv](args = (%sym_size_int_74, 2), kwargs = {})JY
-pkg.torch.onnx.name_scopes;['_empty_nn_module_stack_from_metadata_hook', 'floordiv_8']Js
-pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-ñ
-sym_size_int_75
-val_7
-floordiv_9node_floordiv_9"DivJä
-	namespace}_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_9: <built-in function floordiv>Jo
-pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jã
-pkg.torch.onnx.fx_nodeq%floordiv_9 : [num_users=14] = call_function[target=operator.floordiv](args = (%sym_size_int_75, 2), kwargs = {})JY
-pkg.torch.onnx.name_scopes;['_empty_nn_module_stack_from_metadata_hook', 'floordiv_9']Js
+à
+val_1sym_size_int_79node_sym_size_int_79"SqueezeJÑ
+	namespacew_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/sym_size_int_79: aten.sym_size.intJd
+pkg.torch.onnx.class_hierarchyB['_empty_nn_module_stack_from_metadata_hook', 'aten.sym_size.int']Jå
+pkg.torch.onnx.fx_noder%sym_size_int_79 : [num_users=10] = call_function[target=torch.ops.aten.sym_size.int](args = (%x, 3), kwargs = {})J^
+pkg.torch.onnx.name_scopes@['_empty_nn_module_stack_from_metadata_hook', 'sym_size_int_79']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
 õ
-sym_size_int_74
-val_10floordiv_10node_floordiv_10"DivJã
+sym_size_int_78
+val_7floordiv_10node_floordiv_10"DivJã
 	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_10: <built-in function floordiv>Jo
-pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jã
-pkg.torch.onnx.fx_nodeq%floordiv_10 : [num_users=8] = call_function[target=operator.floordiv](args = (%sym_size_int_74, 4), kwargs = {})JZ
+pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jå
+pkg.torch.onnx.fx_noder%floordiv_10 : [num_users=10] = call_function[target=operator.floordiv](args = (%sym_size_int_78, 2), kwargs = {})JZ
 pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_10']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-ú
-sym_size_int_75
-val_10floordiv_11node_floordiv_11"DivJã
+õ
+sym_size_int_79
+val_7floordiv_11node_floordiv_11"DivJã
 	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_11: <built-in function floordiv>Jo
 pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jå
-pkg.torch.onnx.fx_noder%floordiv_11 : [num_users=10] = call_function[target=operator.floordiv](args = (%sym_size_int_75, 4), kwargs = {})JZ
+pkg.torch.onnx.fx_noder%floordiv_11 : [num_users=14] = call_function[target=operator.floordiv](args = (%sym_size_int_79, 2), kwargs = {})JZ
 pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_11']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
 õ
-sym_size_int_74
-val_12floordiv_12node_floordiv_12"DivJã
+sym_size_int_78
+val_10floordiv_12node_floordiv_12"DivJã
 	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_12: <built-in function floordiv>Jo
 pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jã
-pkg.torch.onnx.fx_nodeq%floordiv_12 : [num_users=8] = call_function[target=operator.floordiv](args = (%sym_size_int_74, 8), kwargs = {})JZ
+pkg.torch.onnx.fx_nodeq%floordiv_12 : [num_users=8] = call_function[target=operator.floordiv](args = (%sym_size_int_78, 4), kwargs = {})JZ
 pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_12']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
 ú
-sym_size_int_75
-val_12floordiv_13node_floordiv_13"DivJã
+sym_size_int_79
+val_10floordiv_13node_floordiv_13"DivJã
 	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_13: <built-in function floordiv>Jo
 pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jå
-pkg.torch.onnx.fx_noder%floordiv_13 : [num_users=10] = call_function[target=operator.floordiv](args = (%sym_size_int_75, 8), kwargs = {})JZ
+pkg.torch.onnx.fx_noder%floordiv_13 : [num_users=10] = call_function[target=operator.floordiv](args = (%sym_size_int_79, 4), kwargs = {})JZ
 pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_13']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-ú
-sym_size_int_74
-val_14floordiv_14node_floordiv_14"DivJã
+õ
+sym_size_int_78
+val_12floordiv_14node_floordiv_14"DivJã
 	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_14: <built-in function floordiv>Jo
-pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jå
-pkg.torch.onnx.fx_noder%floordiv_14 : [num_users=7] = call_function[target=operator.floordiv](args = (%sym_size_int_74, 16), kwargs = {})JZ
+pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jã
+pkg.torch.onnx.fx_nodeq%floordiv_14 : [num_users=8] = call_function[target=operator.floordiv](args = (%sym_size_int_78, 8), kwargs = {})JZ
 pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_14']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
 ú
-sym_size_int_75
-val_14floordiv_15node_floordiv_15"DivJã
+sym_size_int_79
+val_12floordiv_15node_floordiv_15"DivJã
 	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_15: <built-in function floordiv>Jo
 pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jå
-pkg.torch.onnx.fx_noder%floordiv_15 : [num_users=9] = call_function[target=operator.floordiv](args = (%sym_size_int_75, 16), kwargs = {})JZ
+pkg.torch.onnx.fx_noder%floordiv_15 : [num_users=10] = call_function[target=operator.floordiv](args = (%sym_size_int_79, 8), kwargs = {})JZ
 pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_15']Js
 pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
-
+ú
+sym_size_int_78
+val_15floordiv_18node_floordiv_18"DivJã
+	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_18: <built-in function floordiv>Jo
+pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jå
+pkg.torch.onnx.fx_noder%floordiv_18 : [num_users=7] = call_function[target=operator.floordiv](args = (%sym_size_int_78, 32), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_18']Js
+pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
+ú
+sym_size_int_79
+val_15floordiv_19node_floordiv_19"DivJã
+	namespace~_empty_nn_module_stack_from_metadata_hook: _empty_nn_module_stack_from_metadata_hook/floordiv_19: <built-in function floordiv>Jo
+pkg.torch.onnx.class_hierarchyM['_empty_nn_module_stack_from_metadata_hook', '<built-in function floordiv>']Jå
+pkg.torch.onnx.fx_noder%floordiv_19 : [num_users=9] = call_function[target=operator.floordiv](args = (%sym_size_int_79, 32), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['_empty_nn_module_stack_from_metadata_hook', 'floordiv_19']Js
+pkg.torch.onnx.stack_traceUFile "torch/fx/passes/runtime_assert.py", line 24, in insert_deferred_runtime_asserts
+∏
 image
 basenet.slice1.0.weight
-basenet.slice1.0.biasgetitemnode_Conv_183"Conv*
+basenet.slice1.0.biasgetitemnode_Conv_189"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -114,33 +112,33 @@ floordiv_9node_floordiv_9"DivJä
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J»
 pkg.torch.onnx.fx_node≠%_native_batch_norm_legit_no_training : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d, %p_basenet_slice1_1_weight, %p_basenet_slice1_1_bias, %b_basenet_slice1_1_running_mean, %b_basenet_slice1_1_running_var, 0.1, 1e-05), kwargs = {})J{
-pkg.torch.onnx.name_scopes]['', 'basenet', 'basenet.slice1', 'basenet.slice1.1', '_native_batch_norm_legit_no_training']J⁄
-pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes]['', 'basenet', 'basenet.slice1', 'basenet.slice1.1', '_native_batch_norm_legit_no_training']J¢
+pkg.torch.onnx.stack_traceÉFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-Ë
+∞	
 getitemrelu	node_relu"ReluJº
 	namespaceÆ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.2: torch.nn.modules.activation.ReLU/relu: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']JÑ
 pkg.torch.onnx.fx_nodej%relu : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem,), kwargs = {})J[
-pkg.torch.onnx.name_scopes=['', 'basenet', 'basenet.slice1', 'basenet.slice1.2', 'relu']JÒ
-pkg.torch.onnx.stack_trace“File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes=['', 'basenet', 'basenet.slice1', 'basenet.slice1.2', 'relu']Jπ
+pkg.torch.onnx.stack_traceöFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-˘
+¡
 relu
 basenet.slice1.3.weight
-basenet.slice1.3.bias	getitem_3node_Conv_184"Conv*
+basenet.slice1.3.bias	getitem_3node_Conv_190"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -150,30 +148,30 @@ floordiv_9node_floordiv_9"DivJä
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_1 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_1, %p_basenet_slice1_4_weight, %p_basenet_slice1_4_bias, %b_basenet_slice1_4_running_mean, %b_basenet_slice1_4_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.4', '_native_batch_norm_legit_no_training_1']J⁄
-pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.4', '_native_batch_norm_legit_no_training_1']J¢
+pkg.torch.onnx.stack_traceÉFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-ˆ
+æ	
 	getitem_3relu_1node_relu_1"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.5: torch.nn.modules.activation.ReLU/relu_1: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jà
 pkg.torch.onnx.fx_noden%relu_1 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_3,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.5', 'relu_1']JÒ
-pkg.torch.onnx.stack_trace“File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.5', 'relu_1']Jπ
+pkg.torch.onnx.stack_traceöFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-£
+Î
 
 relu_1
 max_pool2dnode_max_pool2d"MaxPool*
@@ -187,20 +185,20 @@ max_pool2dnode_max_pool2d"MaxPool*
 	namespaceº: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.6: torch.nn.modules.pooling.MaxPool2d/max_pool2d: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']Jü
 pkg.torch.onnx.fx_nodeÑ%max_pool2d : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_1, [2, 2], [2, 2]), kwargs = {})Ja
-pkg.torch.onnx.name_scopesC['', 'basenet', 'basenet.slice1', 'basenet.slice1.6', 'max_pool2d']Jÿ
-pkg.torch.onnx.stack_traceπFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesC['', 'basenet', 'basenet.slice1', 'basenet.slice1.6', 'max_pool2d']J†
+pkg.torch.onnx.stack_traceÅFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-ˇ
+«
 
 max_pool2d
 basenet.slice1.7.weight
-basenet.slice1.7.bias	getitem_6node_Conv_185"Conv*
+basenet.slice1.7.bias	getitem_6node_Conv_191"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -210,33 +208,33 @@ max_pool2d
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_2 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_2, %p_basenet_slice1_8_weight, %p_basenet_slice1_8_bias, %b_basenet_slice1_8_running_mean, %b_basenet_slice1_8_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.8', '_native_batch_norm_legit_no_training_2']J⁄
-pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice1', 'basenet.slice1.8', '_native_batch_norm_legit_no_training_2']J¢
+pkg.torch.onnx.stack_traceÉFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-ˆ
+æ	
 	getitem_6relu_2node_relu_2"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice1: torch.nn.modules.container.Sequential/basenet.slice1.9: torch.nn.modules.activation.ReLU/relu_2: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jà
 pkg.torch.onnx.fx_noden%relu_2 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_6,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.9', 'relu_2']JÒ
-pkg.torch.onnx.stack_trace“File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice1', 'basenet.slice1.9', 'relu_2']Jπ
+pkg.torch.onnx.stack_traceöFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-É
+À
 relu_2
 basenet.slice1.10.weight
-basenet.slice1.10.bias	getitem_9node_Conv_186"Conv*
+basenet.slice1.10.bias	getitem_9node_Conv_192"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -246,30 +244,30 @@ max_pool2d
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J–
 pkg.torch.onnx.fx_nodeµ%_native_batch_norm_legit_no_training_3 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_3, %p_basenet_slice1_11_weight, %p_basenet_slice1_11_bias, %b_basenet_slice1_11_running_mean, %b_basenet_slice1_11_running_var, 0.1, 1e-05), kwargs = {})J~
-pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice1', 'basenet.slice1.11', '_native_batch_norm_legit_no_training_3']J⁄
-pkg.torch.onnx.stack_traceªFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice1', 'basenet.slice1.11', '_native_batch_norm_legit_no_training_3']J¢
+pkg.torch.onnx.stack_traceÉFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 51, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 61, in forward
     s1 = self.slice1(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˜
+ø	
 	getitem_9relu_3node_relu_3"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice2: torch.nn.modules.container.Sequential/basenet.slice2.0: torch.nn.modules.activation.ReLU/relu_3: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jà
 pkg.torch.onnx.fx_noden%relu_3 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_9,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.0', 'relu_3']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.0', 'relu_3']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 62, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Æ
+ˆ
 
 relu_3max_pool2d_1node_max_pool2d_1"MaxPool*
 storage_order †*
@@ -282,20 +280,20 @@ max_pool2d
 	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice2: torch.nn.modules.container.Sequential/basenet.slice2.1: torch.nn.modules.pooling.MaxPool2d/max_pool2d_1: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J°
 pkg.torch.onnx.fx_nodeÜ%max_pool2d_1 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_3, [2, 2], [2, 2]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice2', 'basenet.slice2.1', 'max_pool2d_1']JŸ
-pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice2', 'basenet.slice2.1', 'max_pool2d_1']J°
+pkg.torch.onnx.stack_traceÇFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 62, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-É
+À
 max_pool2d_1
 basenet.slice2.2.weight
 basenet.slice2.2.bias
-getitem_12node_Conv_187"Conv*
+getitem_12node_Conv_193"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -305,35 +303,35 @@ getitem_12node_Conv_187"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_4 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_4, %p_basenet_slice2_3_weight, %p_basenet_slice2_3_bias, %b_basenet_slice2_3_running_mean, %b_basenet_slice2_3_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.3', '_native_batch_norm_legit_no_training_4']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.3', '_native_batch_norm_legit_no_training_4']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 62, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˘
+¡	
 
 getitem_12relu_4node_relu_4"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice2: torch.nn.modules.container.Sequential/basenet.slice2.4: torch.nn.modules.activation.ReLU/relu_4: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_4 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_12,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.4', 'relu_4']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice2', 'basenet.slice2.4', 'relu_4']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 62, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-˝
+≈
 relu_4
 basenet.slice2.5.weight
 basenet.slice2.5.bias
-getitem_15node_Conv_188"Conv*
+getitem_15node_Conv_194"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -343,35 +341,35 @@ getitem_15node_Conv_188"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_5 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_5, %p_basenet_slice2_6_weight, %p_basenet_slice2_6_bias, %b_basenet_slice2_6_running_mean, %b_basenet_slice2_6_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.6', '_native_batch_norm_legit_no_training_5']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice2', 'basenet.slice2.6', '_native_batch_norm_legit_no_training_5']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 52, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 62, in forward
     s2 = self.slice2(s1)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˘
+¡	
 
 getitem_15relu_5node_relu_5"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.0: torch.nn.modules.activation.ReLU/relu_5: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_5 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_15,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.0', 'relu_5']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.0', 'relu_5']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 63, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-˝
+≈
 relu_5
 basenet.slice3.1.weight
 basenet.slice3.1.bias
-getitem_18node_Conv_189"Conv*
+getitem_18node_Conv_195"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -381,31 +379,31 @@ getitem_18node_Conv_189"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_6 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_6, %p_basenet_slice3_2_weight, %p_basenet_slice3_2_bias, %b_basenet_slice3_2_running_mean, %b_basenet_slice3_2_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.2', '_native_batch_norm_legit_no_training_6']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.2', '_native_batch_norm_legit_no_training_6']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 63, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˘
+¡	
 
 getitem_18relu_6node_relu_6"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.3: torch.nn.modules.activation.ReLU/relu_6: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_6 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_18,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.3', 'relu_6']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.3', 'relu_6']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 63, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Æ
+ˆ
 
 relu_6max_pool2d_2node_max_pool2d_2"MaxPool*
 storage_order †*
@@ -418,20 +416,20 @@ getitem_18relu_6node_relu_6"ReluJæ
 	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.4: torch.nn.modules.pooling.MaxPool2d/max_pool2d_2: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J°
 pkg.torch.onnx.fx_nodeÜ%max_pool2d_2 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_6, [2, 2], [2, 2]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice3', 'basenet.slice3.4', 'max_pool2d_2']JŸ
-pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice3', 'basenet.slice3.4', 'max_pool2d_2']J°
+pkg.torch.onnx.stack_traceÇFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 63, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-É
+À
 max_pool2d_2
 basenet.slice3.5.weight
 basenet.slice3.5.bias
-getitem_21node_Conv_190"Conv*
+getitem_21node_Conv_196"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -441,35 +439,35 @@ getitem_21node_Conv_190"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_7 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_7, %p_basenet_slice3_6_weight, %p_basenet_slice3_6_bias, %b_basenet_slice3_6_running_mean, %b_basenet_slice3_6_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.6', '_native_batch_norm_legit_no_training_7']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.6', '_native_batch_norm_legit_no_training_7']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 63, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˘
+¡	
 
 getitem_21relu_7node_relu_7"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice3: torch.nn.modules.container.Sequential/basenet.slice3.7: torch.nn.modules.activation.ReLU/relu_7: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_7 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_21,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.7', 'relu_7']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice3', 'basenet.slice3.7', 'relu_7']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 63, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-˝
+≈
 relu_7
 basenet.slice3.8.weight
 basenet.slice3.8.bias
-getitem_24node_Conv_191"Conv*
+getitem_24node_Conv_197"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -479,35 +477,35 @@ getitem_24node_Conv_191"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_8 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_8, %p_basenet_slice3_9_weight, %p_basenet_slice3_9_bias, %b_basenet_slice3_9_running_mean, %b_basenet_slice3_9_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.9', '_native_batch_norm_legit_no_training_8']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice3', 'basenet.slice3.9', '_native_batch_norm_legit_no_training_8']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 53, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 63, in forward
     s3 = self.slice3(s2)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˘
+¡	
 
 getitem_24relu_8node_relu_8"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.0: torch.nn.modules.activation.ReLU/relu_8: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_8 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_24,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.0', 'relu_8']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.0', 'relu_8']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-˝
+≈
 relu_8
 basenet.slice4.1.weight
 basenet.slice4.1.bias
-getitem_27node_Conv_192"Conv*
+getitem_27node_Conv_198"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -517,31 +515,31 @@ getitem_27node_Conv_192"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÃ
 pkg.torch.onnx.fx_node±%_native_batch_norm_legit_no_training_9 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_9, %p_basenet_slice4_2_weight, %p_basenet_slice4_2_bias, %b_basenet_slice4_2_running_mean, %b_basenet_slice4_2_running_var, 0.1, 1e-05), kwargs = {})J}
-pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice4', 'basenet.slice4.2', '_native_batch_norm_legit_no_training_9']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes_['', 'basenet', 'basenet.slice4', 'basenet.slice4.2', '_native_batch_norm_legit_no_training_9']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˘
+¡	
 
 getitem_27relu_9node_relu_9"ReluJæ
 	namespace∞: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.3: torch.nn.modules.activation.ReLU/relu_9: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
 pkg.torch.onnx.fx_nodeo%relu_9 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_27,), kwargs = {})J]
-pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.3', 'relu_9']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes?['', 'basenet', 'basenet.slice4', 'basenet.slice4.3', 'relu_9']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Æ
+ˆ
 
 relu_9max_pool2d_3node_max_pool2d_3"MaxPool*
 storage_order †*
@@ -554,20 +552,20 @@ getitem_27relu_9node_relu_9"ReluJæ
 	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.4: torch.nn.modules.pooling.MaxPool2d/max_pool2d_3: aten.max_pool2d.defaultJ∂
 pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J°
 pkg.torch.onnx.fx_nodeÜ%max_pool2d_3 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_9, [2, 2], [2, 2]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice4', 'basenet.slice4.4', 'max_pool2d_3']JŸ
-pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice4', 'basenet.slice4.4', 'max_pool2d_3']J°
+pkg.torch.onnx.stack_traceÇFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-á
+œ
 max_pool2d_3
 basenet.slice4.5.weight
 basenet.slice4.5.bias
-getitem_30node_Conv_193"Conv*
+getitem_30node_Conv_199"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -577,35 +575,35 @@ getitem_30node_Conv_193"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JŒ
 pkg.torch.onnx.fx_node≥%_native_batch_norm_legit_no_training_10 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_10, %p_basenet_slice4_6_weight, %p_basenet_slice4_6_bias, %b_basenet_slice4_6_running_mean, %b_basenet_slice4_6_running_var, 0.1, 1e-05), kwargs = {})J~
-pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.6', '_native_batch_norm_legit_no_training_10']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.6', '_native_batch_norm_legit_no_training_10']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-˛
+∆	
 
 getitem_30relu_10node_relu_10"ReluJø
 	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.7: torch.nn.modules.activation.ReLU/relu_10: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
 pkg.torch.onnx.fx_nodep%relu_10 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_30,), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice4', 'basenet.slice4.7', 'relu_10']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice4', 'basenet.slice4.7', 'relu_10']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ç
+ 
 relu_10
 basenet.slice4.8.weight
 basenet.slice4.8.bias
-getitem_33node_Conv_194"Conv*
+getitem_33node_Conv_200"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
@@ -615,19 +613,92 @@ getitem_33node_Conv_194"Conv*
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JŒ
 pkg.torch.onnx.fx_node≥%_native_batch_norm_legit_no_training_11 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_11, %p_basenet_slice4_9_weight, %p_basenet_slice4_9_bias, %b_basenet_slice4_9_running_mean, %b_basenet_slice4_9_running_var, 0.1, 1e-05), kwargs = {})J~
-pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.9', '_native_batch_norm_legit_no_training_11']J€
-pkg.torch.onnx.stack_traceºFile "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.name_scopes`['', 'basenet', 'basenet.slice4', 'basenet.slice4.9', '_native_batch_norm_legit_no_training_11']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 54, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
     s4 = self.slice4(s3)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-æ
+»	
 
+getitem_33relu_11node_relu_11"ReluJ¿
+	namespace≤: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.10: torch.nn.modules.activation.ReLU/relu_11: aten.relu.defaultJÆ
+pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
+pkg.torch.onnx.fx_nodep%relu_11 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_33,), kwargs = {})J_
+pkg.torch.onnx.name_scopesA['', 'basenet', 'basenet.slice4', 'basenet.slice4.10', 'relu_11']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
+    s5, s4, s3, s2, s1 = self.basenet(x)
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
+    s4 = self.slice4(s3)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+“
+relu_11
+basenet.slice4.11.weight
+basenet.slice4.11.bias
+getitem_36node_Conv_201"Conv*
+group†*
+pads@@@@†*
+auto_pad"NOTSET†*
+strides@@†*
+	dilations@@†JÜ
+	namespace¯: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.12: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_12: aten._native_batch_norm_legit_no_training.defaultJ:
+!pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
+pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J“
+pkg.torch.onnx.fx_node∑%_native_batch_norm_legit_no_training_12 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_12, %p_basenet_slice4_12_weight, %p_basenet_slice4_12_bias, %b_basenet_slice4_12_running_mean, %b_basenet_slice4_12_running_var, 0.1, 1e-05), kwargs = {})J
+pkg.torch.onnx.name_scopesa['', 'basenet', 'basenet.slice4', 'basenet.slice4.12', '_native_batch_norm_legit_no_training_12']J£
+pkg.torch.onnx.stack_traceÑFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
+    s5, s4, s3, s2, s1 = self.basenet(x)
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
+    s4 = self.slice4(s3)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+»	
 
-getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
+getitem_36relu_12node_relu_12"ReluJ¿
+	namespace≤: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.13: torch.nn.modules.activation.ReLU/relu_12: aten.relu.defaultJÆ
+pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
+pkg.torch.onnx.fx_nodep%relu_12 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_36,), kwargs = {})J_
+pkg.torch.onnx.name_scopesA['', 'basenet', 'basenet.slice4', 'basenet.slice4.13', 'relu_12']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
+    s5, s4, s3, s2, s1 = self.basenet(x)
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
+    s4 = self.slice4(s3)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+˙
+
+relu_12max_pool2d_4node_max_pool2d_4"MaxPool*
+storage_order †*
+	dilations@@†*
+	ceil_mode †*
+pads@ @ @ @ †*
+auto_pad"NOTSET†*
+strides@@†*
+kernel_shape@@†JÕ
+	namespaceø: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice4: torch.nn.modules.container.Sequential/basenet.slice4.14: torch.nn.modules.pooling.MaxPool2d/max_pool2d_4: aten.max_pool2d.defaultJ∂
+pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J¢
+pkg.torch.onnx.fx_nodeá%max_pool2d_4 : [num_users=2] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%relu_12, [2, 2], [2, 2]), kwargs = {})Jd
+pkg.torch.onnx.name_scopesF['', 'basenet', 'basenet.slice4', 'basenet.slice4.14', 'max_pool2d_4']J°
+pkg.torch.onnx.stack_traceÇFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
+    s5, s4, s3, s2, s1 = self.basenet(x)
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 64, in forward
+    s4 = self.slice4(s3)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
+    return F.max_pool2d(
+ä
+max_pool2d_4max_pool2d_5node_max_pool2d_5"MaxPool*
 storage_order †*
 	dilations@@†*
 	ceil_mode †*
@@ -635,135 +706,105 @@ getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
 auto_pad"NOTSET†*
 strides@@†*
 kernel_shape@@†JÃ
-	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.0: torch.nn.modules.pooling.MaxPool2d/max_pool2d_4: aten.max_pool2d.defaultJ∂
-pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J≠
-pkg.torch.onnx.fx_nodeí%max_pool2d_4 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%getitem_33, [3, 3], [1, 1], [1, 1]), kwargs = {})Jc
-pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice5', 'basenet.slice5.0', 'max_pool2d_4']JŸ
-pkg.torch.onnx.stack_trace∫File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+	namespaceæ: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.0: torch.nn.modules.pooling.MaxPool2d/max_pool2d_5: aten.max_pool2d.defaultJ∂
+pkg.torch.onnx.class_hierarchyì['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']JØ
+pkg.torch.onnx.fx_nodeî%max_pool2d_5 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%max_pool2d_4, [3, 3], [1, 1], [1, 1]), kwargs = {})Jc
+pkg.torch.onnx.name_scopesE['', 'basenet', 'basenet.slice5', 'basenet.slice5.0', 'max_pool2d_5']J°
+pkg.torch.onnx.stack_traceÇFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 65, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
     return F.max_pool2d(
-Ó
-
-max_pool2d_4
+∂
+max_pool2d_5
 basenet.slice5.1.weight
-basenet.slice5.1.bias	conv2d_12node_conv2d_12"Conv*
+basenet.slice5.1.bias	conv2d_13node_conv2d_13"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†Jø
-	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.1: torch.nn.modules.conv.Conv2d/conv2d_12: aten.conv2d.defaultJ¨
+	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.1: torch.nn.modules.conv.Conv2d/conv2d_13: aten.conv2d.defaultJ¨
 pkg.torch.onnx.class_hierarchyâ['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jﬁ
-pkg.torch.onnx.fx_node√%conv2d_12 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%max_pool2d_4, %p_basenet_slice5_1_weight, %p_basenet_slice5_1_bias, [1, 1], [6, 6], [6, 6]), kwargs = {})J`
-pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.1', 'conv2d_12']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+pkg.torch.onnx.fx_node√%conv2d_13 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%max_pool2d_5, %p_basenet_slice5_1_weight, %p_basenet_slice5_1_bias, [1, 1], [6, 6], [6, 6]), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.1', 'conv2d_13']J¬
+pkg.torch.onnx.stack_trace£File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 65, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-¸
-	conv2d_12relu_11node_relu_11"ReluJø
-	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.2: torch.nn.modules.activation.ReLU/relu_11: aten.relu.defaultJÆ
-pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
-pkg.torch.onnx.fx_nodeo%relu_11 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_12,), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice5', 'basenet.slice5.2', 'relu_11']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
-    s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
-    s5 = self.slice5(s4)
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
-    input = module(input)
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
-    return F.relu(input, inplace=self.inplace)
-Ã
-
-relu_11
-basenet.slice5.3.weight
-basenet.slice5.3.bias	conv2d_13node_conv2d_13"Conv*
+ò
+	conv2d_13
+basenet.slice5.2.weight
+basenet.slice5.2.bias	conv2d_14node_conv2d_14"Conv*
 group†*
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†Jø
-	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.3: torch.nn.modules.conv.Conv2d/conv2d_13: aten.conv2d.defaultJ¨
-pkg.torch.onnx.class_hierarchyâ['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J¡
-pkg.torch.onnx.fx_node¶%conv2d_13 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_11, %p_basenet_slice5_3_weight, %p_basenet_slice5_3_bias), kwargs = {})J`
-pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.3', 'conv2d_13']J˙
-pkg.torch.onnx.stack_trace€File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
+	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.2: torch.nn.modules.conv.Conv2d/conv2d_14: aten.conv2d.defaultJ¨
+pkg.torch.onnx.class_hierarchyâ['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J√
+pkg.torch.onnx.fx_node®%conv2d_14 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%conv2d_13, %p_basenet_slice5_2_weight, %p_basenet_slice5_2_bias), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'basenet', 'basenet.slice5', 'basenet.slice5.2', 'conv2d_14']J¬
+pkg.torch.onnx.stack_trace£File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 86, in forward
     s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 65, in forward
     s5 = self.slice5(s4)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-¸
-	conv2d_13relu_12node_relu_12"ReluJø
-	namespace±: __main__.CRAFT/basenet: __main__.VGGBasenet/basenet.slice5: torch.nn.modules.container.Sequential/basenet.slice5.4: torch.nn.modules.activation.ReLU/relu_12: aten.relu.defaultJÆ
-pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.VGGBasenet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
-pkg.torch.onnx.fx_nodeo%relu_12 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_13,), kwargs = {})J^
-pkg.torch.onnx.name_scopes@['', 'basenet', 'basenet.slice5', 'basenet.slice5.4', 'relu_12']JÚ
-pkg.torch.onnx.stack_trace”File "/tmp/ipykernel_1843/2130702692.py", line 79, in forward
-    s5, s4, s3, s2, s1 = self.basenet(x)
-  File "/tmp/ipykernel_1843/2130702692.py", line 55, in forward
-    s5 = self.slice5(s4)
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
-    input = module(input)
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
-    return F.relu(input, inplace=self.inplace)
-´
-floordiv_14
-val_101val_102node_Reshape_97"Reshape*
+“
+floordiv_18
+val_108val_109node_Reshape_103"Reshape*
 	allowzero †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
-    y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-´
-floordiv_15
-val_101val_104node_Reshape_99"Reshape*
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%conv2d_14, [%floordiv_18, %floordiv_19], False, None), kwargs = {})J9
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 87, in forward
+    y = F.interpolate(s5, size=s4.shape[2:], mode="bilinear", align_corners=False)
+“
+floordiv_19
+val_108val_111node_Reshape_105"Reshape*
 	allowzero †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
-    y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-°
-val_102
-val_104val_105node_Concat_100"Concat*
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%conv2d_14, [%floordiv_18, %floordiv_19], False, None), kwargs = {})J9
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 87, in forward
+    y = F.interpolate(s5, size=s4.shape[2:], mode="bilinear", align_corners=False)
+«
+val_109
+val_111val_112node_Concat_106"Concat*
 axis †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
-    y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-°
-val_100
-val_105val_107node_Concat_102"Concat*
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%conv2d_14, [%floordiv_18, %floordiv_19], False, None), kwargs = {})J9
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 87, in forward
+    y = F.interpolate(s5, size=s4.shape[2:], mode="bilinear", align_corners=False)
+«
+val_107
+val_112val_114node_Concat_108"Concat*
 axis †JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
-    y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-ù
-relu_12
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%conv2d_14, [%floordiv_18, %floordiv_19], False, None), kwargs = {})J9
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 87, in forward
+    y = F.interpolate(s5, size=s4.shape[2:], mode="bilinear", align_corners=False)
+≈
+	conv2d_14
  
  
-val_107upsample_bilinear2dnode_upsample_bilinear2d"Resize*&
+val_114upsample_bilinear2dnode_upsample_bilinear2d"Resize*&
 keep_aspect_ratio_policy"stretch†*
 	antialias †*
 extrapolation_value    †*
@@ -773,143 +814,142 @@ getitem_33max_pool2d_4node_max_pool2d_4"MaxPool*
 cubic_coeff_a  @ø†*
 mode"linear†JO
 	namespaceB: __main__.CRAFT/upsample_bilinear2d: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_12, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J9
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']JØ
-pkg.torch.onnx.stack_traceêFile "/tmp/ipykernel_1843/2130702692.py", line 81, in forward
-    y = F.interpolate(s5, size=s4.shape[2:], mode='bilinear', align_corners=False)
-†
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%conv2d_14, [%floordiv_18, %floordiv_19], False, None), kwargs = {})J9
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 87, in forward
+    y = F.interpolate(s5, size=s4.shape[2:], mode="bilinear", align_corners=False)
+…
 upsample_bilinear2d
-
-getitem_33catnode_cat"Concat*
+max_pool2d_4catnode_cat"Concat*
 axis†J3
 	namespace&: __main__.CRAFT/cat: aten.cat.defaultJH
-pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
-pkg.torch.onnx.fx_nodeÖ%cat : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d, %getitem_33], 1), kwargs = {})J)
-pkg.torch.onnx.name_scopes['', 'cat']Jã
-pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
+pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J¢
+pkg.torch.onnx.fx_nodeá%cat : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d, %max_pool2d_4], 1), kwargs = {})J)
+pkg.torch.onnx.name_scopes['', 'cat']J∞
+pkg.torch.onnx.stack_traceëFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 88, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-
+∏
 cat
 upconv1.conv.0.weight
 upconv1.conv.0.bias
-getitem_36node_Conv_195"Conv*
+getitem_39node_Conv_202"Conv*
 group†*
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_12: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_13: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_12 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_14, %p_upconv1_conv_1_weight, %p_upconv1_conv_1_bias, %b_upconv1_conv_1_running_mean, %b_upconv1_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.1', '_native_batch_norm_legit_no_training_12']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_13 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_15, %p_upconv1_conv_1_weight, %p_upconv1_conv_1_bias, %b_upconv1_conv_1_running_mean, %b_upconv1_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.1', '_native_batch_norm_legit_no_training_13']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 88, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_36relu_13node_relu_13"ReluJª
+getitem_39relu_13node_relu_13"ReluJª
 	namespace≠: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.2: torch.nn.modules.activation.ReLU/relu_13: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_13 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_36,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.2', 'relu_13']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
+pkg.torch.onnx.fx_nodep%relu_13 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_39,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.2', 'relu_13']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 88, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ù
+º
 relu_13
 upconv1.conv.3.weight
 upconv1.conv.3.bias
-getitem_39node_Conv_196"Conv*
+getitem_42node_Conv_203"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_13: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_14: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_13 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_15, %p_upconv1_conv_4_weight, %p_upconv1_conv_4_bias, %b_upconv1_conv_4_running_mean, %b_upconv1_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.4', '_native_batch_norm_legit_no_training_13']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_14 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_16, %p_upconv1_conv_4_weight, %p_upconv1_conv_4_bias, %b_upconv1_conv_4_running_mean, %b_upconv1_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv1', 'upconv1.conv', 'upconv1.conv.4', '_native_batch_norm_legit_no_training_14']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 88, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_39relu_14node_relu_14"ReluJª
+getitem_42relu_14node_relu_14"ReluJª
 	namespace≠: __main__.CRAFT/upconv1: __main__.DoubleConv/upconv1.conv: torch.nn.modules.container.Sequential/upconv1.conv.5: torch.nn.modules.activation.ReLU/relu_14: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_14 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_39,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.5', 'relu_14']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 82, in forward
+pkg.torch.onnx.fx_nodep%relu_14 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_42,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv1', 'upconv1.conv', 'upconv1.conv.5', 'relu_14']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 88, in forward
     y = self.upconv1(torch.cat([y, s4], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-±
-floordiv_12
-val_101val_122node_Reshape_117"Reshape*
+÷
+floordiv_14
+val_108val_129node_Reshape_123"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
-    y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-±
-floordiv_13
-val_101val_124node_Reshape_119"Reshape*
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 89, in forward
+    y = F.interpolate(y,  size=s3.shape[2:], mode="bilinear", align_corners=False)
+÷
+floordiv_15
+val_108val_131node_Reshape_125"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
-    y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-¶
-val_122
-val_124val_125node_Concat_120"Concat*
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 89, in forward
+    y = F.interpolate(y,  size=s3.shape[2:], mode="bilinear", align_corners=False)
+À
+val_129
+val_131val_132node_Concat_126"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
-    y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-¶
-val_120
-val_125val_127node_Concat_122"Concat*
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 89, in forward
+    y = F.interpolate(y,  size=s3.shape[2:], mode="bilinear", align_corners=False)
+À
+val_127
+val_132val_134node_Concat_128"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
-    y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-¶
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 89, in forward
+    y = F.interpolate(y,  size=s3.shape[2:], mode="bilinear", align_corners=False)
+À
 relu_14
  
  
-val_127upsample_bilinear2d_1node_upsample_bilinear2d_1"Resize*&
+val_134upsample_bilinear2d_1node_upsample_bilinear2d_1"Resize*&
 keep_aspect_ratio_policy"stretch†*
 	antialias †*
 extrapolation_value    †*
@@ -920,11 +960,11 @@ getitem_39relu_14node_relu_14"ReluJª
 mode"linear†JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_1: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 84, in forward
-    y = F.interpolate(y, size=s3.shape[2:], mode='bilinear', align_corners=False)
-¶
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_1 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_14, [%floordiv_14, %floordiv_15], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_1']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 89, in forward
+    y = F.interpolate(y,  size=s3.shape[2:], mode="bilinear", align_corners=False)
+À
 upsample_bilinear2d_1
 relu_8cat_1
 node_cat_1"Concat*
@@ -932,130 +972,130 @@ node_cat_1"Concat*
 	namespace(: __main__.CRAFT/cat_1: aten.cat.defaultJH
 pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
 pkg.torch.onnx.fx_nodeÖ%cat_1 : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d_1, %relu_8], 1), kwargs = {})J+
-pkg.torch.onnx.name_scopes['', 'cat_1']Jã
-pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
+pkg.torch.onnx.name_scopes['', 'cat_1']J∞
+pkg.torch.onnx.stack_traceëFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 90, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-Ú
+∫
 cat_1
 upconv2.conv.0.weight
 upconv2.conv.0.bias
-getitem_42node_Conv_197"Conv*
+getitem_45node_Conv_204"Conv*
 group†*
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_14: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_15: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_14 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_16, %p_upconv2_conv_1_weight, %p_upconv2_conv_1_bias, %b_upconv2_conv_1_running_mean, %b_upconv2_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.1', '_native_batch_norm_legit_no_training_14']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_15 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_17, %p_upconv2_conv_1_weight, %p_upconv2_conv_1_bias, %b_upconv2_conv_1_running_mean, %b_upconv2_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.1', '_native_batch_norm_legit_no_training_15']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 90, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_42relu_15node_relu_15"ReluJª
+getitem_45relu_15node_relu_15"ReluJª
 	namespace≠: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.2: torch.nn.modules.activation.ReLU/relu_15: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_15 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_42,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.2', 'relu_15']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
+pkg.torch.onnx.fx_nodep%relu_15 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_45,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.2', 'relu_15']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 90, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ù
+º
 relu_15
 upconv2.conv.3.weight
 upconv2.conv.3.bias
-getitem_45node_Conv_198"Conv*
+getitem_48node_Conv_205"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_15: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_16: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_15 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_17, %p_upconv2_conv_4_weight, %p_upconv2_conv_4_bias, %b_upconv2_conv_4_running_mean, %b_upconv2_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.4', '_native_batch_norm_legit_no_training_15']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_16 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_18, %p_upconv2_conv_4_weight, %p_upconv2_conv_4_bias, %b_upconv2_conv_4_running_mean, %b_upconv2_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv2', 'upconv2.conv', 'upconv2.conv.4', '_native_batch_norm_legit_no_training_16']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 90, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_45relu_16node_relu_16"ReluJª
+getitem_48relu_16node_relu_16"ReluJª
 	namespace≠: __main__.CRAFT/upconv2: __main__.DoubleConv/upconv2.conv: torch.nn.modules.container.Sequential/upconv2.conv.5: torch.nn.modules.activation.ReLU/relu_16: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_16 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_45,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.5', 'relu_16']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 85, in forward
+pkg.torch.onnx.fx_nodep%relu_16 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_48,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv2', 'upconv2.conv', 'upconv2.conv.5', 'relu_16']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 90, in forward
     y = self.upconv2(torch.cat([y, s3], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-±
-floordiv_10
-val_101val_142node_Reshape_137"Reshape*
+÷
+floordiv_12
+val_108val_149node_Reshape_143"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
-    y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-±
-floordiv_11
-val_101val_144node_Reshape_139"Reshape*
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 91, in forward
+    y = F.interpolate(y,  size=s2.shape[2:], mode="bilinear", align_corners=False)
+÷
+floordiv_13
+val_108val_151node_Reshape_145"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
-    y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-¶
-val_142
-val_144val_145node_Concat_140"Concat*
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 91, in forward
+    y = F.interpolate(y,  size=s2.shape[2:], mode="bilinear", align_corners=False)
+À
+val_149
+val_151val_152node_Concat_146"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
-    y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-¶
-val_140
-val_145val_147node_Concat_142"Concat*
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 91, in forward
+    y = F.interpolate(y,  size=s2.shape[2:], mode="bilinear", align_corners=False)
+À
+val_147
+val_152val_154node_Concat_148"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
-    y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-¶
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 91, in forward
+    y = F.interpolate(y,  size=s2.shape[2:], mode="bilinear", align_corners=False)
+À
 relu_16
  
  
-val_147upsample_bilinear2d_2node_upsample_bilinear2d_2"Resize*&
+val_154upsample_bilinear2d_2node_upsample_bilinear2d_2"Resize*&
 keep_aspect_ratio_policy"stretch†*
 	antialias †*
 extrapolation_value    †*
@@ -1066,11 +1106,11 @@ getitem_45relu_16node_relu_16"ReluJª
 mode"linear†JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_2: aten.upsample_bilinear2d.vecJT
 pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
-pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 87, in forward
-    y = F.interpolate(y, size=s2.shape[2:], mode='bilinear', align_corners=False)
-¶
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_2 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_16, [%floordiv_12, %floordiv_13], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_2']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 91, in forward
+    y = F.interpolate(y,  size=s2.shape[2:], mode="bilinear", align_corners=False)
+À
 upsample_bilinear2d_2
 relu_5cat_2
 node_cat_2"Concat*
@@ -1078,132 +1118,130 @@ node_cat_2"Concat*
 	namespace(: __main__.CRAFT/cat_2: aten.cat.defaultJH
 pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
 pkg.torch.onnx.fx_nodeÖ%cat_2 : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d_2, %relu_5], 1), kwargs = {})J+
-pkg.torch.onnx.name_scopes['', 'cat_2']Jã
-pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
+pkg.torch.onnx.name_scopes['', 'cat_2']J∞
+pkg.torch.onnx.stack_traceëFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 92, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-Ú
+∫
 cat_2
 upconv3.conv.0.weight
 upconv3.conv.0.bias
-getitem_48node_Conv_199"Conv*
+getitem_51node_Conv_206"Conv*
 group†*
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_16: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_17: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_16 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_18, %p_upconv3_conv_1_weight, %p_upconv3_conv_1_bias, %b_upconv3_conv_1_running_mean, %b_upconv3_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.1', '_native_batch_norm_legit_no_training_16']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_17 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_19, %p_upconv3_conv_1_weight, %p_upconv3_conv_1_bias, %b_upconv3_conv_1_running_mean, %b_upconv3_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.1', '_native_batch_norm_legit_no_training_17']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 92, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_48relu_17node_relu_17"ReluJª
+getitem_51relu_17node_relu_17"ReluJª
 	namespace≠: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.2: torch.nn.modules.activation.ReLU/relu_17: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_17 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_48,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.2', 'relu_17']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
+pkg.torch.onnx.fx_nodep%relu_17 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_51,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.2', 'relu_17']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 92, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ù
+º
 relu_17
 upconv3.conv.3.weight
 upconv3.conv.3.bias
-getitem_51node_Conv_200"Conv*
+getitem_54node_Conv_207"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_17: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_18: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_17 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_19, %p_upconv3_conv_4_weight, %p_upconv3_conv_4_bias, %b_upconv3_conv_4_running_mean, %b_upconv3_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.4', '_native_batch_norm_legit_no_training_17']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_18 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_20, %p_upconv3_conv_4_weight, %p_upconv3_conv_4_bias, %b_upconv3_conv_4_running_mean, %b_upconv3_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv3', 'upconv3.conv', 'upconv3.conv.4', '_native_batch_norm_legit_no_training_18']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 92, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_51relu_18node_relu_18"ReluJª
+getitem_54relu_18node_relu_18"ReluJª
 	namespace≠: __main__.CRAFT/upconv3: __main__.DoubleConv/upconv3.conv: torch.nn.modules.container.Sequential/upconv3.conv.5: torch.nn.modules.activation.ReLU/relu_18: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_18 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_51,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.5', 'relu_18']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 88, in forward
+pkg.torch.onnx.fx_nodep%relu_18 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_54,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv3', 'upconv3.conv', 'upconv3.conv.5', 'relu_18']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 92, in forward
     y = self.upconv3(torch.cat([y, s2], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Æ
-
-floordiv_8
-val_101val_162node_Reshape_157"Reshape*
+÷
+floordiv_10
+val_108val_169node_Reshape_163"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
-    y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-Æ
-
-floordiv_9
-val_101val_164node_Reshape_159"Reshape*
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 93, in forward
+    y = F.interpolate(y,  size=s1.shape[2:], mode="bilinear", align_corners=False)
+÷
+floordiv_11
+val_108val_171node_Reshape_165"Reshape*
 	allowzero †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
-    y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-§
-val_162
-val_164val_165node_Concat_160"Concat*
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 93, in forward
+    y = F.interpolate(y,  size=s1.shape[2:], mode="bilinear", align_corners=False)
+À
+val_169
+val_171val_172node_Concat_166"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
-    y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-§
-val_160
-val_165val_167node_Concat_162"Concat*
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 93, in forward
+    y = F.interpolate(y,  size=s1.shape[2:], mode="bilinear", align_corners=False)
+À
+val_167
+val_172val_174node_Concat_168"Concat*
 axis †JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
-    y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-§
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 93, in forward
+    y = F.interpolate(y,  size=s1.shape[2:], mode="bilinear", align_corners=False)
+À
 relu_18
  
  
-val_167upsample_bilinear2d_3node_upsample_bilinear2d_3"Resize*&
+val_174upsample_bilinear2d_3node_upsample_bilinear2d_3"Resize*&
 keep_aspect_ratio_policy"stretch†*
 	antialias †*
 extrapolation_value    †*
@@ -1213,12 +1251,12 @@ floordiv_9
 cubic_coeff_a  @ø†*
 mode"linear†JQ
 	namespaceD: __main__.CRAFT/upsample_bilinear2d_3: aten.upsample_bilinear2d.vecJT
-pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']J…
-pkg.torch.onnx.fx_nodeÆ%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_8, %floordiv_9], False, None), kwargs = {})J;
-pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']JÆ
-pkg.torch.onnx.stack_traceèFile "/tmp/ipykernel_1843/2130702692.py", line 90, in forward
-    y = F.interpolate(y, size=s1.shape[2:], mode='bilinear', align_corners=False)
-¶
+pkg.torch.onnx.class_hierarchy2['__main__.CRAFT', 'aten.upsample_bilinear2d.vec']JÀ
+pkg.torch.onnx.fx_node∞%upsample_bilinear2d_3 : [num_users=1] = call_function[target=torch.ops.aten.upsample_bilinear2d.vec](args = (%relu_18, [%floordiv_10, %floordiv_11], False, None), kwargs = {})J;
+pkg.torch.onnx.name_scopes['', 'upsample_bilinear2d_3']J”
+pkg.torch.onnx.stack_trace¥File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 93, in forward
+    y = F.interpolate(y,  size=s1.shape[2:], mode="bilinear", align_corners=False)
+À
 upsample_bilinear2d_3
 relu_3cat_3
 node_cat_3"Concat*
@@ -1226,264 +1264,264 @@ node_cat_3"Concat*
 	namespace(: __main__.CRAFT/cat_3: aten.cat.defaultJH
 pkg.torch.onnx.class_hierarchy&['__main__.CRAFT', 'aten.cat.default']J†
 pkg.torch.onnx.fx_nodeÖ%cat_3 : [num_users=1] = call_function[target=torch.ops.aten.cat.default](args = ([%upsample_bilinear2d_3, %relu_3], 1), kwargs = {})J+
-pkg.torch.onnx.name_scopes['', 'cat_3']Jã
-pkg.torch.onnx.stack_tracemFile "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
+pkg.torch.onnx.name_scopes['', 'cat_3']J∞
+pkg.torch.onnx.stack_traceëFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 94, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-Ú
+∫
 cat_3
 upconv4.conv.0.weight
 upconv4.conv.0.bias
-getitem_54node_Conv_201"Conv*
+getitem_57node_Conv_208"Conv*
 group†*
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_18: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_19: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_18 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_20, %p_upconv4_conv_1_weight, %p_upconv4_conv_1_bias, %b_upconv4_conv_1_running_mean, %b_upconv4_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.1', '_native_batch_norm_legit_no_training_18']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_19 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_21, %p_upconv4_conv_1_weight, %p_upconv4_conv_1_bias, %b_upconv4_conv_1_running_mean, %b_upconv4_conv_1_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.1', '_native_batch_norm_legit_no_training_19']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 94, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_54relu_19node_relu_19"ReluJª
+getitem_57relu_19node_relu_19"ReluJª
 	namespace≠: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.2: torch.nn.modules.activation.ReLU/relu_19: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_19 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_54,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.2', 'relu_19']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
+pkg.torch.onnx.fx_nodep%relu_19 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_57,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.2', 'relu_19']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 94, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Ù
+º
 relu_19
 upconv4.conv.3.weight
 upconv4.conv.3.bias
-getitem_57node_Conv_202"Conv*
+getitem_60node_Conv_209"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†JÅ
-	namespaceÛ: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_19: aten._native_batch_norm_legit_no_training.defaultJ:
+	namespaceÛ: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_20: aten._native_batch_norm_legit_no_training.defaultJ:
 !pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ‘
 pkg.torch.onnx.class_hierarchy±['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
-pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_19 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_21, %p_upconv4_conv_4_weight, %p_upconv4_conv_4_bias, %b_upconv4_conv_4_running_mean, %b_upconv4_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
-pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.4', '_native_batch_norm_legit_no_training_19']J·
-pkg.torch.onnx.stack_trace¬File "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_20 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_22, %p_upconv4_conv_4_weight, %p_upconv4_conv_4_bias, %b_upconv4_conv_4_running_mean, %b_upconv4_conv_4_running_var, 0.1, 1e-05), kwargs = {})Jz
+pkg.torch.onnx.name_scopes\['', 'upconv4', 'upconv4.conv', 'upconv4.conv.4', '_native_batch_norm_legit_no_training_20']J©
+pkg.torch.onnx.stack_traceäFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 94, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/batchnorm.py", line 194, in forward
     return F.batch_norm(
-¸
+ƒ	
 
-getitem_57relu_20node_relu_20"ReluJª
+getitem_60relu_20node_relu_20"ReluJª
 	namespace≠: __main__.CRAFT/upconv4: __main__.DoubleConv/upconv4.conv: torch.nn.modules.container.Sequential/upconv4.conv.5: torch.nn.modules.activation.ReLU/relu_20: aten.relu.defaultJÆ
 pkg.torch.onnx.class_hierarchyã['__main__.CRAFT', '__main__.DoubleConv', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jä
-pkg.torch.onnx.fx_nodep%relu_20 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_57,), kwargs = {})JZ
-pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.5', 'relu_20']J¯
-pkg.torch.onnx.stack_traceŸFile "/tmp/ipykernel_1843/2130702692.py", line 91, in forward
+pkg.torch.onnx.fx_nodep%relu_20 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_60,), kwargs = {})JZ
+pkg.torch.onnx.name_scopes<['', 'upconv4', 'upconv4.conv', 'upconv4.conv.5', 'relu_20']J¿
+pkg.torch.onnx.stack_trace°File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 94, in forward
     y = self.upconv4(torch.cat([y, s1], dim=1))
-  File "/tmp/ipykernel_1843/2130702692.py", line 26, in forward
+  File "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 43, in forward
     return self.conv(x)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-É	
+ß	
 relu_20
 conv_cls.0.weight
-conv_cls.0.bias	conv2d_22node_conv2d_22"Conv*
+conv_cls.0.bias	conv2d_23node_conv2d_23"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†Jñ
-	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.0: torch.nn.modules.conv.Conv2d/conv2d_22: aten.conv2d.defaultJî
+	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.0: torch.nn.modules.conv.Conv2d/conv2d_23: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J≈
-pkg.torch.onnx.fx_node™%conv2d_22 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_20, %p_conv_cls_0_weight, %p_conv_cls_0_bias, [1, 1], [1, 1]), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.0', 'conv2d_22']Jë
-pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_node™%conv2d_23 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_20, %p_conv_cls_0_weight, %p_conv_cls_0_bias, [1, 1], [1, 1]), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.0', 'conv2d_23']Jµ
+pkg.torch.onnx.stack_traceñFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ª
-	conv2d_22relu_21node_relu_21"ReluJñ
+ﬂ
+	conv2d_23relu_21node_relu_21"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.1: torch.nn.modules.activation.ReLU/relu_21: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
-pkg.torch.onnx.fx_nodeo%relu_21 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_22,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.1', 'relu_21']Jâ
-pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_nodeo%relu_21 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_23,), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.1', 'relu_21']J≠
+pkg.torch.onnx.stack_traceéFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-É	
+ß	
 relu_21
 conv_cls.2.weight
-conv_cls.2.bias	conv2d_23node_conv2d_23"Conv*
+conv_cls.2.bias	conv2d_24node_conv2d_24"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†Jñ
-	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.2: torch.nn.modules.conv.Conv2d/conv2d_23: aten.conv2d.defaultJî
+	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.2: torch.nn.modules.conv.Conv2d/conv2d_24: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J≈
-pkg.torch.onnx.fx_node™%conv2d_23 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_21, %p_conv_cls_2_weight, %p_conv_cls_2_bias, [1, 1], [1, 1]), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.2', 'conv2d_23']Jë
-pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_node™%conv2d_24 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_21, %p_conv_cls_2_weight, %p_conv_cls_2_bias, [1, 1], [1, 1]), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.2', 'conv2d_24']Jµ
+pkg.torch.onnx.stack_traceñFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ª
-	conv2d_23relu_22node_relu_22"ReluJñ
+ﬂ
+	conv2d_24relu_22node_relu_22"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.3: torch.nn.modules.activation.ReLU/relu_22: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
-pkg.torch.onnx.fx_nodeo%relu_22 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_23,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.3', 'relu_22']Jâ
-pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_nodeo%relu_22 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_24,), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.3', 'relu_22']J≠
+pkg.torch.onnx.stack_traceéFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-É	
+ß	
 relu_22
 conv_cls.4.weight
-conv_cls.4.bias	conv2d_24node_conv2d_24"Conv*
+conv_cls.4.bias	conv2d_25node_conv2d_25"Conv*
 group†*
 pads@@@@†*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†Jñ
-	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.4: torch.nn.modules.conv.Conv2d/conv2d_24: aten.conv2d.defaultJî
+	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.4: torch.nn.modules.conv.Conv2d/conv2d_25: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J≈
-pkg.torch.onnx.fx_node™%conv2d_24 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_22, %p_conv_cls_4_weight, %p_conv_cls_4_bias, [1, 1], [1, 1]), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.4', 'conv2d_24']Jë
-pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_node™%conv2d_25 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_22, %p_conv_cls_4_weight, %p_conv_cls_4_bias, [1, 1], [1, 1]), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.4', 'conv2d_25']Jµ
+pkg.torch.onnx.stack_traceñFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ª
-	conv2d_24relu_23node_relu_23"ReluJñ
+ﬂ
+	conv2d_25relu_23node_relu_23"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.5: torch.nn.modules.activation.ReLU/relu_23: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
-pkg.torch.onnx.fx_nodeo%relu_23 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_24,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.5', 'relu_23']Jâ
-pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_nodeo%relu_23 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_25,), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.5', 'relu_23']J≠
+pkg.torch.onnx.stack_traceéFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Û
+ó	
 relu_23
 conv_cls.6.weight
-conv_cls.6.bias	conv2d_25node_conv2d_25"Conv*
+conv_cls.6.bias	conv2d_26node_conv2d_26"Conv*
 group†*
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†Jñ
-	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.6: torch.nn.modules.conv.Conv2d/conv2d_25: aten.conv2d.defaultJî
+	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.6: torch.nn.modules.conv.Conv2d/conv2d_26: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jµ
-pkg.torch.onnx.fx_nodeö%conv2d_25 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_23, %p_conv_cls_6_weight, %p_conv_cls_6_bias), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.6', 'conv2d_25']Jë
-pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_nodeö%conv2d_26 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_23, %p_conv_cls_6_weight, %p_conv_cls_6_bias), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.6', 'conv2d_26']Jµ
+pkg.torch.onnx.stack_traceñFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ª
-	conv2d_25relu_24node_relu_24"ReluJñ
+ﬂ
+	conv2d_26relu_24node_relu_24"ReluJñ
 	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.7: torch.nn.modules.activation.ReLU/relu_24: aten.relu.defaultJñ
 pkg.torch.onnx.class_hierarchyt['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jâ
-pkg.torch.onnx.fx_nodeo%relu_24 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_25,), kwargs = {})JG
-pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.7', 'relu_24']Jâ
-pkg.torch.onnx.stack_traceÍFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_nodeo%relu_24 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_26,), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'conv_cls', 'conv_cls.7', 'relu_24']J≠
+pkg.torch.onnx.stack_traceéFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/activation.py", line 143, in forward
     return F.relu(input, inplace=self.inplace)
-Û
+ó	
 relu_24
 conv_cls.8.weight
-conv_cls.8.bias	conv2d_26node_conv2d_26"Conv*
+conv_cls.8.bias	conv2d_27node_conv2d_27"Conv*
 group†*
 pads@ @ @ @ †*
 auto_pad"NOTSET†*
 strides@@†*
 	dilations@@†Jñ
-	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.8: torch.nn.modules.conv.Conv2d/conv2d_26: aten.conv2d.defaultJî
+	namespaceà: __main__.CRAFT/conv_cls: torch.nn.modules.container.Sequential/conv_cls.8: torch.nn.modules.conv.Conv2d/conv2d_27: aten.conv2d.defaultJî
 pkg.torch.onnx.class_hierarchyr['__main__.CRAFT', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jµ
-pkg.torch.onnx.fx_nodeö%conv2d_26 : [num_users=2] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_24, %p_conv_cls_8_weight, %p_conv_cls_8_bias), kwargs = {})JI
-pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.8', 'conv2d_26']Jë
-pkg.torch.onnx.stack_traceÚFile "/tmp/ipykernel_1843/2130702692.py", line 93, in forward
+pkg.torch.onnx.fx_nodeö%conv2d_27 : [num_users=2] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_24, %p_conv_cls_8_weight, %p_conv_cls_8_bias), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'conv_cls', 'conv_cls.8', 'conv2d_27']Jµ
+pkg.torch.onnx.stack_traceñFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 95, in forward
     y = self.conv_cls(y)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 253, in forward
     input = module(input)
   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py", line 553, in forward
     return self._conv_forward(input, self.weight, self.bias)
-ê
-	conv2d_26
+µ
+	conv2d_27
 val_8selectnode_select"Gather*
 axis†J5
 	namespace(: __main__.CRAFT/select: aten.select.intJG
 pkg.torch.onnx.class_hierarchy%['__main__.CRAFT', 'aten.select.int']Jã
-pkg.torch.onnx.fx_nodeq%select : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%conv2d_26, 1, 0), kwargs = {})J,
-pkg.torch.onnx.name_scopes['', 'select']Jï
-pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
+pkg.torch.onnx.fx_nodeq%select : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%conv2d_27, 1, 0), kwargs = {})J,
+pkg.torch.onnx.name_scopes['', 'select']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 96, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
-â
+Æ
 select
 region_mapnode_sigmoid"SigmoidJ;
 	namespace.: __main__.CRAFT/sigmoid: aten.sigmoid.defaultJL
 pkg.torch.onnx.class_hierarchy*['__main__.CRAFT', 'aten.sigmoid.default']Jâ
 pkg.torch.onnx.fx_nodeo%sigmoid : [num_users=1] = call_function[target=torch.ops.aten.sigmoid.default](args = (%select,), kwargs = {})J-
-pkg.torch.onnx.name_scopes['', 'sigmoid']Jï
-pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
+pkg.torch.onnx.name_scopes['', 'sigmoid']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 96, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
-ö
-	conv2d_26
+ø
+	conv2d_27
 val_5select_1node_select_1"Gather*
 axis†J7
 	namespace*: __main__.CRAFT/select_1: aten.select.intJG
 pkg.torch.onnx.class_hierarchy%['__main__.CRAFT', 'aten.select.int']Jç
-pkg.torch.onnx.fx_nodes%select_1 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%conv2d_26, 1, 1), kwargs = {})J.
-pkg.torch.onnx.name_scopes['', 'select_1']Jï
-pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
+pkg.torch.onnx.fx_nodes%select_1 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%conv2d_27, 1, 1), kwargs = {})J.
+pkg.torch.onnx.name_scopes['', 'select_1']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 96, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
-ó
+º
 select_1affinity_mapnode_sigmoid_1"SigmoidJ=
 	namespace0: __main__.CRAFT/sigmoid_1: aten.sigmoid.defaultJL
 pkg.torch.onnx.class_hierarchy*['__main__.CRAFT', 'aten.sigmoid.default']Jç
 pkg.torch.onnx.fx_nodes%sigmoid_1 : [num_users=1] = call_function[target=torch.ops.aten.sigmoid.default](args = (%select_1,), kwargs = {})J/
-pkg.torch.onnx.name_scopes['', 'sigmoid_1']Jï
-pkg.torch.onnx.stack_tracewFile "/tmp/ipykernel_1843/2130702692.py", line 95, in forward
+pkg.torch.onnx.name_scopes['', 'sigmoid_1']J∫
+pkg.torch.onnx.stack_traceõFile "/content/CRAFT/CRAFT/craft_ocr_pipeline/scripts/colab_export_craft.py", line 96, in forward
     return torch.sigmoid(y[:, 0]), torch.sigmoid(y[:, 1])
 main_graph*û@Bbasenet.slice1.0.biasJÄæÛœΩE´øèy∑k˝“ΩN˘æ•Ê%Ω©i=µ°ã∏?c πõc3øZΩê= êF∑-˚Ò>≤Ωí®π;V>L’)øŒ >»,“>8âéΩÓ ˛Ωù>(∏÷ ˘ºœó“>©Œ«∑Fv±Ωäπ<è>Ÿ¿Ÿ>›ÔG∑ßΩ_>a ]æ¥‚∂Ωgäg>	u∑∏ª•`∑…ß∑‚¥i>°r6∂RÛæ¬ë??ÌïºÇi«∏ı≈∏@‹ΩÔxãæ˛^æíl?E ùΩè’/ΩàΩ∆È`Ω0ù‡æí¶∑”„æ≤iªÄÏ-øñüæûY€∏lsÊª–Hü= ~-∑+ö™>*û@Bbasenet.slice1.3.biasJÄ^ÿædq?n‰àæèâ?_9æ«¢r>¿Ω)∆®>®\?D3V>˛&?Oh!>‘\¢?å	?åf >&@ë>˛ÜÉæ¨aAΩ—*>Sìx?]Àó>÷¡¨>óû¸>â€ô>R6#>”∆B?‘p?x¥>ÑëúΩÔX,>CY>j‘å>∫? ˆ∫=„mµæHU>sÌæ§pàæ€>Ú-?Áœ—>¸Sî>X? Å∏∏P/ø?'?_Éµt’<À”
 >åπHæ.-øﬁA◊= B]? V>XÜ¶>¥uË=7~?™∑b>U8B?œ°ß>N¢>¯b≥>Ãg>Pmë>*WÄBbasenet.slice1.7.biasj
@@ -1516,9 +1554,12 @@ main_graph*û@Bbasenet.slice1.0.biasJÄæÛœΩE´øèy∑k˝“ΩN˘æ•Ê%Ω©i=µ°ã∏?c πõ
 length2048p*\ÄBbasenet.slice4.8.biasj
 locationcraft.onnx.dataj
 offset16384j
-length2048p*ZÄBupconv1.conv.0.biasj
+length2048p*]ÄBbasenet.slice4.11.biasj
 locationcraft.onnx.dataj
 offset18432j
+length2048p*ZÄBupconv1.conv.0.biasj
+locationcraft.onnx.dataj
+offset20480j
 length2048p*YÄBupconv1.conv.3.biasj
 locationcraft.onnx.dataj
 offset5120j
@@ -1538,16 +1579,16 @@ main_graph*û@Bbasenet.slice1.0.biasJÄæÛœΩE´øèy∑k˝“ΩN˘æ•Ê%Ω©i=µ°ã∏?c πõ
 offset7168j
 length1024p*WBconv_cls.6.biasJ@úªb;5L{º#û˚:!÷b<qXºI9∫≠wÀ;.VºWHl∫ˇEºè¬∫≤Æè8h™1Ω⁄å§ª≠‘”:d√„∏*†Bconv_cls.8.weightJÄK+KΩﬁi<ûyë>œh·æÏÜ>©€±>U\%>Ÿ ´æŒΩ≤>sùæc Fæ(êA;‰>¶><∆æ“"ú><É}>W´>ªÌßæÅ‰PΩ~€€>_[>|†ÏΩ @∏ædd]æ=/π·Óªæ…Ì/æõPB>ﬁæñÔ∏æ>BË=Lä?*Bconv_cls.8.biasJ'Ô´;Ò/õª*c@Bbasenet.slice1.0.weightj
 locationcraft.onnx.dataj
-offset28672j
+offset30720j
 length6912p*f@@Bbasenet.slice1.3.weightj
 locationcraft.onnx.dataj
-offset250624j
+offset252672j
 length147456p*gÄ@Bbasenet.slice1.7.weightj
 locationcraft.onnx.dataj
-offset594688j
+offset596736j
 length294912p*jÄÄBbasenet.slice1.10.weightj
 locationcraft.onnx.dataj
-offset1184512j
+offset1186560j
 length589824p*jÄÄBbasenet.slice2.2.weightj
 locationcraft.onnx.dataj
 offset2621440j
@@ -1572,18 +1613,21 @@ main_graph*û@Bbasenet.slice1.0.biasJÄæÛœΩE´øèy∑k˝“ΩN˘æ•Ê%Ω©i=µ°ã∏?c πõ
 length9437184p*kÄÄBbasenet.slice4.8.weightj
 locationcraft.onnx.dataj
 offset54788096j
+length9437184p*lÄÄBbasenet.slice4.11.weightj
+locationcraft.onnx.dataj
+offset64225280j
 length9437184p*lÄÄBbasenet.slice5.1.weightj
 locationcraft.onnx.dataj
-offset64225280j
+offset73662464j
 length18874368p*\ÄBbasenet.slice5.1.biasj
 locationcraft.onnx.dataj
-offset20480j
-length4096p*kÄÄBbasenet.slice5.3.weightj
+offset22528j
+length4096p*kÄÄBbasenet.slice5.2.weightj
 locationcraft.onnx.dataj
 offset12845056j
-length4194304p*\ÄBbasenet.slice5.3.biasj
+length4194304p*\ÄBbasenet.slice5.2.biasj
 locationcraft.onnx.dataj
-offset24576j
+offset26624j
 length4096p*hÄÄBupconv1.conv.0.weightj
 locationcraft.onnx.dataj
 offset9699328j
@@ -1592,55 +1636,57 @@ main_graph*û@Bbasenet.slice1.0.biasJÄæÛœΩE´øèy∑k˝“ΩN˘æ•Ê%Ω©i=µ°ã∏?c πõ
 offset21757952j
 length4718592p*gÄÄBupconv2.conv.0.weightj
 locationcraft.onnx.dataj
-offset1774336j
+offset1776384j
 length786432p*hÄÄBupconv2.conv.3.weightj
 locationcraft.onnx.dataj
 offset3801088j
 length1179648p*fÄÄBupconv3.conv.0.weightj
 locationcraft.onnx.dataj
-offset398080j
+offset400128j
 length196608p*e@ÄBupconv3.conv.3.weightj
 locationcraft.onnx.dataj
-offset889600j
+offset891648j
 length294912p*d@¿Bupconv4.conv.0.weightj
 locationcraft.onnx.dataj
-offset127744j
+offset129792j
 length49152p*c @Bupconv4.conv.3.weightj
 locationcraft.onnx.dataj
-offset176896j
+offset178944j
 length73728p*^  Bconv_cls.0.weightj
 locationcraft.onnx.dataj
-offset54016j
+offset56064j
 length36864p*^  Bconv_cls.2.weightj
 locationcraft.onnx.dataj
-offset90880j
+offset92928j
 length36864p*^ Bconv_cls.4.weightj
 locationcraft.onnx.dataj
-offset35584j
-length18432p*Bval_5J       *Bval_7J       *Bval_8J        *Bval_10J       *Bval_12J       *Bval_14J       *Bval_100J              *Bval_101Jˇˇˇˇˇˇˇˇ*Bval_120J              *Bval_140J       Ä       *Bval_160J       @       Z«
-image
-
+offset37632j
+length18432p*Bval_5J       *Bval_7J       *Bval_8J        *Bval_10J       *Bval_12J       *Bval_15J        *Bval_107J              *Bval_108Jˇˇˇˇˇˇˇˇ*Bval_127J              *Bval_147J       Ä       *Bval_167J       @       Z–
+image!
+
 
 
-h
-w"=
+height
+width"=
 /pkg.torch.export.graph_signature.InputSpec.kind
 USER_INPUT"=
 5pkg.torch.export.graph_signature.InputSpec.persistentNone"&
-!pkg.torch.onnx.original_node_namexbõ
+!pkg.torch.onnx.original_node_namexb§
 
-region_map
-
+region_map'
+%!
 
-(h//2)
-(w//2)"?
+(height//2)
+
+(width//2)"?
 0pkg.torch.export.graph_signature.OutputSpec.kindUSER_OUTPUT",
-!pkg.torch.onnx.original_node_namesigmoidbü
-affinity_map
-
+!pkg.torch.onnx.original_node_namesigmoidb®
+affinity_map'
+%!
 
-(h//2)
-(w//2)"?
+(height//2)
+
+(width//2)"?
 0pkg.torch.export.graph_signature.OutputSpec.kindUSER_OUTPUT".
 !pkg.torch.onnx.original_node_name	sigmoid_1j#
 basenet.slice1.0.bias
@@ -1679,6 +1725,9 @@ region_map
 	
 Äj$
 basenet.slice4.8.bias
+	
+Äj%
+basenet.slice4.11.bias
 	
 Äj"
 upconv1.conv.0.bias
@@ -1832,6 +1881,12 @@ region_map
 Ä
 Ä
 
+j4
+basenet.slice4.11.weight
+
+Ä
+Ä
+
 j
 basenet.slice5.1.weight
 
@@ -1848,7 +1903,7 @@ region_map
 /pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
 5pkg.torch.export.graph_signature.InputSpec.persistentNone"<
 !pkg.torch.onnx.original_node_namep_basenet_slice5_1_biasj
-basenet.slice5.3.weight
+basenet.slice5.2.weight
 
 Ä
 Ä
@@ -1856,13 +1911,13 @@ region_map
 "<
 /pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
 5pkg.torch.export.graph_signature.InputSpec.persistentNone">
-!pkg.torch.onnx.original_node_namep_basenet_slice5_3_weightjﬂ
-basenet.slice5.3.bias
+!pkg.torch.onnx.original_node_namep_basenet_slice5_2_weightjﬂ
+basenet.slice5.2.bias
 	
 Ä"<
 /pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
 5pkg.torch.export.graph_signature.InputSpec.persistentNone"<
-!pkg.torch.onnx.original_node_namep_basenet_slice5_3_biasj1
+!pkg.torch.onnx.original_node_namep_basenet_slice5_2_biasj1
 upconv1.conv.0.weight
 
 Ä
@@ -1948,28 +2003,28 @@ region_map
  j
 val_12
  j
-val_14
- jJ
-val_100
+val_15
+ jL
+val_107
 
 
-"3
-$pkg.onnxscript.optimizer.folded_from['relu_12']j
-val_101
+"5
+$pkg.onnxscript.optimizer.folded_from['conv2d_14']j
+val_108
 
 
 jJ
-val_120
+val_127
 
 
 "3
 $pkg.onnxscript.optimizer.folded_from['relu_14']jJ
-val_140
+val_147
 
 
 "3
 $pkg.onnxscript.optimizer.folded_from['relu_16']jJ
-val_160
+val_167
 
 
 "3
@@ -1978,19 +2033,13 @@ $pkg.onnxscript.optimizer.folded_from['relu_18']j
 
 
 j
-sym_size_int_74
+sym_size_int_78
  j
 val_1
 
 
 j
-sym_size_int_75
- j
-
-floordiv_8
- j
-
-floordiv_9
+sym_size_int_79
  j
 floordiv_10
  j
@@ -2003,489 +2052,554 @@ floordiv_9
 floordiv_14
  j
 floordiv_15
- j#
-getitem
-
+ j
+floordiv_18
+ j
+floordiv_19
+ j,
+getitem!
+
 
 @
-h
-wj 
-relu
-
+height
+widthj)
+relu!
+
 
 @
-h
-wj%
-	getitem_3
-
+height
+widthj.
+	getitem_3!
+
 
 @
-h
-wj"
-relu_1
-
+height
+widthj+
+relu_1!
+
 
 @
-h
-wj0
+height
+widthj9
 
-max_pool2d"
- 
+max_pool2d+
+)%
 
 @
-(h//2)
-(w//2)j0
-	getitem_6#
-!
+(height//2)
+
+(width//2)j9
+	getitem_6,
+*&
 
 Ä
-(h//2)
-(w//2)j-
-relu_2#
-!
+(height//2)
+
+(width//2)j6
+relu_2,
+*&
 
 Ä
-(h//2)
-(w//2)j0
-	getitem_9#
-!
+(height//2)
+
+(width//2)j9
+	getitem_9,
+*&
 
 Ä
-(h//2)
-(w//2)j-
-relu_3#
-!
+(height//2)
+
+(width//2)j6
+relu_3,
+*&
 
 Ä
-(h//2)
-(w//2)j3
-max_pool2d_1#
-!
+(height//2)
+
+(width//2)j<
+max_pool2d_1,
+*&
 
 Ä
-(h//4)
-(w//4)j1
+(height//4)
+
+(width//4)j:
 
-getitem_12#
-!
+getitem_12,
+*&
 
 Ä
-(h//4)
-(w//4)j-
-relu_4#
-!
+(height//4)
+
+(width//4)j6
+relu_4,
+*&
 
 Ä
-(h//4)
-(w//4)j1
+(height//4)
+
+(width//4)j:
 
-getitem_15#
-!
+getitem_15,
+*&
 
 Ä
-(h//4)
-(w//4)j-
-relu_5#
-!
+(height//4)
+
+(width//4)j6
+relu_5,
+*&
 
 Ä
-(h//4)
-(w//4)j1
+(height//4)
+
+(width//4)j:
 
-getitem_18#
-!
+getitem_18,
+*&
 
 Ä
-(h//4)
-(w//4)j-
-relu_6#
-!
+(height//4)
+
+(width//4)j6
+relu_6,
+*&
 
 Ä
-(h//4)
-(w//4)j3
-max_pool2d_2#
-!
+(height//4)
+
+(width//4)j<
+max_pool2d_2,
+*&
 
 Ä
-(h//8)
-(w//8)j1
+(height//8)
+
+(width//8)j:
 
-getitem_21#
-!
+getitem_21,
+*&
 
 Ä
-(h//8)
-(w//8)j-
-relu_7#
-!
+(height//8)
+
+(width//8)j6
+relu_7,
+*&
 
 Ä
-(h//8)
-(w//8)j1
+(height//8)
+
+(width//8)j:
 
-getitem_24#
-!
+getitem_24,
+*&
 
 Ä
-(h//8)
-(w//8)j-
-relu_8#
-!
+(height//8)
+
+(width//8)j6
+relu_8,
+*&
 
 Ä
-(h//8)
-(w//8)j1
+(height//8)
+
+(width//8)j:
 
-getitem_27#
-!
+getitem_27,
+*&
 
 Ä
-(h//8)
-(w//8)j-
-relu_9#
-!
+(height//8)
+
+(width//8)j6
+relu_9,
+*&
 
 Ä
-(h//8)
-(w//8)j5
-max_pool2d_3%
-#
+(height//8)
+
+(width//8)j>
+max_pool2d_3.
+,(
 
 Ä
-	(h//16)
-	(w//16)j3
+(height//16)
+(width//16)j<
 
-getitem_30%
-#
+getitem_30.
+,(
 
 Ä
-	(h//16)
-	(w//16)j0
-relu_10%
-#
+(height//16)
+(width//16)j9
+relu_10.
+,(
 
 Ä
-	(h//16)
-	(w//16)j3
+(height//16)
+(width//16)j<
 
-getitem_33%
-#
+getitem_33.
+,(
 
 Ä
-	(h//16)
-	(w//16)j5
-max_pool2d_4%
-#
+(height//16)
+(width//16)j9
+relu_11.
+,(
 
 Ä
-	(h//16)
-	(w//16)j2
-	conv2d_12%
-#
+(height//16)
+(width//16)j<
+
+getitem_36.
+,(
+
+Ä
+(height//16)
+(width//16)j9
+relu_12.
+,(
+
+Ä
+(height//16)
+(width//16)j>
+max_pool2d_4.
+,(
+
+Ä
+(height//32)
+(width//32)j>
+max_pool2d_5.
+,(
+
+Ä
+(height//32)
+(width//32)j;
+	conv2d_13.
+,(
 
 Ä
-	(h//16)
-	(w//16)j0
-relu_11%
-#
+(height//32)
+(width//32)j;
+	conv2d_14.
+,(
 
 Ä
-	(h//16)
-	(w//16)j2
-	conv2d_13%
-#
-
-Ä
-	(h//16)
-	(w//16)j0
-relu_12%
-#
-
-Ä
-	(h//16)
-	(w//16)j
-val_102
+(height//32)
+(width//32)j
+val_109
 
 
 j
-val_104
+val_111
 
 
 j
-val_105
+val_112
 
 
 j
-val_107
+val_114
 
 
-j<
-upsample_bilinear2d%
-#
+jE
+upsample_bilinear2d.
+,(
 
 Ä
-	(h//16)
-	(w//16)j,
-cat%
-#
+(height//32)
+(width//32)j5
+cat.
+,(
 
 Ä
-	(h//16)
-	(w//16)j3
+(height//32)
+(width//32)j<
 
-getitem_36%
-#
+getitem_39.
+,(
 
 Ä
-	(h//16)
-	(w//16)j0
-relu_13%
-#
+(height//32)
+(width//32)j9
+relu_13.
+,(
 
 Ä
-	(h//16)
-	(w//16)j3
+(height//32)
+(width//32)j<
 
-getitem_39%
-#
+getitem_42.
+,(
 
 Ä
-	(h//16)
-	(w//16)j0
-relu_14%
-#
+(height//32)
+(width//32)j9
+relu_14.
+,(
 
 Ä
-	(h//16)
-	(w//16)j
-val_122
+(height//32)
+(width//32)j
+val_129
 
 
 j
-val_124
+val_131
 
 
 j
-val_125
+val_132
 
 
 j
-val_127
+val_134
 
 
-j<
-upsample_bilinear2d_1#
-!
+jE
+upsample_bilinear2d_1,
+*&
 
 Ä
-(h//8)
-(w//8)j,
-cat_1#
-!
+(height//8)
+
+(width//8)j5
+cat_1,
+*&
 
 Ä
-(h//8)
-(w//8)j1
+(height//8)
+
+(width//8)j:
 
-getitem_42#
-!
+getitem_45,
+*&
 
 Ä
-(h//8)
-(w//8)j.
-relu_15#
-!
+(height//8)
+
+(width//8)j7
+relu_15,
+*&
 
 Ä
-(h//8)
-(w//8)j1
+(height//8)
+
+(width//8)j:
 
-getitem_45#
-!
+getitem_48,
+*&
 
 Ä
-(h//8)
-(w//8)j.
-relu_16#
-!
+(height//8)
+
+(width//8)j7
+relu_16,
+*&
 
 Ä
-(h//8)
-(w//8)j
-val_142
+(height//8)
+
+(width//8)j
+val_149
 
 
 j
-val_144
+val_151
 
 
 j
-val_145
+val_152
 
 
 j
-val_147
+val_154
 
 
-j<
-upsample_bilinear2d_2#
-!
+jE
+upsample_bilinear2d_2,
+*&
 
 Ä
-(h//4)
-(w//4)j,
-cat_2#
-!
+(height//4)
+
+(width//4)j5
+cat_2,
+*&
 
 Ä
-(h//4)
-(w//4)j1
+(height//4)
+
+(width//4)j:
 
-getitem_48#
-!
+getitem_51,
+*&
 
 Ä
-(h//4)
-(w//4)j.
-relu_17#
-!
+(height//4)
+
+(width//4)j7
+relu_17,
+*&
 
 Ä
-(h//4)
-(w//4)j0
+(height//4)
+
+(width//4)j9
 
-getitem_51"
- 
+getitem_54+
+)%
 
 @
-(h//4)
-(w//4)j-
-relu_18"
- 
+(height//4)
+
+(width//4)j6
+relu_18+
+)%
 
 @
-(h//4)
-(w//4)j
-val_162
+(height//4)
+
+(width//4)j
+val_169
 
 
 j
-val_164
+val_171
 
 
 j
-val_165
+val_172
 
 
 j
-val_167
+val_174
 
 
-j;
-upsample_bilinear2d_3"
- 
+jD
+upsample_bilinear2d_3+
+)%
 
 @
-(h//2)
-(w//2)j,
-cat_3#
-!
+(height//2)
+
+(width//2)j5
+cat_3,
+*&
 
 ¿
-(h//2)
-(w//2)j0
+(height//2)
+
+(width//2)j9
 
-getitem_54"
- 
+getitem_57+
+)%
 
 @
-(h//2)
-(w//2)j-
-relu_19"
- 
+(height//2)
+
+(width//2)j6
+relu_19+
+)%
 
 @
-(h//2)
-(w//2)j0
+(height//2)
+
+(width//2)j9
 
-getitem_57"
- 
+getitem_60+
+)%
 
  
-(h//2)
-(w//2)j-
-relu_20"
- 
+(height//2)
+
+(width//2)j6
+relu_20+
+)%
 
  
-(h//2)
-(w//2)j/
-	conv2d_22"
- 
+(height//2)
+
+(width//2)j8
+	conv2d_23+
+)%
 
  
-(h//2)
-(w//2)j-
-relu_21"
- 
+(height//2)
+
+(width//2)j6
+relu_21+
+)%
 
  
-(h//2)
-(w//2)j/
-	conv2d_23"
- 
+(height//2)
+
+(width//2)j8
+	conv2d_24+
+)%
 
  
-(h//2)
-(w//2)j-
-relu_22"
- 
+(height//2)
+
+(width//2)j6
+relu_22+
+)%
 
  
-(h//2)
-(w//2)j/
-	conv2d_24"
- 
+(height//2)
+
+(width//2)j8
+	conv2d_25+
+)%
 
 
-(h//2)
-(w//2)j-
-relu_23"
- 
+(height//2)
+
+(width//2)j6
+relu_23+
+)%
 
 
-(h//2)
-(w//2)j/
-	conv2d_25"
- 
+(height//2)
+
+(width//2)j8
+	conv2d_26+
+)%
 
 
-(h//2)
-(w//2)j-
-relu_24"
- 
+(height//2)
+
+(width//2)j6
+relu_24+
+)%
 
 
-(h//2)
-(w//2)j/
-	conv2d_26"
- 
+(height//2)
+
+(width//2)j8
+	conv2d_27+
+)%
 
 
-(h//2)
-(w//2)j(
-select
-
+(height//2)
+
+(width//2)j1
+select'
+%!
 
-(h//2)
-(w//2)j*
-select_1
-
+(height//2)
+
+(width//2)j3
+select_1'
+%!
 
-(h//2)
-(w//2)ÇÊ^
-0pkg.torch.export.ExportedProgram.graph_signature±^
+(height//2)
+
+(width//2)Ç≠c
+0pkg.torch.export.ExportedProgram.graph_signature¯b
 # inputs
 p_basenet_slice1_0_weight: PARAMETER target='basenet.slice1.0.weight'
 p_basenet_slice1_0_bias: PARAMETER target='basenet.slice1.0.bias'
@@ -2535,10 +2649,14 @@ p_basenet_slice4_8_weight: PARAMETER target='basenet.slice4.8.weight'
 p_basenet_slice4_8_bias: PARAMETER target='basenet.slice4.8.bias'
 p_basenet_slice4_9_weight: PARAMETER target='basenet.slice4.9.weight'
 p_basenet_slice4_9_bias: PARAMETER target='basenet.slice4.9.bias'
+p_basenet_slice4_11_weight: PARAMETER target='basenet.slice4.11.weight'
+p_basenet_slice4_11_bias: PARAMETER target='basenet.slice4.11.bias'
+p_basenet_slice4_12_weight: PARAMETER target='basenet.slice4.12.weight'
+p_basenet_slice4_12_bias: PARAMETER target='basenet.slice4.12.bias'
 p_basenet_slice5_1_weight: PARAMETER target='basenet.slice5.1.weight'
 p_basenet_slice5_1_bias: PARAMETER target='basenet.slice5.1.bias'
-p_basenet_slice5_3_weight: PARAMETER target='basenet.slice5.3.weight'
-p_basenet_slice5_3_bias: PARAMETER target='basenet.slice5.3.bias'
+p_basenet_slice5_2_weight: PARAMETER target='basenet.slice5.2.weight'
+p_basenet_slice5_2_bias: PARAMETER target='basenet.slice5.2.bias'
 p_upconv1_conv_0_weight: PARAMETER target='upconv1.conv.0.weight'
 p_upconv1_conv_0_bias: PARAMETER target='upconv1.conv.0.bias'
 p_upconv1_conv_1_weight: PARAMETER target='upconv1.conv.1.weight'
@@ -2617,6 +2735,9 @@ b_basenet_slice4_6_num_batches_tracked: BUFFER target='basenet.slice4.6.num_batc
 b_basenet_slice4_9_running_mean: BUFFER target='basenet.slice4.9.running_mean' persistent=True
 b_basenet_slice4_9_running_var: BUFFER target='basenet.slice4.9.running_var' persistent=True
 b_basenet_slice4_9_num_batches_tracked: BUFFER target='basenet.slice4.9.num_batches_tracked' persistent=True
+b_basenet_slice4_12_running_mean: BUFFER target='basenet.slice4.12.running_mean' persistent=True
+b_basenet_slice4_12_running_var: BUFFER target='basenet.slice4.12.running_var' persistent=True
+b_basenet_slice4_12_num_batches_tracked: BUFFER target='basenet.slice4.12.num_batches_tracked' persistent=True
 b_upconv1_conv_1_running_mean: BUFFER target='upconv1.conv.1.running_mean' persistent=True
 b_upconv1_conv_1_running_var: BUFFER target='upconv1.conv.1.running_var' persistent=True
 b_upconv1_conv_1_num_batches_tracked: BUFFER target='upconv1.conv.1.num_batches_tracked' persistent=True
@@ -2647,5 +2768,5 @@ x: USER_INPUT
 sigmoid: USER_OUTPUT
 sigmoid_1: USER_OUTPUT
 Ç_
-2pkg.torch.export.ExportedProgram.range_constraints){s53: VR[16, int_oo], s0: VR[16, int_oo]}B
+2pkg.torch.export.ExportedProgram.range_constraints){s53: VR[32, int_oo], s0: VR[32, int_oo]}B
  
