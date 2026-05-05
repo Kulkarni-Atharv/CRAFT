@@ -34,8 +34,8 @@ postprocessing:
   poly:             false
   min_box_area:     20
   padding:          4
-  char_level:       true     # CRAFT finds individual character blobs
-  char_word_gap:    1.2      # gap > 1.2x avg char width = new word
+  char_level:       false    # word-level: CRAFT groups chars via affinity map
+  char_word_gap:    1.2      # gap > 1.2x avg char width = new word (char_level only)
 
 # ── Recognition ───────────────────────────────
 recognition:
@@ -43,9 +43,8 @@ recognition:
   lang:    "en"
   use_gpu: false
 
-  # Characters below this threshold are silently skipped — no guessing.
-  # "boy" with occluded 'b' -> output "oy" not "boy"
-  char_conf_threshold: 0.7
+  # Words below this confidence are silently skipped.
+  char_conf_threshold: 0.5
 
 # ── Pipeline ──────────────────────────────────
 pipeline:
