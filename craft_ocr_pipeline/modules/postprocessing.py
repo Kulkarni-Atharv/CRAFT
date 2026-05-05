@@ -72,15 +72,17 @@ class PostProcessor:
         Each box is an Nx2 float32 array of (x, y) corners in *original* image space.
         For rotated-rect mode N=4; for polygon mode N≥3.
         """
-        # combine region + link scores
-        combined = np.clip(region_map + affinity_map * self.link_threshold, 0, 1)
-        binary   = _score_to_binary(combined, self.low_text)
+        # threshold both maps independently, then OR them together
+        # (matches original CRAFT post-processing algorithm)
+        binary_region = (region_map   > self.low_text).astype(np.uint8)
+        binary_link   = (affinity_map > self.link_threshold).astype(np.uint8)
+        binary        = np.clip(binary_region + binary_link, 0, 1)
 
         labelled, n_comps = _connected_components(binary)
         log.info(
-            "PostProcess — low_text=%.2f text_threshold=%.2f | "
+            "PostProcess — low_text=%.2f link_threshold=%.2f text_threshold=%.2f | "
             "components=%d | binary coverage=%.1f%%",
-            self.low_text, self.text_threshold,
+            self.low_text, self.link_threshold, self.text_threshold,
             n_comps, binary.mean() * 100,
         )
 
