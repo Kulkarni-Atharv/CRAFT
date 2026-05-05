@@ -156,10 +156,13 @@ def export(net: CRAFT, out_path: str) -> None:
     dummy = torch.randn(1, 3, 608, 608, dtype=torch.float32)
     tmp   = out_path + ".tmp.onnx"
 
-    print(f"\n[export] Exporting → {out_path}")
+    print(f"\n[export] Exporting (legacy exporter, opset 11) → {tmp}")
+    # Force the legacy TorchScript-based exporter (not dynamo).
+    # dynamo exporter struggles with opset conversion and external data on Colab.
     torch.onnx.export(
         net, dummy, tmp,
-        opset_version=12,
+        dynamo=False,                 # legacy exporter — stable, single-file output
+        opset_version=11,
         input_names=["image"],
         output_names=["region_map", "affinity_map"],
         dynamic_axes={
@@ -169,19 +172,18 @@ def export(net: CRAFT, out_path: str) -> None:
         },
     )
 
-    # consolidate any external-data sidecar into a single self-contained file
-    # so only ONE file needs to be pushed to GitHub / copied to CM5
+    # The legacy exporter may still write an external-data sidecar for large models.
+    # Consolidate everything into one self-contained file so only craft.onnx is needed.
     print("[export] Consolidating weights into single file...")
     m = onnx.load(tmp, load_external_data=False)
     load_external_data_for_model(m, str(Path(tmp).parent))
     onnx.save(m, out_path)
 
-    # clean up tmp files
     for f in Path(".").glob("*.tmp.onnx*"):
         f.unlink()
 
-    size_mb = Path(out_path).stat().st_size // 1024 // 1024
-    print(f"[export] Single-file ONNX saved ({size_mb} MB) → {out_path}")
+    size_kb = Path(out_path).stat().st_size // 1024
+    print(f"[export] Single-file ONNX saved ({size_kb} KB / {size_kb//1024} MB) → {out_path}")
 
 
 # ── ONNX runtime sanity check ─────────────────────────────────────────────────
