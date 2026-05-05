@@ -351,38 +351,30 @@ def build_recognizer(cfg: dict[str, Any]):
 
     engine = cfg["recognition"]["engine"].lower()
 
-    # auto-fallback: if the requested engine needs torch/paddle but neither
-    # is installed, drop down to crnn_onnx automatically
-    if engine in ("paddleocr", "crnn"):
-        try:
-            import torch  # noqa: F401
-        except ImportError:
-            try:
-                import paddle  # noqa: F401
-            except ImportError:
-                log.warning(
-                    "Neither torch nor paddlepaddle found — switching recognition "
-                    "engine to 'crnn_onnx' automatically"
-                )
-                engine = "crnn_onnx"
-
     if engine == "paddleocr":
+        try:
+            import paddle  # noqa: F401
+        except ImportError:
+            raise ImportError(
+                "PaddleOCR requires paddlepaddle. Install it on the CM5:\n"
+                "  pip install paddlepaddle paddleocr"
+            )
         return PaddleOCRRecognizer(cfg)
+
     if engine == "crnn":
         return CRNNRecognizer(cfg)
+
     if engine == "crnn_onnx":
-        # graceful fallback: if the ONNX file doesn't exist yet, warn and use NullRecognizer
         onnx_path = cfg["paths"].get("crnn_onnx", "")
         if not __import__("pathlib").Path(onnx_path).exists():
             log.warning(
-                "crnn.onnx not found at %s — falling back to detect-only mode.\n"
-                "To enable recognition, export the model on your dev machine:\n"
-                "  python scripts/export_onnx.py --crnn-only\n"
-                "Then copy models/crnn.onnx to this device.",
+                "crnn.onnx not found at %s — running in detect-only mode. "
+                "Export it: python scripts/export_onnx.py --crnn-only",
                 onnx_path,
             )
             return NullRecognizer()
         return CRNNONNXRecognizer(cfg)
+
     raise ValueError(
         f"Unknown recognition engine: {engine!r}. "
         "Use 'paddleocr', 'crnn', or 'crnn_onnx'."

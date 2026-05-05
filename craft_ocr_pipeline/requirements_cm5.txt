@@ -1,13 +1,17 @@
-# ── CM5 lightweight requirements (~250 MB total) ──────────────────────────────
-# PyTorch, torchvision, PaddleOCR and PaddlePaddle are NOT needed here.
-# Both CRAFT and CRNN run via ONNX Runtime exported from the dev machine.
+# ── CM5 requirements ──────────────────────────────────────────────────────────
+# CRAFT runs via ONNX Runtime (no PyTorch needed).
+# Recognition uses PaddleOCR — downloads its own models on first run (~190 MB).
 
 # ── Camera ────────────────────────────────────────────────────────────────────
 # Install via apt (NOT pip) — pip version lacks hardware drivers:
 #   sudo apt install -y python3-picamera2
 
-# ── Inference runtime ─────────────────────────────────────────────────────────
-onnxruntime>=1.16.0          # ~50 MB  — replaces torch + paddlepaddle entirely
+# ── CRAFT inference runtime ───────────────────────────────────────────────────
+onnxruntime>=1.16.0          # ~50 MB  — runs craft.onnx (no PyTorch needed)
+
+# ── Recognition ───────────────────────────────────────────────────────────────
+paddlepaddle>=2.5.0          # ~400 MB  — PaddlePaddle CPU runtime for ARM64
+paddleocr>=2.7.0             # ~50 MB   — downloads rec/cls models on first run
 
 # ── Vision / numerics ─────────────────────────────────────────────────────────
 numpy>=1.24.0                # ~30 MB
