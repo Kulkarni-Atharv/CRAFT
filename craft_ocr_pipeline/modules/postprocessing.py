@@ -120,3 +120,40 @@ class PostProcessor:
 
         log.debug("Valid boxes after filtering: %d", len(boxes))
         return boxes
+
+    def extract_char_boxes(
+        self,
+        region_map: np.ndarray,
+        scale:      float,
+        orig_size:  tuple[int, int],
+    ) -> list[np.ndarray]:
+        """
+        Returns one tight bounding box per character blob using the region
+        map alone (no affinity linking).  Boxes are sorted left-to-right,
+        top-to-bottom so callers can assemble them into words/lines directly.
+        """
+        binary   = _score_to_binary(region_map, self.text_threshold)
+        labelled, n_comps = _connected_components(binary)
+        log.info("Char-level components: %d (text_threshold=%.2f)", n_comps, self.text_threshold)
+
+        boxes: list[np.ndarray] = []
+        orig_h, orig_w = orig_size
+        coord_scale = (1.0 / scale) * 2.0
+
+        for comp_id in range(1, n_comps + 1):
+            mask = (labelled == comp_id).astype(np.uint8)
+            box  = _component_to_box(mask, poly=False)
+            if box is None:
+                continue
+            area = cv2.contourArea(box.reshape(-1, 1, 2).astype(np.float32))
+            if area < self.min_area:
+                continue
+            box = box * coord_scale
+            box[:, 0] = np.clip(box[:, 0], 0, orig_w - 1)
+            box[:, 1] = np.clip(box[:, 1], 0, orig_h - 1)
+            boxes.append(box.astype(np.float32))
+
+        # sort top-to-bottom then left-to-right
+        boxes.sort(key=lambda b: (b[:, 1].mean(), b[:, 0].mean()))
+        log.debug("Char boxes after filtering: %d", len(boxes))
+        return boxes

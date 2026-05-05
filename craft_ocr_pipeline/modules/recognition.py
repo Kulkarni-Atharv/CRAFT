@@ -139,9 +139,8 @@ class TesseractRecognizer:
                 "Install it: sudo apt install -y tesseract-ocr"
             ) from e
 
-        self._tess = pytesseract
-        # PSM 7 = single text line (best for CRAFT crops which are word/line level)
-        self._cfg  = "--psm 7 --oem 3"
+        self._tess      = pytesseract
+        self._char_mode = False   # flipped to True by pipeline in char-level mode
         log.info("Tesseract recogniser initialised")
 
     def recognise(self, crops: list[np.ndarray]) -> list[RecognitionResult]:
@@ -172,8 +171,9 @@ class TesseractRecognizer:
 
         # try multiple strategies and return the best (longest) result
         best_text, best_conf = "", 0.0
+        psm_list = (10, 8) if self._char_mode else (7, 8, 6)
         for variant in self._make_variants(gray):
-            for psm in (7, 8, 6):
+            for psm in psm_list:
                 cfg = f"--psm {psm} --oem 3"
                 try:
                     data = self._tess.image_to_data(
