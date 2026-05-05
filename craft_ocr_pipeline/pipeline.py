@@ -134,14 +134,8 @@ class OCRPipeline:
         self.recognizer    = build_recognizer(cfg)
 
         self.char_conf_threshold: float = cfg["recognition"].get("char_conf_threshold", 0.7)
-        self.use_craft_fusion:    bool  = cfg["recognition"].get("use_craft_fusion", False)
         self.char_level:          bool  = cfg["postprocessing"].get("char_level", False)
         self.char_word_gap:       float = cfg["postprocessing"].get("char_word_gap", 1.2)
-
-        # tell Tesseract to use single-character PSM when in char-level mode
-        from modules.recognition import TesseractRecognizer
-        if self.char_level and isinstance(self.recognizer, TesseractRecognizer):
-            self.recognizer._char_mode = True
 
         log.info(
             "OCR pipeline initialised  char_level=%s  char_conf_threshold=%.2f",
