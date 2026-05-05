@@ -1,27 +1,20 @@
 # ── CM5 requirements ──────────────────────────────────────────────────────────
-# IMPORTANT: PaddleOCR requires Python 3.11 — create a pyenv venv first:
+# PaddlePaddle 3.0 has proper ARM64 support. Install in this exact order:
 #
-#   sudo apt install -y make build-essential libssl-dev zlib1g-dev \
-#     libbz2-dev libreadline-dev libsqlite3-dev wget curl \
-#     libncursesw5-dev xz-utils libffi-dev liblzma-dev libgl1
-#   curl https://pyenv.run | bash
-#   # add pyenv to ~/.bashrc then:
-#   pyenv install 3.11.9
-#   cd ~/CRAFT/CRAFT/craft_ocr_pipeline
-#   ~/.pyenv/versions/3.11.9/bin/python -m venv venv
-#   source venv/bin/activate
-#   pip install -r requirements_cm5.txt
+#   1. pip uninstall paddlepaddle paddleocr -y
+#   2. pip install paddlepaddle==3.0.0 \
+#        -i https://www.paddlepaddle.org.cn/packages/stable/cpu-aarch64/
+#   3. pip install paddleocr==3.4.1
+#   4. pip install -r requirements_cm5.txt
 #
 # ── Camera ────────────────────────────────────────────────────────────────────
-# Install via apt (NOT pip) — pip version lacks hardware drivers:
-#   sudo apt install -y python3-picamera2
+# sudo apt install -y python3-picamera2
 
-# ── CRAFT inference runtime ───────────────────────────────────────────────────
+# ── CRAFT inference ───────────────────────────────────────────────────────────
 onnxruntime>=1.16.0
 
-# ── Recognition ───────────────────────────────────────────────────────────────
-paddlepaddle>=2.6.0
-paddleocr>=2.7.0
+# ── Recognition — install paddle BEFORE running this file (see above) ─────────
+paddleocr==3.4.1
 
 # ── Vision / numerics ─────────────────────────────────────────────────────────
 numpy>=1.24.0
