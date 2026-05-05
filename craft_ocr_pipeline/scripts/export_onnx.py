@@ -53,6 +53,7 @@ def export_craft(cfg: dict) -> None:
         },
     )
     _verify_onnx(out)
+    _sanity_check_craft(out)
     print(f"[export] CRAFT ONNX saved → {out}  ({Path(out).stat().st_size // 1024 // 1024} MB)")
 
 
@@ -93,15 +94,46 @@ def export_crnn(cfg: dict) -> None:
     print(f"[export] CRNN ONNX saved → {out}  ({Path(out).stat().st_size // 1024} KB)")
 
 
-# ── helper ────────────────────────────────────────────────────────────────────
+# ── helpers ───────────────────────────────────────────────────────────────────
 
 def _verify_onnx(path: str) -> None:
     try:
         import onnx  # type: ignore
         onnx.checker.check_model(path)
-        print(f"[export] ONNX model verified OK: {path}")
+        print(f"[export] ONNX graph verified OK: {path}")
     except ImportError:
-        print("[export] onnx package not installed — skipping verification (optional)")
+        print("[export] onnx package not installed — skipping graph verification (optional)")
+
+
+def _sanity_check_craft(path: str) -> None:
+    """Run a white and a black image through the ONNX model and check outputs vary."""
+    try:
+        import onnxruntime as ort  # type: ignore
+        sess = ort.InferenceSession(path, providers=["CPUExecutionProvider"])
+        name = sess.get_inputs()[0].name
+
+        white = np.ones( (1, 3, 608, 608), dtype=np.float32)
+        black = np.zeros((1, 3, 608, 608), dtype=np.float32)
+
+        r_white = sess.run(None, {name: white})[0]
+        r_black = sess.run(None, {name: black})[0]
+
+        max_w  = float(r_white.max())
+        max_b  = float(r_black.max())
+        spread = float(r_white.max() - r_white.min())
+
+        print(f"[sanity] white input → region max={max_w:.3f} | "
+              f"black input → region max={max_b:.3f} | spread={spread:.4f}")
+
+        if spread < 0.01:
+            print("[sanity] WARNING: output is nearly flat (~0.5 everywhere).")
+            print("         The model weights may not have loaded correctly.")
+            print("         Re-check craft_mlt_25k.pth and re-export.")
+        else:
+            print("[sanity] PASS — model outputs vary with input (weights loaded OK)")
+
+    except ImportError:
+        print("[sanity] onnxruntime not installed — skipping runtime sanity check")
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
