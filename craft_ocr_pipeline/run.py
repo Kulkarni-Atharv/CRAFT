@@ -87,8 +87,11 @@ def _print_results(result, elapsed_ms: float) -> None:
     print(f"\n{sep}")
     print(f"  OCR Results  ({elapsed_ms:.1f} ms)")
     print(sep)
-    if not result.texts or all(t == "" for t in result.texts):
-        print("  No text detected.")
+    if not result.boxes:
+        print("  No text regions detected.")
+    elif not result.texts or all(t == "" for t in result.texts):
+        print(f"  {len(result.boxes)} text region(s) detected (recognition disabled).")
+        print("  Run with recognition enabled to extract text.")
     else:
         for i, (text, conf) in enumerate(zip(result.texts, result.confs), 1):
             if text:
@@ -194,11 +197,13 @@ def parse_args() -> argparse.Namespace:
             "  python run.py --input inputs/  --output results.json\n"
         ),
     )
-    p.add_argument("--input",  default=None, help="Image, directory, or video (omit for camera)")
-    p.add_argument("--config", default="configs/config.yaml")
-    p.add_argument("--output", default=None, help="Save JSON results (static mode only)")
-    p.add_argument("--roi",    nargs=4, type=int, metavar=("X", "Y", "W", "H"),
+    p.add_argument("--input",       default=None, help="Image, directory, or video (omit for camera)")
+    p.add_argument("--config",      default="configs/config.yaml")
+    p.add_argument("--output",      default=None, help="Save JSON results (static mode only)")
+    p.add_argument("--roi",         nargs=4, type=int, metavar=("X", "Y", "W", "H"),
                    help="Camera crop region: x y w h (camera mode only)")
+    p.add_argument("--detect-only", action="store_true",
+                   help="Skip recognition — output bounding boxes only (useful when crnn.onnx not yet available)")
     return p.parse_args()
 
 
@@ -206,6 +211,9 @@ def main() -> None:
     args = parse_args()
     cfg  = load_config(args.config)
     ensure_dirs(cfg)
+
+    if args.detect_only:
+        cfg["recognition"]["detect_only"] = True
 
     log = get_logger("run", cfg["paths"]["log_dir"], cfg["pipeline"]["log_level"])
     log.info("Loading OCR pipeline...")

@@ -40,6 +40,7 @@ recognition:
   engine:  "paddleocr"      # "paddleocr" | "crnn" | "crnn_onnx" (CM5)
   lang:    "en"
   use_gpu: true
+  detect_only: false        # true → skip recognition, output bounding boxes only
 
   # ── Character-level confidence filtering ──
   char_conf_threshold: 0.7  # drop characters below this probability

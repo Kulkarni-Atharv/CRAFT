@@ -333,9 +333,22 @@ def _ctc_decode_numpy(
     return char_preds
 
 
+# ── Null recognizer (detect-only mode) ───────────────────────────────────────
+
+class NullRecognizer:
+    """Returns empty results — used when detect_only=true or no engine available."""
+
+    def recognise(self, crops: list[np.ndarray]) -> list[RecognitionResult]:
+        return [RecognitionResult("", 0.0) for _ in crops]
+
+
 # ── Factory ───────────────────────────────────────────────────────────────────
 
 def build_recognizer(cfg: dict[str, Any]):
+    if cfg["recognition"].get("detect_only", False):
+        log.info("Recognition disabled (detect_only=true) — returning bounding boxes only")
+        return NullRecognizer()
+
     engine = cfg["recognition"]["engine"].lower()
 
     # auto-fallback: if the requested engine needs torch/paddle but neither
@@ -358,6 +371,17 @@ def build_recognizer(cfg: dict[str, Any]):
     if engine == "crnn":
         return CRNNRecognizer(cfg)
     if engine == "crnn_onnx":
+        # graceful fallback: if the ONNX file doesn't exist yet, warn and use NullRecognizer
+        onnx_path = cfg["paths"].get("crnn_onnx", "")
+        if not __import__("pathlib").Path(onnx_path).exists():
+            log.warning(
+                "crnn.onnx not found at %s — falling back to detect-only mode.\n"
+                "To enable recognition, export the model on your dev machine:\n"
+                "  python scripts/export_onnx.py --crnn-only\n"
+                "Then copy models/crnn.onnx to this device.",
+                onnx_path,
+            )
+            return NullRecognizer()
         return CRNNONNXRecognizer(cfg)
     raise ValueError(
         f"Unknown recognition engine: {engine!r}. "
