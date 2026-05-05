@@ -112,6 +112,79 @@ def fuse_craft_scores(
     return fused
 
 
+# ── Tesseract back-end ───────────────────────────────────────────────────────
+
+class TesseractRecognizer:
+    """
+    Tesseract OCR via pytesseract — no deep-learning framework required.
+    Works on any platform including ARM64 / Python 3.13.
+
+    Install once on CM5:
+        sudo apt install -y tesseract-ocr
+        pip install pytesseract
+    """
+
+    def __init__(self, cfg: dict[str, Any]):
+        try:
+            import pytesseract  # type: ignore
+            pytesseract.get_tesseract_version()   # raises if binary not found
+        except ImportError as e:
+            raise ImportError(
+                "Install pytesseract: pip install pytesseract\n"
+                "Also install the tesseract binary: sudo apt install -y tesseract-ocr"
+            ) from e
+        except Exception as e:
+            raise RuntimeError(
+                "tesseract binary not found.\n"
+                "Install it: sudo apt install -y tesseract-ocr"
+            ) from e
+
+        self._tess = pytesseract
+        # PSM 7 = single text line (best for CRAFT crops which are word/line level)
+        self._cfg  = "--psm 7 --oem 3"
+        log.info("Tesseract recogniser initialised")
+
+    def recognise(self, crops: list[np.ndarray]) -> list[RecognitionResult]:
+        results: list[RecognitionResult] = []
+        for crop in crops:
+            if crop is None or crop.size == 0:
+                results.append(RecognitionResult("", 0.0))
+                continue
+            results.append(self._decode_crop(crop))
+        return results
+
+    def _decode_crop(self, crop: np.ndarray) -> RecognitionResult:
+        import cv2
+        from PIL import Image
+
+        gray = cv2.cvtColor(crop, cv2.COLOR_RGB2GRAY) if crop.ndim == 3 else crop
+
+        # upscale small crops — tesseract works best at ≥32 px height
+        h, w = gray.shape[:2]
+        if h < 32:
+            scale = 32.0 / h
+            gray  = cv2.resize(gray, (max(1, int(w * scale)), 32),
+                               interpolation=cv2.INTER_CUBIC)
+
+        pil = Image.fromarray(gray)
+        data = self._tess.image_to_data(
+            pil, config=self._cfg,
+            output_type=self._tess.Output.DICT,
+        )
+
+        words = [
+            (t.strip(), int(c))
+            for t, c in zip(data["text"], data["conf"])
+            if t.strip() and int(c) > 0
+        ]
+        if not words:
+            return RecognitionResult("", 0.0)
+
+        text = " ".join(w for w, _ in words).lower()
+        conf = sum(c for _, c in words) / len(words) / 100.0
+        return RecognitionResult(text, conf)
+
+
 # ── PaddleOCR back-end ────────────────────────────────────────────────────────
 
 class PaddleOCRRecognizer:
@@ -391,6 +464,9 @@ def build_recognizer(cfg: dict[str, Any]):
         return NullRecognizer()
 
     engine = cfg["recognition"]["engine"].lower()
+
+    if engine == "tesseract":
+        return TesseractRecognizer(cfg)
 
     if engine == "paddleocr":
         try:

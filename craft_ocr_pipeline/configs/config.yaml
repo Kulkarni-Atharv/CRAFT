@@ -37,9 +37,9 @@ postprocessing:
 
 # ── Recognition ───────────────────────────────
 recognition:
-  engine:  "paddleocr"      # "paddleocr" | "crnn" | "crnn_onnx" (CM5)
+  engine:  "tesseract"      # "tesseract" (CM5) | "paddleocr" | "crnn" | "crnn_onnx"
   lang:    "en"
-  use_gpu: true
+  use_gpu: false
   detect_only: false        # true → skip recognition, output bounding boxes only
 
   # ── Character-level confidence filtering ──
