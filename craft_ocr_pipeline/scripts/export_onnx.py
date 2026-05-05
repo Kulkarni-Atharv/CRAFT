@@ -38,12 +38,14 @@ def export_craft(cfg: dict) -> None:
     # dummy input — dynamic H/W so any image size works at inference
     dummy = torch.randn(1, 3, 608, 608, dtype=torch.float32)
 
-    print(f"[export] Exporting CRAFT → {out}")
+    tmp = out + ".tmp.onnx"
+    print(f"[export] Exporting CRAFT -> {tmp}")
     torch.onnx.export(
         model,
         dummy,
-        out,
-        opset_version=12,
+        tmp,
+        dynamo=False,
+        opset_version=11,
         input_names=["image"],
         output_names=["region_map", "affinity_map"],
         dynamic_axes={
@@ -52,9 +54,21 @@ def export_craft(cfg: dict) -> None:
             "affinity_map": {1: "height", 2: "width"},
         },
     )
+
+    # Consolidate external-data sidecar into one self-contained file
+    print("[export] Consolidating weights into single file ...")
+    import onnx
+    from onnx.external_data_helper import load_external_data_for_model
+    m = onnx.load(tmp, load_external_data=False)
+    load_external_data_for_model(m, str(Path(tmp).parent))
+    onnx.save(m, out)
+    for f in Path(out).parent.glob("*.tmp.onnx*"):
+        f.unlink()
+
     _verify_onnx(out)
     _sanity_check_craft(out)
-    print(f"[export] CRAFT ONNX saved → {out}  ({Path(out).stat().st_size // 1024 // 1024} MB)")
+    size_mb = Path(out).stat().st_size // 1024 // 1024
+    print(f"[export] CRAFT ONNX saved -> {out}  ({size_mb} MB, single file)")
 
 
 # ── CRNN export ───────────────────────────────────────────────────────────────
@@ -91,7 +105,7 @@ def export_crnn(cfg: dict) -> None:
         dynamic_axes={"image": {0: "batch"}},
     )
     _verify_onnx(out)
-    print(f"[export] CRNN ONNX saved → {out}  ({Path(out).stat().st_size // 1024} KB)")
+    print(f"[export] CRNN ONNX saved -> {out}  ({Path(out).stat().st_size // 1024} KB)")
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
@@ -122,8 +136,8 @@ def _sanity_check_craft(path: str) -> None:
         max_b  = float(r_black.max())
         spread = float(r_white.max() - r_white.min())
 
-        print(f"[sanity] white input → region max={max_w:.3f} | "
-              f"black input → region max={max_b:.3f} | spread={spread:.4f}")
+        print(f"[sanity] white input -> region max={max_w:.3f} | "
+              f"black input -> region max={max_b:.3f} | spread={spread:.4f}")
 
         if spread < 0.01:
             print("[sanity] WARNING: output is nearly flat (~0.5 everywhere).")
