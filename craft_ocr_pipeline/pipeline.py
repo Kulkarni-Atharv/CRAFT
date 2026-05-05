@@ -211,6 +211,18 @@ class OCRPipeline:
 
         src_stem = Path(source).stem
 
+        # save region-map heatmap for threshold tuning diagnostics
+        if self.save_viz:
+            import cv2 as _cv2
+            _heat = (_cv2.applyColorMap(
+                (region_map * 255).clip(0, 255).astype("uint8"),
+                _cv2.COLORMAP_JET,
+            ))
+            _cv2.imwrite(
+                str(Path(self.viz_dir) / f"{src_stem}_{frame_idx:06d}_region.jpg"),
+                _heat,
+            )
+
         if self.char_level:
             return self._run_char_level(
                 img, region_map, scale, orig_size,

@@ -132,6 +132,16 @@ class PostProcessor:
         map alone (no affinity linking).  Boxes are sorted left-to-right,
         top-to-bottom so callers can assemble them into words/lines directly.
         """
+        log.info(
+            "Region map — min=%.3f max=%.3f mean=%.3f | "
+            "p50=%.3f p75=%.3f p90=%.3f p95=%.3f p99=%.3f",
+            region_map.min(), region_map.max(), region_map.mean(),
+            float(np.percentile(region_map, 50)),
+            float(np.percentile(region_map, 75)),
+            float(np.percentile(region_map, 90)),
+            float(np.percentile(region_map, 95)),
+            float(np.percentile(region_map, 99)),
+        )
         binary   = _score_to_binary(region_map, self.text_threshold)
         labelled, n_comps = _connected_components(binary)
         log.info("Char-level components: %d (text_threshold=%.2f)", n_comps, self.text_threshold)
