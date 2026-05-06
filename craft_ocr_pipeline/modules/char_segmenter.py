@@ -206,30 +206,34 @@ class CharSegmenter:
         3. Ensure crop is landscape (wider than tall) — swap if needed.
         4. getPerspectiveTransform → warpPerspective.
         5. CLAHE on the LAB L-channel.
-        6. Resize to char_size × char_size.
 
-        Returns (box_4pts_in_orig_coords, normalised_crop).
+        Returns (tight_box_4pts_in_orig_coords, padded_crop_at_natural_resolution).
         """
         rect  = cv2.minAreaRect(pts.reshape(-1, 1, 2))
         (cx, cy), (rw, rh), angle = rect
 
-        # Expand the detected blob region so the full character is captured.
-        # CRAFT region map blobs are only the high-score center pixels; without
-        # padding the crop is too tight and shows only a fragment of the char.
+        # ── tight box — used for CharSegment.box, gap detection, visualisation ──
+        # This represents the actual character boundary in original image coords.
+        tight_box = cv2.boxPoints(rect).astype(np.float32)
+        tight_box[:, 0] = np.clip(tight_box[:, 0], 0, orig_w - 1)
+        tight_box[:, 1] = np.clip(tight_box[:, 1], 0, orig_h - 1)
+
+        # ── padded box — used only for the warpPerspective crop extraction ──────
+        # CRAFT region map blobs cover only the high-score center pixels; without
+        # padding the warp region is too tight and captures only a fragment.
         rw_exp = max(rw + 2 * self.crop_padding, self.min_crop_size)
         rh_exp = max(rh + 2 * self.crop_padding, self.min_crop_size)
 
-        padded_rect = ((cx, cy), (rw_exp, rh_exp), angle)
-        box   = cv2.boxPoints(padded_rect).astype(np.float32)   # 4×2
+        padded_box = cv2.boxPoints(
+            ((cx, cy), (rw_exp, rh_exp), angle)
+        ).astype(np.float32)
+        padded_box[:, 0] = np.clip(padded_box[:, 0], 0, orig_w - 1)
+        padded_box[:, 1] = np.clip(padded_box[:, 1], 0, orig_h - 1)
 
-        # clamp to image boundary
-        box[:, 0] = np.clip(box[:, 0], 0, orig_w - 1)
-        box[:, 1] = np.clip(box[:, 1], 0, orig_h - 1)
-
-        src = order_points(box)        # tl, tr, br, bl
+        src = order_points(padded_box)   # tl, tr, br, bl  (padded — for warp)
         tl, tr, br, bl = src
 
-        # measure the two side lengths
+        # measure the two side lengths of the padded region
         w = float(max(
             np.linalg.norm(tr - tl),
             np.linalg.norm(br - bl),
@@ -240,7 +244,7 @@ class CharSegmenter:
         ))
 
         if w < 1 or h < 1:
-            return box, None
+            return tight_box, None
 
         # canonical orientation: wider side = horizontal (text reads left-to-right)
         # if the box is taller than wide, rotate source corners 90° clockwise
@@ -266,14 +270,11 @@ class CharSegmenter:
         # CLAHE — normalise contrast so angle/lighting changes don't shift pixel values
         crop = _apply_clahe(crop)
 
-        # fixed square output so the classifier always sees the same input shape
-        crop = cv2.resize(
-            crop,
-            (self.char_size, self.char_size),
-            interpolation=cv2.INTER_CUBIC,
-        )
-
-        return box, crop
+        # Return tight_box (actual character boundary) — not the padded warp box.
+        # tight_box is used for word gap detection and visualisation so boxes
+        # don't overlap and words aren't merged incorrectly.
+        # Crop is at natural padded resolution; PaddleOCR works better at full size.
+        return tight_box, crop
 
     # ── save helper ───────────────────────────────────────────────────────────
 
