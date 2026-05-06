@@ -1,37 +1,37 @@
 """
-OCR Pipeline Orchestrator — Char_Segmentation branch
+OCR Pipeline — Char_Segmentation branch
 
-Two execution paths selected by config:
+Simple character-level flow:
+  1. CRAFT detects individual character regions
+  2. Each character is cropped separately (deskewed, CLAHE normalised)
+  3. RapidOCR runs on each crop individually
+  4. If confidence >= threshold  → keep character
+     If confidence <  threshold  → blank  (no guessing)
+  5. Characters are grouped into words by horizontal gap
 
-  pipeline.mode: "char"  (new)
-    CRAFT → CharSegmenter → CharVerifier → CharClassifier → Assembler
-    Each character is verified and classified independently.
-    No language-model guessing. Occluded chars → blank.
-
-  pipeline.mode: "word"  (legacy, main-branch compatible)
-    CRAFT → PostProcessor → Cropper → RapidOCR
-    Word-level crops sent to RapidOCR sequence recogniser.
+mode: "char"  — above flow (this branch)
+mode: "word"  — legacy word-level RapidOCR (main branch compatible)
 """
 
 from __future__ import annotations
 
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import cv2
 import numpy as np
 
-from modules.preprocessing  import Preprocessor
-from modules.detection      import CRAFTDetector
-from modules.visualization  import save_visualization
-from utils.logger           import get_logger
+from modules.preprocessing import Preprocessor
+from modules.detection     import CRAFTDetector
+from modules.visualization import save_visualization
+from utils.logger          import get_logger
 
 log = get_logger(__name__)
 
 
-# ── Result dataclass (shared by both modes) ───────────────────────────────────
+# ── Result dataclass ──────────────────────────────────────────────────────────
 
 @dataclass
 class FrameResult:
@@ -41,22 +41,15 @@ class FrameResult:
     texts:      list[str]
     confs:      list[float]
     latency_ms: float = 0.0
-    # char-mode extras
-    char_statuses: list[str] = field(default_factory=list)  # VERIFIED/BLANK/UNKNOWN per char
-    char_reasons:  list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
-        detections = []
-        for i, (t, c) in enumerate(zip(self.texts, self.confs)):
-            entry = {"text": t, "confidence": round(c, 4)}
-            if i < len(self.char_statuses):
-                entry["status"] = self.char_statuses[i]
-                entry["reason"] = self.char_reasons[i]
-            detections.append(entry)
         return {
             "source":     self.source,
             "frame_idx":  self.frame_idx,
-            "detections": detections,
+            "detections": [
+                {"text": t, "confidence": round(c, 4)}
+                for t, c in zip(self.texts, self.confs)
+            ],
             "latency_ms": round(self.latency_ms, 1),
         }
 
@@ -67,7 +60,7 @@ class OCRPipeline:
 
     def __init__(self, cfg: dict[str, Any]):
         self.cfg      = cfg
-        self.mode     = cfg["pipeline"].get("mode", "word")
+        self.mode     = cfg["pipeline"].get("mode", "char")
         self.save_viz = cfg["pipeline"]["save_viz"]
         self.viz_dir  = cfg["paths"]["viz_dir"]
 
@@ -84,36 +77,32 @@ class OCRPipeline:
     # ── init ──────────────────────────────────────────────────────────────────
 
     def _init_char_pipeline(self, cfg: dict) -> None:
-        from modules.char_segmenter  import CharSegmenter
-        from modules.char_verifier   import CharVerifier
-        from modules.char_classifier import CharClassifier
+        from modules.char_segmenter import CharSegmenter
+        from modules.recognition    import build_recognizer
 
-        self.segmenter  = CharSegmenter(cfg)
-        self.verifier   = CharVerifier(cfg)
-        self.classifier = CharClassifier(cfg)
-        self.char_size  = cfg["segmentation"]["char_size"]
-        self.char_word_gap: float = cfg["segmentation"].get("char_word_gap", 1.5)
+        self.segmenter            = CharSegmenter(cfg)
+        self.recognizer           = build_recognizer(cfg)
+        self.conf_threshold: float = cfg["recognition"].get("char_conf_threshold", 0.7)
+        self.char_word_gap: float  = cfg["segmentation"].get("char_word_gap", 1.5)
 
-        self.voting_enabled: bool = cfg.get("voting", {}).get("enabled", False)
-        if self.voting_enabled:
-            from modules.aggregator import MultiFrameAggregator
-            self.aggregator = MultiFrameAggregator(cfg)
-
-        log.info("Char pipeline: segmenter + verifier + classifier loaded")
+        log.info(
+            "Char pipeline ready  conf_threshold=%.2f  char_word_gap=%.1f",
+            self.conf_threshold, self.char_word_gap,
+        )
 
     def _init_word_pipeline(self, cfg: dict) -> None:
         from modules.postprocessing import PostProcessor
         from modules.cropping       import Cropper
         from modules.recognition    import build_recognizer, filter_by_char_conf
 
-        self.postprocessor          = PostProcessor(cfg)
-        self.cropper                = Cropper(cfg)
-        self.recognizer             = build_recognizer(cfg)
-        self.char_conf_threshold    = cfg["recognition"].get("char_conf_threshold", 0.5)
-        self.batch_size             = cfg["pipeline"]["batch_size"]
-        self._filter_by_char_conf   = filter_by_char_conf
+        self.postprocessor        = PostProcessor(cfg)
+        self.cropper              = Cropper(cfg)
+        self.recognizer           = build_recognizer(cfg)
+        self.conf_threshold: float = cfg["recognition"].get("char_conf_threshold", 0.5)
+        self.batch_size: int       = cfg["pipeline"]["batch_size"]
+        self._filter              = filter_by_char_conf
 
-        log.info("Word pipeline: postprocessor + cropper + RapidOCR loaded")
+        log.info("Word pipeline ready")
 
     # ── public API ────────────────────────────────────────────────────────────
 
@@ -126,8 +115,9 @@ class OCRPipeline:
 
     def process_directory(self, dir_path: str) -> list[FrameResult]:
         exts  = {".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".webp"}
-        paths = sorted(p for p in Path(dir_path).iterdir()
-                       if p.suffix.lower() in exts)
+        paths = sorted(
+            p for p in Path(dir_path).iterdir() if p.suffix.lower() in exts
+        )
         log.info("Processing %d images from %s", len(paths), dir_path)
         return [self.process_image_file(str(p)) for p in paths]
 
@@ -148,7 +138,8 @@ class OCRPipeline:
                     break
                 if frame_idx % frame_skip == 0:
                     img    = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                    result = self._run_frame(img, source=video_path, frame_idx=frame_idx)
+                    result = self._run_frame(img, source=video_path,
+                                            frame_idx=frame_idx)
                     results.append(result)
 
                     if show_window:
@@ -165,44 +156,6 @@ class OCRPipeline:
         log.info("Video: %d frames analysed", len(results))
         return results
 
-    # ── multi-frame API (char mode only) ──────────────────────────────────────
-
-    def process_frames(
-        self,
-        frames: list[np.ndarray],
-        source: str = "multi_frame",
-    ) -> FrameResult:
-        """
-        Run char-mode pipeline on multiple frames captured from different angles,
-        then aggregate with confidence voting for the final text.
-        """
-        if self.mode != "char":
-            log.warning("process_frames() called in word mode — using last frame only")
-            return self._run_frame(frames[-1], source=source, frame_idx=0)
-
-        if not self.voting_enabled:
-            log.warning("voting.enabled=false — using last frame only")
-            return self._run_frame(frames[-1], source=source, frame_idx=0)
-
-        self.aggregator.reset()
-
-        for frame_id, img in enumerate(frames):
-            segs, _, clf_results = self._run_char_detection(
-                img, source=source, frame_idx=frame_id
-            )
-            self.aggregator.add_frame(frame_id, segs, clf_results)
-
-        final_text, agg_chars = self.aggregator.get_final_text()
-
-        boxes  = []   # no individual boxes when aggregating
-        texts  = list(final_text)
-        confs  = [a.confidence for a in agg_chars]
-
-        return FrameResult(
-            source=source, frame_idx=0,
-            boxes=boxes, texts=texts, confs=confs,
-        )
-
     # ── internal ──────────────────────────────────────────────────────────────
 
     def _run_frame(
@@ -212,59 +165,38 @@ class OCRPipeline:
 
         tensor, scale, orig_size = self.preprocessor.process(img)
         region_map, affinity_map = self.detector.detect(tensor)
-
         src_stem = Path(source).stem
 
-        # save region-map heatmap for diagnostic / threshold tuning
+        # save region heatmap for threshold diagnostics
         if self.save_viz:
             _save_region_heatmap(region_map, self.viz_dir, src_stem, frame_idx)
 
         if self.mode == "char":
-            result = self._run_char_frame(
+            return self._run_char(
                 img, region_map, affinity_map, scale, orig_size,
                 source, src_stem, frame_idx, t0,
             )
-        else:
-            result = self._run_word_frame(
-                img, region_map, affinity_map, scale, orig_size,
-                source, src_stem, frame_idx, t0,
-            )
-
-        return result
-
-    # ── char-level frame ──────────────────────────────────────────────────────
-
-    def _run_char_detection(
-        self,
-        img:        np.ndarray,
-        source:     str,
-        frame_idx:  int,
-    ):
-        """Run detection + segmentation + verify + classify.  Returns raw lists."""
-        tensor, scale, orig_size = self.preprocessor.process(img)
-        region_map, affinity_map = self.detector.detect(tensor)
-        src_stem = Path(source).stem
-
-        segs = self.segmenter.segment(
+        return self._run_word(
             img, region_map, affinity_map, scale, orig_size,
-            prefix=f"{src_stem}_{frame_idx}",
+            source, src_stem, frame_idx, t0,
         )
-        ver_results = self.verifier.verify_batch(segs)
-        clf_results = self.classifier.classify_batch(segs, ver_results)
-        return segs, ver_results, clf_results
 
-    def _run_char_frame(
+    # ── char mode ─────────────────────────────────────────────────────────────
+
+    def _run_char(
         self,
-        img:         np.ndarray,
-        region_map:  np.ndarray,
+        img:          np.ndarray,
+        region_map:   np.ndarray,
         affinity_map: np.ndarray,
-        scale:       float,
-        orig_size:   tuple,
-        source:      str,
-        src_stem:    str,
-        frame_idx:   int,
-        t0:          float,
+        scale:        float,
+        orig_size:    tuple,
+        source:       str,
+        src_stem:     str,
+        frame_idx:    int,
+        t0:           float,
     ) -> FrameResult:
+
+        # ── Step 1: CRAFT → individual character crops ────────────────────────
         segs = self.segmenter.segment(
             img, region_map, affinity_map, scale, orig_size,
             prefix=f"{src_stem}_{frame_idx}",
@@ -272,17 +204,23 @@ class OCRPipeline:
 
         if not segs:
             latency = (time.perf_counter() - t0) * 1000
-            log.info("[%s | frame %d] 0 character segments detected | %.1f ms",
+            log.info("[%s | frame %d] 0 character regions | %.1f ms",
                      Path(source).name, frame_idx, latency)
             return FrameResult(source=source, frame_idx=frame_idx,
                                boxes=[], texts=[], confs=[], latency_ms=latency)
 
-        ver_results = self.verifier.verify_batch(segs)
-        clf_results = self.classifier.classify_batch(segs, ver_results)
+        # ── Step 2: RapidOCR on each character crop individually ──────────────
+        char_texts: list[str]   = []
+        char_confs: list[float] = []
 
-        # assemble chars → words preserving blanks
-        word_boxes, word_texts, word_confs, statuses, reasons = _assemble_words_char(
-            segs, clf_results, ver_results, self.char_word_gap
+        for seg in segs:
+            char, conf = self._recognise_char(seg.crop)
+            char_texts.append(char)
+            char_confs.append(conf)
+
+        # ── Step 3: group characters into words by horizontal gap ─────────────
+        word_boxes, word_texts, word_confs = _assemble_words(
+            [s.box for s in segs], char_texts, char_confs, self.char_word_gap,
         )
 
         latency = (time.perf_counter() - t0) * 1000
@@ -294,30 +232,52 @@ class OCRPipeline:
 
         full_text = " ".join(t for t in word_texts if t.strip())
         log.info(
-            "[%s | frame %d] %d segs → %d words → %r | %.1f ms",
-            Path(source).name, frame_idx, len(segs), len(word_texts),
-            full_text, latency,
+            "[%s | frame %d] %d chars → %d words → %r | %.1f ms",
+            Path(source).name, frame_idx,
+            len(segs), len(word_texts), full_text, latency,
         )
         return FrameResult(
             source=source, frame_idx=frame_idx,
             boxes=word_boxes, texts=word_texts, confs=word_confs,
             latency_ms=latency,
-            char_statuses=statuses, char_reasons=reasons,
         )
 
-    # ── word-level frame (legacy) ─────────────────────────────────────────────
+    def _recognise_char(self, crop: np.ndarray) -> tuple[str, float]:
+        """
+        Run RapidOCR on one character crop.
 
-    def _run_word_frame(
+        Returns (character, confidence) if conf >= threshold,
+        ("", 0.0) otherwise — never guesses.
+        """
+        rec_results = self.recognizer.recognise([crop])
+        if not rec_results:
+            return "", 0.0
+
+        res  = rec_results[0]
+        text = res.word_text.strip()
+        conf = res.word_conf
+
+        # take only the first character — ignore any sequence-model padding
+        char = text[:1] if text else ""
+
+        if char and conf >= self.conf_threshold:
+            return char, conf
+
+        return "", 0.0   # below threshold → blank, no guessing
+
+    # ── word mode (legacy) ────────────────────────────────────────────────────
+
+    def _run_word(
         self,
-        img:         np.ndarray,
-        region_map:  np.ndarray,
+        img:          np.ndarray,
+        region_map:   np.ndarray,
         affinity_map: np.ndarray,
-        scale:       float,
-        orig_size:   tuple,
-        source:      str,
-        src_stem:    str,
-        frame_idx:   int,
-        t0:          float,
+        scale:        float,
+        orig_size:    tuple,
+        source:       str,
+        src_stem:     str,
+        frame_idx:    int,
+        t0:           float,
     ) -> FrameResult:
         boxes = self.postprocessor.extract_boxes(
             region_map, affinity_map, scale, orig_size
@@ -326,11 +286,13 @@ class OCRPipeline:
 
         rec_results = []
         for i in range(0, len(crops), self.batch_size):
-            rec_results.extend(self.recognizer.recognise(crops[i: i + self.batch_size]))
+            rec_results.extend(
+                self.recognizer.recognise(crops[i: i + self.batch_size])
+            )
 
         texts, confs = [], []
         for res in rec_results:
-            text, conf = self._filter_by_char_conf(res, self.char_conf_threshold)
+            text, conf = self._filter(res, self.conf_threshold)
             texts.append(text)
             confs.append(conf)
 
@@ -340,87 +302,66 @@ class OCRPipeline:
             out_path = str(Path(self.viz_dir) / f"{src_stem}_{frame_idx:06d}.jpg")
             save_visualization(img, boxes, texts, out_path, region_map=region_map)
 
-        result = FrameResult(
+        log.info("[%s | frame %d] %d word regions | %.1f ms",
+                 Path(source).name, frame_idx, len(texts), latency)
+        return FrameResult(
             source=source, frame_idx=frame_idx,
             boxes=boxes, texts=texts, confs=confs,
             latency_ms=latency,
         )
-        log.info("[%s | frame %d] %d word regions | %.1f ms",
-                 Path(source).name, frame_idx, len(texts), latency)
-        return result
 
 
-# ── character assembly ────────────────────────────────────────────────────────
+# ── word assembly ─────────────────────────────────────────────────────────────
 
-def _assemble_words_char(
-    segs:        list,
-    clf_results: list,
-    ver_results: list,
-    gap_factor:  float,
-) -> tuple[list, list, list, list, list]:
+def _assemble_words(
+    boxes:      list[np.ndarray],
+    char_texts: list[str],
+    char_confs: list[float],
+    gap_factor: float,
+) -> tuple[list[np.ndarray], list[str], list[float]]:
     """
-    Group character segments into words by horizontal gap.
-    Blank characters ("") are included in position but not in the word string.
-    Returns (word_boxes, word_texts, word_confs, statuses, reasons).
+    Groups character boxes into words by horizontal gap.
+    Gap > gap_factor × average character width → new word.
+    Blank characters stay blank in the assembled word — no filling.
     """
-    if not segs:
-        return [], [], [], [], []
+    if not boxes:
+        return [], [], []
 
-    # average character width across all boxes (used as gap reference)
-    widths = []
-    for seg in segs:
-        w = float(seg.box[:, 0].max() - seg.box[:, 0].min())
-        if w > 0:
-            widths.append(w)
-    avg_w     = float(np.mean(widths)) if widths else 10.0
+    widths = [float(b[:, 0].max() - b[:, 0].min()) for b in boxes]
+    avg_w  = float(np.mean([w for w in widths if w > 0])) if widths else 10.0
     threshold = avg_w * gap_factor
 
     word_boxes: list[np.ndarray] = []
     word_texts: list[str]        = []
     word_confs: list[float]      = []
 
-    g_segs, g_chars, g_confs = [segs[0]], [clf_results[0].character], [clf_results[0].confidence]
+    g_boxes, g_chars, g_confs = [boxes[0]], [char_texts[0]], [char_confs[0]]
 
-    for i in range(1, len(segs)):
-        prev_right = segs[i - 1].box[:, 0].max()
-        curr_left  = segs[i].box[:, 0].min()
-        gap        = curr_left - prev_right
+    for i in range(1, len(boxes)):
+        prev_right = boxes[i - 1][:, 0].max()
+        curr_left  = boxes[i][:, 0].min()
 
-        if gap > threshold:
-            _flush_char_group(g_segs, g_chars, g_confs,
-                              word_boxes, word_texts, word_confs)
-            g_segs, g_chars, g_confs = [], [], []
+        if curr_left - prev_right > threshold:
+            _flush(g_boxes, g_chars, g_confs, word_boxes, word_texts, word_confs)
+            g_boxes, g_chars, g_confs = [], [], []
 
-        g_segs.append(segs[i])
-        g_chars.append(clf_results[i].character)
-        g_confs.append(clf_results[i].confidence)
+        g_boxes.append(boxes[i])
+        g_chars.append(char_texts[i])
+        g_confs.append(char_confs[i])
 
-    _flush_char_group(g_segs, g_chars, g_confs,
-                      word_boxes, word_texts, word_confs)
-
-    # statuses and reasons are per-character (not per-word)
-    all_statuses = [v.status for v in ver_results]
-    all_reasons  = [v.reason for v in ver_results]
-    return word_boxes, word_texts, word_confs, all_statuses, all_reasons
+    _flush(g_boxes, g_chars, g_confs, word_boxes, word_texts, word_confs)
+    return word_boxes, word_texts, word_confs
 
 
-def _flush_char_group(
-    g_segs:    list,
-    g_chars:   list[str],
-    g_confs:   list[float],
-    out_boxes: list,
-    out_texts: list,
-    out_confs: list,
-) -> None:
-    if not g_segs:
+def _flush(g_boxes, g_chars, g_confs, out_boxes, out_texts, out_confs) -> None:
+    if not g_boxes:
         return
-    all_pts = np.concatenate([s.box for s in g_segs], axis=0)
+    all_pts = np.concatenate(g_boxes, axis=0)
     x1, y1  = all_pts[:, 0].min(), all_pts[:, 1].min()
     x2, y2  = all_pts[:, 0].max(), all_pts[:, 1].max()
     merged  = np.array([[x1,y1],[x2,y1],[x2,y2],[x1,y2]], dtype=np.float32)
-
-    text = "".join(g_chars)   # blanks ("") stay as gaps, no guessing
-    conf = float(np.mean([c for c in g_confs if c > 0] or [0.0]))
+    text    = "".join(g_chars)                                  # blanks stay as gaps
+    conf    = float(np.mean([c for c in g_confs if c > 0] or [0.0]))
     out_boxes.append(merged)
     out_texts.append(text)
     out_confs.append(conf)
@@ -436,8 +377,7 @@ def _save_region_heatmap(
         cv2.COLORMAP_JET,
     )
     cv2.imwrite(
-        str(Path(viz_dir) / f"{src_stem}_{frame_idx:06d}_region.jpg"),
-        heat,
+        str(Path(viz_dir) / f"{src_stem}_{frame_idx:06d}_region.jpg"), heat
     )
 
 
