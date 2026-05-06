@@ -218,7 +218,16 @@ class OCRPipeline:
             char_texts.append(char)
             char_confs.append(conf)
 
-        # ── Step 3: group characters into words by horizontal gap ─────────────
+        # ── Step 3: save contact sheet — all crops in one grid image ─────────
+        if self.save_viz:
+            sheet_path = str(
+                Path(self.viz_dir) / f"{src_stem}_{frame_idx:06d}_crops.jpg"
+            )
+            _save_crop_sheet(
+                [s.crop for s in segs], char_texts, char_confs, sheet_path
+            )
+
+        # ── Step 4: group characters into words by horizontal gap ─────────────
         word_boxes, word_texts, word_confs = _assemble_words(
             [s.box for s in segs], char_texts, char_confs, self.char_word_gap,
         )
@@ -368,6 +377,62 @@ def _flush(g_boxes, g_chars, g_confs, out_boxes, out_texts, out_confs) -> None:
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
+
+def _save_crop_sheet(
+    crops:      list[np.ndarray],
+    char_texts: list[str],
+    char_confs: list[float],
+    out_path:   str,
+    cell_size:  int = 64,
+    cols:       int = 20,
+) -> None:
+    """
+    Save all character crops as a single grid image.
+
+    Each cell shows:
+      - the 32×32 crop scaled up to cell_size × cell_size
+      - predicted character + confidence below it (green = kept, red = blank)
+
+    Output: outputs/visualizations/*_crops.jpg
+    """
+    if not crops:
+        return
+
+    n    = len(crops)
+    rows = (n + cols - 1) // cols
+    label_h = 18                          # pixels reserved for text label
+    cell_h  = cell_size + label_h
+
+    sheet = np.full(
+        (rows * cell_h, cols * cell_size, 3), 30, dtype=np.uint8
+    )
+
+    for idx, (crop, char, conf) in enumerate(zip(crops, char_texts, char_confs)):
+        r = idx // cols
+        c = idx  % cols
+        y0 = r * cell_h
+        x0 = c * cell_size
+
+        # scale crop to cell_size
+        cell = cv2.resize(
+            cv2.cvtColor(crop, cv2.COLOR_RGB2BGR) if crop.ndim == 3 else crop,
+            (cell_size, cell_size),
+            interpolation=cv2.INTER_NEAREST,
+        )
+        sheet[y0: y0 + cell_size, x0: x0 + cell_size] = cell
+
+        # label: character + confidence
+        label      = f"{char if char else '_'}  {conf:.2f}" if conf > 0 else "_"
+        colour     = (0, 220, 0) if char else (0, 0, 220)   # green=kept, red=blank
+        cv2.putText(
+            sheet, label,
+            (x0 + 2, y0 + cell_size + label_h - 4),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.35, colour, 1, cv2.LINE_AA,
+        )
+
+    cv2.imwrite(out_path, sheet)
+    log.debug("Crop sheet saved: %s  (%d chars)", out_path, n)
+
 
 def _save_region_heatmap(
     region_map: np.ndarray, viz_dir: str, src_stem: str, frame_idx: int
