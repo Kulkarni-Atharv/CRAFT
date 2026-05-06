@@ -52,7 +52,8 @@ class CharSegmenter:
         self.char_threshold:      float = scfg["char_threshold"]        # 0.55
         self.line_link_threshold: float = scfg["line_link_threshold"]   # 0.50
         self.craft_score_gate:    float = scfg["craft_score_gate"]      # 0.62
-        self.min_char_area:       int   = scfg["min_char_area"]         # 15
+        self.min_char_area:       int   = scfg["min_char_area"]          # 4
+        self.max_char_area:       int   = scfg.get("max_char_area", 80) # 80
         self.char_size:           int   = scfg["char_size"]             # 32
         self.save_crops:          bool  = cfg["pipeline"]["save_crops"]
         self.crops_dir:           str   = cfg["paths"]["crops_dir"]
@@ -178,8 +179,14 @@ class CharSegmenter:
         blobs: list[np.ndarray] = []
         for comp_id in range(1, n + 1):
             mask = (labelled == comp_id).astype(np.uint8)
-            if int(mask.sum()) >= self.min_char_area:
-                blobs.append(mask)
+            area = int(mask.sum())
+            if area < self.min_char_area:
+                continue   # too small — noise
+            if area > self.max_char_area:
+                continue   # too large — multi-character word blob, skip
+            blobs.append(mask)
+        log.debug("Char blobs: %d  (min=%d max=%d area gate)",
+                  len(blobs), self.min_char_area, self.max_char_area)
         return blobs
 
     # ── C: deskew crop ────────────────────────────────────────────────────────

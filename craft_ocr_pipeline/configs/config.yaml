@@ -31,11 +31,13 @@ craft:
 
 # ── Character Segmentation (new pipeline) ────
 segmentation:
-  char_threshold:      0.55   # region map threshold for char blob detection
-  line_link_threshold: 0.50   # affinity map threshold for line grouping
+  char_threshold:      0.65   # raised: separates individual char centers
+  line_link_threshold: 0.60   # raised: above background so lines don't merge
   craft_score_gate:    0.62   # blobs below this sent to verifier as BLANK
-  min_char_area:       15     # minimum blob area in map-space pixels
+  min_char_area:       4      # lowered: catch small individual char blobs
+  max_char_area:       80     # NEW: reject large multi-char word blobs
   char_size:           32     # deskewed crop output size (width = height)
+  char_word_gap:       2.0    # raised: wider gap needed to split words
 
 # ── Post-processing (legacy word-level pipeline) ──────────────
 postprocessing:
