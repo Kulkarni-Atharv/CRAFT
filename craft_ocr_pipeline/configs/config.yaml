@@ -37,6 +37,8 @@ segmentation:
   min_char_area:       4      # lowered: catch small individual char blobs
   max_char_area:       80     # NEW: reject large multi-char word blobs
   char_size:           32     # deskewed crop output size (width = height)
+  crop_padding:        20     # px added on every side around the detected blob
+  min_crop_size:       32     # minimum padded crop side before resize
   char_word_gap:       2.0    # raised: wider gap needed to split words
 
 # ── Post-processing (legacy word-level pipeline) ──────────────

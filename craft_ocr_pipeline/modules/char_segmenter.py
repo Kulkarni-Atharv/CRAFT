@@ -52,9 +52,11 @@ class CharSegmenter:
         self.char_threshold:      float = scfg["char_threshold"]        # 0.55
         self.line_link_threshold: float = scfg["line_link_threshold"]   # 0.50
         self.craft_score_gate:    float = scfg["craft_score_gate"]      # 0.62
-        self.min_char_area:       int   = scfg["min_char_area"]          # 4
-        self.max_char_area:       int   = scfg.get("max_char_area", 80) # 80
-        self.char_size:           int   = scfg["char_size"]             # 32
+        self.min_char_area:       int   = scfg["min_char_area"]            # 4
+        self.max_char_area:       int   = scfg.get("max_char_area", 200) # 200
+        self.char_size:           int   = scfg["char_size"]               # 32
+        self.crop_padding:        int   = scfg.get("crop_padding", 20)    # 20 px
+        self.min_crop_size:       int   = scfg.get("min_crop_size", 32)   # 32 px
         self.save_crops:          bool  = cfg["pipeline"]["save_crops"]
         self.crops_dir:           str   = cfg["paths"]["crops_dir"]
 
@@ -209,7 +211,16 @@ class CharSegmenter:
         Returns (box_4pts_in_orig_coords, normalised_crop).
         """
         rect  = cv2.minAreaRect(pts.reshape(-1, 1, 2))
-        box   = cv2.boxPoints(rect).astype(np.float32)   # 4×2
+        (cx, cy), (rw, rh), angle = rect
+
+        # Expand the detected blob region so the full character is captured.
+        # CRAFT region map blobs are only the high-score center pixels; without
+        # padding the crop is too tight and shows only a fragment of the char.
+        rw_exp = max(rw + 2 * self.crop_padding, self.min_crop_size)
+        rh_exp = max(rh + 2 * self.crop_padding, self.min_crop_size)
+
+        padded_rect = ((cx, cy), (rw_exp, rh_exp), angle)
+        box   = cv2.boxPoints(padded_rect).astype(np.float32)   # 4×2
 
         # clamp to image boundary
         box[:, 0] = np.clip(box[:, 0], 0, orig_w - 1)
