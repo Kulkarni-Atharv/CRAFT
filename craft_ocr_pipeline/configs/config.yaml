@@ -29,7 +29,15 @@ craft:
   mag_ratio:         1.5
   use_onnx:          true    # ONNX Runtime on CM5 — no PyTorch needed
 
-# ── Post-processing ───────────────────────────
+# ── Character Segmentation (new pipeline) ────
+segmentation:
+  char_threshold:      0.55   # region map threshold for char blob detection
+  line_link_threshold: 0.50   # affinity map threshold for line grouping
+  craft_score_gate:    0.62   # blobs below this sent to verifier as BLANK
+  min_char_area:       15     # minimum blob area in map-space pixels
+  char_size:           32     # deskewed crop output size (width = height)
+
+# ── Post-processing (legacy word-level pipeline) ──────────────
 postprocessing:
   poly:             false
   min_box_area:     20
@@ -46,8 +54,34 @@ recognition:
   # Words below this confidence are silently skipped.
   char_conf_threshold: 0.5
 
+# ── Character Integrity Verifier ─────────────
+verification:
+  craft_score_gate:    0.62
+  blur_threshold:      80.0
+  min_contrast:        30.0
+  min_ink_coverage:    0.05
+  max_ink_coverage:    0.90
+  max_components:      6
+  edge_ink_threshold:  0.30
+
+# ── Character Classifier ──────────────────────
+char_classifier:
+  model_path:           "models/char_classifier.onnx"
+  confidence_threshold: 0.70
+  input_size:           32
+
+# ── Multi-frame Voting ────────────────────────
+voting:
+  enabled:            false
+  strategy:           "confidence_weighted"
+  min_frames:         2
+  position_tolerance: 20
+  winner_threshold:   0.60
+  single_frame_gate:  0.80
+
 # ── Pipeline ──────────────────────────────────
 pipeline:
+  mode:        "char"   # "char" = new | "word" = legacy RapidOCR
   batch_size:  8
   save_crops:  true
   save_viz:    true
