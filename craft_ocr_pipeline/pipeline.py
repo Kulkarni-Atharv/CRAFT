@@ -196,7 +196,7 @@ class OCRPipeline:
         t0:           float,
     ) -> FrameResult:
 
-        # ── Step 1: CRAFT → individual character crops ────────────────────────
+        # ── Step 1: CRAFT → individual character crops (reading order) ──────────
         segs = self.segmenter.segment(
             img, region_map, affinity_map, scale, orig_size,
             prefix=f"{src_stem}_{frame_idx}",
@@ -209,16 +209,37 @@ class OCRPipeline:
             return FrameResult(source=source, frame_idx=frame_idx,
                                boxes=[], texts=[], confs=[], latency_ms=latency)
 
-        # ── Step 2: RapidOCR on each character crop individually ──────────────
+        # ── Step 2: RapidOCR on each crop individually — one char at a time ───
         char_texts: list[str]   = []
         char_confs: list[float] = []
 
-        for seg in segs:
+        for idx, seg in enumerate(segs):
             char, conf = self._recognise_char(seg.crop)
             char_texts.append(char)
             char_confs.append(conf)
+            log.debug(
+                "  char[%03d] → %r  conf=%.3f",
+                idx, char if char else "BLANK", conf,
+            )
 
-        # ── Step 3: save contact sheet — all crops in one grid image ─────────
+        # ── Step 3: save each crop as an individual PNG, named in sequence ─────
+        #    filename encodes position + predicted character so you can open each
+        #    file in sequence and verify the crop is complete before OCR ran on it
+        crops_dir = Path(self.cfg["paths"]["crops_dir"])
+        crops_dir.mkdir(parents=True, exist_ok=True)
+        for idx, (seg, char, conf) in enumerate(zip(segs, char_texts, char_confs)):
+            label    = char if char else "BLANK"
+            fname    = f"{src_stem}_{frame_idx:06d}_char{idx:03d}_{label}.png"
+            crop_bgr = cv2.cvtColor(seg.crop, cv2.COLOR_RGB2BGR)
+            cv2.imwrite(str(crops_dir / fname), crop_bgr)
+
+        sequence = "".join(c if c else "_" for c in char_texts)
+        log.info(
+            "Crops saved: %d files → %s  sequence: %r",
+            len(segs), crops_dir, sequence,
+        )
+
+        # ── Step 4: contact sheet (overview grid — one image, all crops) ───────
         if self.save_viz:
             sheet_path = str(
                 Path(self.viz_dir) / f"{src_stem}_{frame_idx:06d}_crops.jpg"
@@ -227,7 +248,7 @@ class OCRPipeline:
                 [s.crop for s in segs], char_texts, char_confs, sheet_path
             )
 
-        # ── Step 4: group characters into words by horizontal gap ─────────────
+        # ── Step 5: group characters into words by horizontal gap ─────────────
         word_boxes, word_texts, word_confs = _assemble_words(
             [s.box for s in segs], char_texts, char_confs, self.char_word_gap,
         )

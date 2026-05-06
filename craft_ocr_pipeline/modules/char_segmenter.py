@@ -120,8 +120,8 @@ class CharSegmenter:
                 )
                 segments.append(seg)
 
-                if self.save_crops:
-                    self._save_crop(crop, prefix, len(segments) - 1, craft_score)
+                # individual crops are saved from pipeline.py after OCR
+                # so the filename can carry the predicted character label
 
         # reading order: line first, then left-to-right within each line
         segments.sort(key=lambda s: (s.line_id, s.position[0]))
